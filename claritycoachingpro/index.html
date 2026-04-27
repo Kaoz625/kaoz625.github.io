@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarity Coaching Pro | Life & Business Coaching for Professionals</title>
+  <meta name="description" content="Transform your career and life with expert coaching. 1:1 coaching, group programs, career clarity, and leadership development for professionals and entrepreneurs in NYC and remote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7c3aed;
+      --purple-dark: #5b21b6;
+      --purple-light: #ede9fe;
+      --purple-mid: #a78bfa;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --green-dark: #047857;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --font-head: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --radius: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+      --shadow: 0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.14);
+      --shadow-purple: 0 8px 32px rgba(124,58,237,.22);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--gray-800);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== NAV ===== */
+    #nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-100);
+      transition: box-shadow .3s;
+    }
+    #nav.scrolled { box-shadow: var(--shadow); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--purple);
+      letter-spacing: -.02em;
+    }
+    .nav-logo span { color: var(--green); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--purple); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple);
+      color: var(--white) !important;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-size: .875rem;
+      font-weight: 600;
+      transition: background .2s, transform .2s;
+    }
+    .nav-cta:hover { background: var(--purple-dark); transform: translateY(-1px); }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 4px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gray-700);
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 20px 16px;
+      border-top: 1px solid var(--gray-100);
+      background: var(--white);
+    }
+    .mobile-menu a {
+      padding: 10px 0;
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    /* ===== HERO ===== */
+    #hero {
+      background: linear-gradient(135deg, #1e0a3c 0%, #3b0764 40%, #5b21b6 75%, #7c3aed 100%);
+      color: var(--white);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--purple-mid);
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--purple-mid);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(5,150,105,.4);
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(5,150,105,.5);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid rgba(255,255,255,.3);
+      color: var(--white);
+      padding: 13px 26px;
+      border-radius: 50px;
+      font-size: .95rem;
+      font-weight: 600;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.08);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    .hero-stat-num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .hero-stat-label {
+      font-size: .8rem;
+      color: rgba(255,255,255,.55);
+      font-weight: 500;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 24px;
+      padding: 32px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-card-head {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hero-card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .9rem;
+      color: rgba(255,255,255,.8);
+    }
+    .hero-card-list li::before {
+      content: '✓';
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      font-weight: 800;
+      color: white;
+      margin-top: 1px;
+    }
+
+    .hero-phone-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      padding: 14px 18px;
+      background: rgba(5,150,105,.2);
+      border: 1px solid rgba(5,150,105,.4);
+      border-radius: 12px;
+    }
+    .hero-phone-icon {
+      font-size: 1.3rem;
+    }
+    .hero-phone-text {
+      font-size: .8rem;
+      color: rgba(255,255,255,.6);
+    }
+    .hero-phone-num {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+    }
+
+    /* ===== CREDIBILITY ===== */
+    #credibility {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
+      padding: 36px 0;
+    }
+    .cred-label {
+      text-align: center;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 24px;
+    }
+    .cred-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px 40px;
+    }
+    .cred-logo {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-300);
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+    .cred-divider {
+      width: 4px;
+      height: 4px;
+      background: var(--gray-300);
+      border-radius: 50%;
+    }
+    .cred-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .cred-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--purple-light);
+      color: var(--purple-dark);
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    /* ===== SECTIONS BASE ===== */
+    section { padding: 96px 0; }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple-light);
+      color: var(--purple);
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-head {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -.03em;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+    }
+    .section-head em {
+      font-style: italic;
+      color: var(--purple);
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .section-intro { margin-bottom: 60px; }
+    .centered { text-align: center; }
+    .centered .section-sub { margin: 0 auto; }
+
+    /* ===== SERVICES ===== */
+    #services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      position: relative;
+      border: 1px solid var(--gray-200);
+      transition: transform .3s, box-shadow .3s;
+      overflow: hidden;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+    .service-card.free {
+      background: var(--white);
+    }
+    .service-card.featured {
+      background: linear-gradient(145deg, var(--purple) 0%, var(--purple-dark) 100%);
+      color: var(--white);
+      border-color: transparent;
+      box-shadow: var(--shadow-purple);
+    }
+    .service-card.premium {
+      background: var(--gray-900);
+      color: var(--white);
+      border-color: transparent;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--green);
+      color: var(--white);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .free .service-icon { background: var(--purple-light); }
+    .featured .service-icon { background: rgba(255,255,255,.15); }
+    .premium .service-icon { background: rgba(255,255,255,.1); }
+
+    .service-tier {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .free .service-tier { color: var(--purple); }
+    .featured .service-tier { color: rgba(255,255,255,.7); }
+    .premium .service-tier { color: rgba(255,255,255,.5); }
+
+    .service-name {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .service-price {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      font-family: var(--font-head);
+    }
+    .service-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: .6;
+    }
+
+    .service-desc {
+      font-size: .9rem;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .free .service-desc { color: var(--gray-600); }
+    .featured .service-desc { color: rgba(255,255,255,.75); }
+    .premium .service-desc { color: rgba(255,255,255,.65); }
+
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .service-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .875rem;
+    }
+    .free .service-features li { color: var(--gray-700); }
+    .featured .service-features li { color: rgba(255,255,255,.85); }
+    .premium .service-features li { color: rgba(255,255,255,.75); }
+
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .65rem;
+      flex-shrink: 0;
+    }
+    .free .check-icon { background: var(--green-light); color: var(--green); }
+    .featured .check-icon { background: rgba(255,255,255,.2); color: var(--white); }
+    .premium .check-icon { background: rgba(255,255,255,.15); color: var(--white); }
+
+    .service-btn {
+      width: 100%;
+      padding: 13px 20px;
+      border-radius: 50px;
+      font-size: .9rem;
+      font-weight: 700;
+      text-align: center;
+      display: block;
+      transition: all .2s;
+    }
+    .free .service-btn {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+    .free .service-btn:hover {
+      background: var(--purple);
+      color: var(--white);
+    }
+    .featured .service-btn {
+      background: var(--white);
+      color: var(--purple);
+    }
+    .featured .service-btn:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+    .premium .service-btn {
+      background: var(--purple);
+      color: var(--white);
+    }
+    .premium .service-btn:hover {
+      background: var(--purple-dark);
+    }
+
+    /* ===== TRANSFORMATION ===== */
+    #transformation { background: var(--gray-50); }
+
+    .transform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .transform-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .transform-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .transform-before {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      padding: 24px;
+      border-bottom: 2px dashed var(--gray-200);
+    }
+
+    .transform-after {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+      color: var(--white);
+      padding: 24px;
+    }
+
+    .transform-label {
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .transform-before .transform-label { color: var(--gray-400); }
+    .transform-after .transform-label { color: rgba(255,255,255,.5); }
+
+    .transform-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .transform-text {
+      font-size: .9rem;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .transform-before .transform-text { color: var(--gray-600); }
+    .transform-after .transform-text { color: rgba(255,255,255,.9); }
+
+    .transform-arrow {
+      text-align: center;
+      font-size: 1.4rem;
+      padding: 8px;
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    #testimonials { background: var(--white); }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+    .testi-quote-mark {
+      font-family: var(--font-head);
+      font-size: 5rem;
+      line-height: .8;
+      color: var(--purple-light);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .testi-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 14px;
+    }
+    .testi-stars span {
+      color: #f59e0b;
+      font-size: 1rem;
+    }
+
+    .testi-text {
+      font-size: .95rem;
+      line-height: 1.7;
+      color: var(--gray-700);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--gray-200);
+      padding-top: 18px;
+    }
+
+    .testi-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: var(--font-head);
+      flex-shrink: 0;
+    }
+    .testi-card:nth-child(1) .testi-avatar { background: var(--purple-light); color: var(--purple); }
+    .testi-card:nth-child(2) .testi-avatar { background: var(--green-light); color: var(--green-dark); }
+    .testi-card:nth-child(3) .testi-avatar { background: #fef3c7; color: #92400e; }
+
+    .testi-name {
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--gray-800);
+    }
+    .testi-role {
+      font-size: .8rem;
+      color: var(--gray-500);
+    }
+
+    .testi-outcome {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-top: 6px;
+    }
+
+    /* ===== LEAD FORM ===== */
+    #lead-form {
+      background: linear-gradient(135deg, #1e0a3c 0%, #3b0764 60%, #5b21b6 100%);
+      color: var(--white);
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .form-pitch .section-tag {
+      background: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.8);
+    }
+    .form-pitch .section-head { color: var(--white); }
+    .form-pitch .section-head em { color: var(--purple-mid); }
+
+    .form-pitch-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .form-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .form-perks li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .9rem;
+      color: rgba(255,255,255,.8);
+    }
+    .form-perks li::before {
+      content: '✓';
+      width: 22px;
+      height: 22px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .form-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-card-head {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 6px;
+    }
+    .form-card-sub {
+      font-size: .875rem;
+      color: var(--gray-500);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(124,58,237,.1);
+      background: var(--white);
+    }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; cursor: pointer; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--green);
+      color: var(--white);
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 8px;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(5,150,105,.35);
+    }
+    .form-submit:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(5,150,105,.45);
+    }
+    .form-submit:disabled {
+      opacity: .7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: .75rem;
+      color: var(--gray-400);
+      margin-top: 12px;
+    }
+
+    .form-message {
+      display: none;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: .9rem;
+      font-weight: 500;
+      margin-top: 12px;
+      text-align: center;
+    }
+    .form-message.success {
+      background: var(--green-light);
+      color: var(--green-dark);
+      border: 1px solid rgba(5,150,105,.2);
+    }
+    .form-message.error {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid rgba(185,28,28,.15);
+    }
+
+    /* ===== ABOUT ===== */
+    #about { background: var(--gray-50); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      background: linear-gradient(145deg, var(--purple-light) 0%, var(--purple-mid) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .about-photo-initials {
+      font-family: var(--font-head);
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .about-photo-name {
+      font-size: .95rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.8);
+    }
+
+    .about-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--green) 0%, #10b981 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-accent-num {
+      font-family: var(--font-head);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .about-accent-text {
+      font-size: .7rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.8);
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .about-text .section-tag { background: var(--purple-light); color: var(--purple); }
+
+    .about-body {
+      font-size: .975rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .about-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .about-cred {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      background: var(--white);
+    }
+    .about-cred span:first-child { font-size: 1rem; }
+
+    .about-cta {
+      margin-top: 32px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--gray-900);
+      color: var(--white);
+      padding: 60px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .footer-brand span { color: var(--green); }
+
+    .footer-tagline {
+      font-size: .875rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-contact a {
+      font-size: .875rem;
+      color: rgba(255,255,255,.55);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color .2s;
+    }
+    .footer-contact a:hover { color: var(--white); }
+
+    .footer-col-title {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: .875rem;
+      color: rgba(255,255,255,.55);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: .8rem;
+      color: rgba(255,255,255,.3);
+    }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a {
+      font-size: .8rem;
+      color: rgba(255,255,255,.35);
+      transition: color .2s;
+    }
+    .footer-legal a:hover { color: var(--white); }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: .1s; }
+    .fade-in-delay-2 { transition-delay: .2s; }
+    .fade-in-delay-3 { transition-delay: .3s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-card { display: none; }
+      .services-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+      .transform-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .testi-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .form-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-img-wrap { max-width: 380px; margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      section { padding: 64px 0; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .cred-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">Clarity<span>.</span>Coaching Pro</a>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#transformation">Results</a></li>
+          <li><a href="#testimonials">Stories</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#lead-form" class="nav-cta">Book Free Call</a></li>
+        </ul>
+        <button class="nav-burger" id="burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#services">Services</a>
+      <a href="#transformation">Results</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#about">About</a>
+      <a href="#lead-form" style="color:var(--purple);font-weight:700;">Book Free Discovery Call</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">NYC &amp; Remote Coaching</div>
+          <h1 class="hero-h1">
+            Stop Drifting.<br/>
+            Start Leading<br/>
+            <em>Your Life.</em>
+          </h1>
+          <p class="hero-sub">
+            Expert coaching for professionals and entrepreneurs ready to break through uncertainty, step into leadership, and build the career and life they actually want.
+          </p>
+          <div class="hero-actions">
+            <a href="#lead-form" class="btn-primary">Book Free Discovery Call</a>
+            <a href="#services" class="btn-ghost">See Packages</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-num">500+</div>
+              <div class="hero-stat-label">Clients Transformed</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">12+</div>
+              <div class="hero-stat-label">Years of Experience</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">97%</div>
+              <div class="hero-stat-label">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-head">What You'll Gain</div>
+          <ul class="hero-card-list">
+            <li>Crystal-clear career direction and purpose</li>
+            <li>Unshakeable confidence in high-stakes decisions</li>
+            <li>Proven strategies to accelerate income and impact</li>
+            <li>Leadership presence that commands respect</li>
+            <li>Accountability systems that make progress inevitable</li>
+            <li>Work-life integration without burning out</li>
+          </ul>
+          <div class="hero-phone-badge">
+            <div class="hero-phone-icon">📞</div>
+            <div>
+              <div class="hero-phone-text">Call or text anytime</div>
+              <div class="hero-phone-num">(929) 555-0247</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY -->
+  <section id="credibility">
+    <div class="container">
+      <div class="cred-label">Credentials &amp; Recognition</div>
+      <div class="cred-logos">
+        <div class="cred-logo">Forbes</div>
+        <div class="cred-divider"></div>
+        <div class="cred-logo">Fast Company</div>
+        <div class="cred-divider"></div>
+        <div class="cred-logo">Inc. Magazine</div>
+        <div class="cred-divider"></div>
+        <div class="cred-logo">HuffPost</div>
+        <div class="cred-divider"></div>
+        <div class="cred-logo">Business Insider</div>
+        <div class="cred-divider"></div>
+        <div class="cred-logo">Entrepreneur</div>
+      </div>
+      <div class="cred-badges">
+        <div class="cred-badge">🎓 ICF Certified PCC</div>
+        <div class="cred-badge">🏆 Top NYC Coach 2024</div>
+        <div class="cred-badge">📚 Certified Executive Coach</div>
+        <div class="cred-badge">🔬 Positive Psychology Practitioner</div>
+        <div class="cred-badge">🧠 NLP Master Practitioner</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-intro centered fade-in">
+        <div class="section-tag">Coaching Packages</div>
+        <h2 class="section-head">Choose Your Path to <em>Clarity</em></h2>
+        <p class="section-sub">Every journey starts with a conversation. Choose the level of support that matches where you are right now.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card free fade-in fade-in-delay-1">
+          <div class="service-icon">🎯</div>
+          <div class="service-tier">Tier 1 — Free</div>
+          <div class="service-name">Discovery Call</div>
+          <div class="service-price">$0 <span>/ 30 min</span></div>
+          <p class="service-desc">A no-pressure conversation to explore where you are, where you want to go, and whether we're the right fit.</p>
+          <ul class="service-features">
+            <li><span class="check-icon">✓</span> 30-minute Zoom session</li>
+            <li><span class="check-icon">✓</span> Clarity on your top challenge</li>
+            <li><span class="check-icon">✓</span> Custom coaching roadmap preview</li>
+            <li><span class="check-icon">✓</span> Zero obligation</li>
+          </ul>
+          <a href="#lead-form" class="service-btn">Book Now — It's Free</a>
+        </div>
+        <div class="service-card featured fade-in fade-in-delay-2">
+          <div class="popular-badge">Most Popular</div>
+          <div class="service-icon">🚀</div>
+          <div class="service-tier">Tier 2 — Premium</div>
+          <div class="service-name">1:1 Coaching Program</div>
+          <div class="service-price">$497 <span>/ month</span></div>
+          <p class="service-desc">Intensive, personalized coaching designed to create rapid, lasting breakthroughs in your career and leadership.</p>
+          <ul class="service-features">
+            <li><span class="check-icon">✓</span> 4 x 60-min coaching sessions/month</li>
+            <li><span class="check-icon">✓</span> Unlimited WhatsApp support</li>
+            <li><span class="check-icon">✓</span> Custom action plans &amp; tools</li>
+            <li><span class="check-icon">✓</span> Career clarity framework</li>
+            <li><span class="check-icon">✓</span> Leadership assessment + debrief</li>
+            <li><span class="check-icon">✓</span> Monthly progress reviews</li>
+          </ul>
+          <a href="#lead-form" class="service-btn">Start Your Transformation</a>
+        </div>
+        <div class="service-card premium fade-in fade-in-delay-3">
+          <div class="service-icon">🌟</div>
+          <div class="service-tier">Tier 3 — Elite</div>
+          <div class="service-name">Group Mastermind</div>
+          <div class="service-price">$197 <span>/ month</span></div>
+          <p class="service-desc">Join a curated group of driven professionals. Collective wisdom, peer accountability, and expert coaching in an intimate setting.</p>
+          <ul class="service-features">
+            <li><span class="check-icon">✓</span> 2 x group sessions/month (90 min)</li>
+            <li><span class="check-icon">✓</span> Private community access</li>
+            <li><span class="check-icon">✓</span> Monthly hot seat coaching</li>
+            <li><span class="check-icon">✓</span> Resource library access</li>
+            <li><span class="check-icon">✓</span> Peer accountability partner</li>
+            <li><span class="check-icon">✓</span> Quarterly 1:1 strategy call</li>
+          </ul>
+          <a href="#lead-form" class="service-btn">Join the Group</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION -->
+  <section id="transformation">
+    <div class="container">
+      <div class="section-intro centered fade-in">
+        <div class="section-tag">Before &amp; After</div>
+        <h2 class="section-head">The Transformation <em>Is Real</em></h2>
+        <p class="section-sub">Here's what changes when you stop guessing and start coaching with intention.</p>
+      </div>
+      <div class="transform-grid">
+        <div class="transform-card fade-in fade-in-delay-1">
+          <div class="transform-before">
+            <div class="transform-label">Before Coaching</div>
+            <div class="transform-icon">😰</div>
+            <p class="transform-text">"I'm overworked, underpaid, and I don't even know if I'm in the right career. Every Sunday I dread Monday morning."</p>
+          </div>
+          <div class="transform-arrow">↓</div>
+          <div class="transform-after">
+            <div class="transform-label">After Coaching</div>
+            <div class="transform-icon">✨</div>
+            <p class="transform-text">"I negotiated a $40K raise, moved into a role I love, and actually look forward to work. I have my life back."</p>
+          </div>
+        </div>
+        <div class="transform-card fade-in fade-in-delay-2">
+          <div class="transform-before">
+            <div class="transform-label">Before Coaching</div>
+            <div class="transform-icon">😶</div>
+            <p class="transform-text">"My business is stuck at the same revenue for two years. I work 70 hours a week but feel like I'm running in circles."</p>
+          </div>
+          <div class="transform-arrow">↓</div>
+          <div class="transform-after">
+            <div class="transform-label">After Coaching</div>
+            <div class="transform-icon">📈</div>
+            <p class="transform-text">"Revenue doubled in 8 months. I work 40 hours, delegate effectively, and my team actually follows my lead now."</p>
+          </div>
+        </div>
+        <div class="transform-card fade-in fade-in-delay-3">
+          <div class="transform-before">
+            <div class="transform-label">Before Coaching</div>
+            <div class="transform-icon">🥺</div>
+            <p class="transform-text">"I know I'm capable of more but imposter syndrome keeps me from speaking up, going for promotions, or being seen."</p>
+          </div>
+          <div class="transform-arrow">↓</div>
+          <div class="transform-after">
+            <div class="transform-label">After Coaching</div>
+            <div class="transform-icon">💪</div>
+            <p class="transform-text">"Got promoted to VP, gave a keynote at an industry conference, and stopped letting self-doubt make decisions for me."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-intro centered fade-in">
+        <div class="section-tag">Client Stories</div>
+        <h2 class="section-head">Real People, <em>Real Results</em></h2>
+        <p class="section-sub">Don't take our word for it. Here are the stories of professionals who chose clarity over comfort.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card fade-in fade-in-delay-1">
+          <span class="testi-quote-mark">"</span>
+          <div class="testi-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testi-text">Working with Clarity Coaching Pro completely changed how I see myself as a leader. I went from constantly second-guessing my decisions to confidently leading a team of 30. The accountability structure alone was worth every penny — I accomplished more in 3 months than in the previous 2 years.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SM</div>
+            <div>
+              <div class="testi-name">Sarah M.</div>
+              <div class="testi-role">VP of Marketing, FinTech Startup</div>
+              <div class="testi-outcome">↑ Promoted &amp; 35% salary increase</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-in fade-in-delay-2">
+          <span class="testi-quote-mark">"</span>
+          <div class="testi-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testi-text">I was burned out, running a business I'd grown to hate. In 6 months of coaching, I restructured my offers, fired three clients who were draining me, and built a team. Revenue went up, stress went down. This coaching is the best investment I've ever made in myself and my company.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JR</div>
+            <div>
+              <div class="testi-name">James R.</div>
+              <div class="testi-role">Founder, Digital Agency (NYC)</div>
+              <div class="testi-outcome">↑ Revenue +$120K in 6 months</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-in fade-in-delay-3">
+          <span class="testi-quote-mark">"</span>
+          <div class="testi-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testi-text">I spent a decade in a career that looked great on paper but felt completely wrong. After just two sessions, I had more clarity about my direction than I'd had in years. By month four I'd landed my dream role in a completely new industry. The investment paid off in the first month of my new salary.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AL</div>
+            <div>
+              <div class="testi-name">Amanda L.</div>
+              <div class="testi-role">Career Transitioner → UX Director</div>
+              <div class="testi-outcome">↑ Career pivot + $55K raise</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD FORM -->
+  <section id="lead-form">
+    <div class="container">
+      <div class="form-wrap">
+        <div class="form-pitch fade-in">
+          <div class="section-tag">Free Discovery Call</div>
+          <h2 class="section-head">Ready to Get <em>Unstuck?</em></h2>
+          <p class="form-pitch-sub">
+            Book a free 30-minute discovery call and walk away with clarity on your next move — whether or not we work together. No sales pressure, just an honest conversation.
+          </p>
+          <ul class="form-perks">
+            <li>Identify your single biggest breakthrough lever right now</li>
+            <li>Get a personalized coaching roadmap preview — for free</li>
+            <li>Discover whether 1:1 or group coaching fits your goals</li>
+            <li>Leave with 1-3 immediate action steps you can take today</li>
+            <li>NYC-based or remote — we make it work for your schedule</li>
+          </ul>
+        </div>
+        <div class="form-card fade-in fade-in-delay-2">
+          <div class="form-card-head">Book Your Free Call</div>
+          <div class="form-card-sub">Usually responds within 1 business day</div>
+          <form id="coaching-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-name">Full Name *</label>
+                <input type="text" id="f-name" name="name" placeholder="Jane Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="f-phone">Phone *</label>
+                <input type="tel" id="f-phone" name="phone" placeholder="(555) 000-0000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email Address *</label>
+              <input type="email" id="f-email" name="email" placeholder="jane@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="f-goal">Primary Goal *</label>
+              <select id="f-goal" name="goal" required>
+                <option value="" disabled selected>Select your main focus...</option>
+                <option value="Career Change">Career Change</option>
+                <option value="Business Growth">Business Growth</option>
+                <option value="Leadership">Leadership Development</option>
+                <option value="Work-Life Balance">Work-Life Balance</option>
+                <option value="General Coaching">General Coaching</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="f-challenge">What's your biggest challenge? *</label>
+              <textarea id="f-challenge" name="challenge" placeholder="Tell me what's holding you back or what you most want to change. The more specific, the better I can prepare for our call..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="form-btn">Book Free Discovery Call</button>
+            <div class="form-note">🔒 100% confidential. No spam, ever.</div>
+            <div class="form-message" id="form-msg"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap fade-in">
+          <div class="about-photo">
+            <div class="about-photo-initials">CCP</div>
+            <div class="about-photo-name">Lead Coach &amp; Founder</div>
+          </div>
+          <div class="about-accent">
+            <div class="about-accent-num">500+</div>
+            <div class="about-accent-text">Lives<br/>Changed</div>
+          </div>
+        </div>
+        <div class="about-text fade-in fade-in-delay-2">
+          <div class="section-tag">About Your Coach</div>
+          <h2 class="section-head">I've Been Where <em>You Are</em></h2>
+          <p class="about-body">
+            I spent 10 years climbing a corporate ladder that led somewhere I never actually wanted to go. Burnout, identity confusion, and a gnawing sense that I was living someone else's life finally pushed me to make a change — and that's when everything shifted.
+          </p>
+          <p class="about-body">
+            After earning my ICF Professional Certified Coach designation and training in executive leadership, positive psychology, and behavioral change, I founded Clarity Coaching Pro with one mission: to help driven professionals stop drifting and start designing lives they're genuinely proud of.
+          </p>
+          <p class="about-body">
+            My approach blends strategic thinking with deep human insight. We don't just set goals — we rewire the beliefs and patterns that have kept you stuck, and build the systems that make success inevitable. Based in New York City, working with clients worldwide.
+          </p>
+          <div class="about-credentials">
+            <div class="about-cred"><span>🎓</span> ICF Certified PCC</div>
+            <div class="about-cred"><span>🏆</span> Executive Coach Cert.</div>
+            <div class="about-cred"><span>📚</span> Positive Psychology</div>
+            <div class="about-cred"><span>🧠</span> NLP Master Prac.</div>
+            <div class="about-cred"><span>📍</span> NYC + Remote</div>
+            <div class="about-cred"><span>📞</span> (929) 555-0247</div>
+          </div>
+          <div class="about-cta">
+            <a href="#lead-form" class="btn-primary" style="display:inline-flex;">Book a Free Call with Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Clarity<span>.</span>Coaching Pro</div>
+          <p class="footer-tagline">Transforming the careers and lives of driven professionals and entrepreneurs in NYC and worldwide. Stop drifting. Start leading.</p>
+          <div class="footer-contact">
+            <a href="tel:9295550247">📞 (929) 555-0247</a>
+            <a href="mailto:hello@claritycoachingpro.com">✉️ hello@claritycoachingpro.com</a>
+            <a href="#">📍 New York City / Remote</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#lead-form">Discovery Call (Free)</a></li>
+            <li><a href="#services">1:1 Coaching</a></li>
+            <li><a href="#services">Group Mastermind</a></li>
+            <li><a href="#services">Career Clarity</a></li>
+            <li><a href="#services">Leadership Development</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Focus Areas</div>
+          <ul class="footer-links">
+            <li><a href="#lead-form">Career Change</a></li>
+            <li><a href="#lead-form">Business Growth</a></li>
+            <li><a href="#lead-form">Leadership</a></li>
+            <li><a href="#lead-form">Work-Life Balance</a></li>
+            <li><a href="#lead-form">Accountability</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Client Stories</a></li>
+            <li><a href="#lead-form">Book a Call</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">&copy; 2026 Clarity Coaching Pro. All rights reserved. NYC &amp; Remote.</div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== NAV SCROLL SHADOW =====
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // ===== MOBILE MENU =====
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let menuOpen = false;
+    burger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.style.display = menuOpen ? 'flex' : 'none';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.style.display = 'none';
+      });
+    });
+
+    // ===== SCROLL FADE ANIMATIONS =====
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ===== FORM SUBMISSION =====
+    const form = document.getElementById('coaching-form');
+    const btn = document.getElementById('form-btn');
+    const msg = document.getElementById('form-msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('f-name').value.trim();
+      const phone = document.getElementById('f-phone').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const goal = document.getElementById('f-goal').value;
+      const challenge = document.getElementById('f-challenge').value.trim();
+
+      if (!name || !phone || !email || !goal || !challenge) {
+        showMessage('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      msg.style.display = 'none';
+
+      const payload = {
+        business: 'coaching',
+        name,
+        phone,
+        email,
+        service: goal,
+        message: challenge,
+        status: 'new'
+      };
+
+      try {
+        const res = await fetch('https://YOUR_SUPABASE_URL/rest/v1/leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'YOUR_SUPABASE_KEY',
+            'Authorization': 'Bearer YOUR_SUPABASE_KEY',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok || res.status === 201) {
+          showMessage('🎉 Thank you! Your discovery call request has been received. We\'ll reach out within 1 business day to schedule your free session.', 'success');
+          form.reset();
+        } else {
+          const errText = await res.text();
+          console.error('Submission error:', res.status, errText);
+          showMessage('Something went wrong on our end. Please call us directly at (929) 555-0247 or try again shortly.', 'error');
+        }
+      } catch (err) {
+        console.error('Network error:', err);
+        showMessage('Unable to submit — please check your connection or call us at (929) 555-0247.', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Book Free Discovery Call';
+      }
+    });
+
+    function showMessage(text, type) {
+      msg.textContent = text;
+      msg.className = 'form-message ' + type;
+      msg.style.display = 'block';
+      msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // ===== SMOOTH SCROLL POLYFILL (for older Safari) =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxe & Co. Hair Studio | Manhattan, NYC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:    #be185d;
+      --rose-lt: #f9a8d4;
+      --rose-dk: #9d174d;
+      --gold:    #78350f;
+      --gold-lt: #d97706;
+      --cream:   #fdf8f5;
+      --dark:    #1a0a10;
+      --mid:     #4a1a2c;
+      --text:    #3d1520;
+      --muted:   #7c3d52;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* ── Shimmer keyframes ── */
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26, 10, 16, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(190, 24, 93, 0.3);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--rose-lt);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      background: linear-gradient(90deg, #f9a8d4, #fbbf24, #f9a8d4);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(249, 168, 212, 0.85);
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: #fbbf24; }
+
+    .nav-cta {
+      background: var(--rose);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 2px;
+      font-weight: 700 !important;
+      transition: background 0.25s !important;
+    }
+
+    .nav-cta:hover { background: var(--rose-dk) !important; color: #fff !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--rose-lt);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg,
+        #1a0a10 0%,
+        #4a1a2c 30%,
+        #78350f 60%,
+        #9d174d 80%,
+        #1a0a10 100%);
+      background-size: 400% 400%;
+      animation: bgShift 12s ease infinite;
+      padding: 4rem 1.5rem;
+    }
+
+    @keyframes bgShift {
+      0%, 100% { background-position: 0%   50%; }
+      50%       { background-position: 100% 50%; }
+    }
+
+    .hero-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-deco::before,
+    .hero-deco::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+    }
+
+    .hero-deco::before {
+      width: 600px; height: 600px;
+      background: var(--rose);
+      top: -150px; left: -150px;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-deco::after {
+      width: 500px; height: 500px;
+      background: #fbbf24;
+      bottom: -100px; right: -100px;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #fbbf24;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      background: linear-gradient(90deg, #f9a8d4, #fbbf24, #f9a8d4);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3.5s linear infinite;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-weight: 300;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.9s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--rose);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--rose-dk);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 0.9rem 2.2rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.25s, color 0.25s, transform 0.2s;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: #fbbf24;
+      color: #fbbf24;
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: float 2s ease-in-out infinite;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 6rem 1.5rem; }
+
+    .section-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--rose); }
+
+    .section-divider {
+      width: 64px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rose), #fbbf24);
+      margin: 0 auto 1.5rem;
+      border-radius: 2px;
+    }
+
+    .section-desc {
+      max-width: 580px;
+      margin: 0 auto 3.5rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .text-center { text-align: center; }
+
+    /* slide-in animation class */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: linear-gradient(160deg, #fff 0%, #fdf0f5 100%);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid rgba(190, 24, 93, 0.12);
+      border-radius: 4px;
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--rose), #fbbf24);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(190, 24, 93, 0.12);
+    }
+
+    .service-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, rgba(190,24,93,0.1), rgba(120,53,15,0.1));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.4rem;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--rose);
+    }
+
+    .service-price-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-left: 0.25rem;
+    }
+
+    /* ── TEAM ── */
+    #team {
+      background: var(--dark);
+    }
+
+    #team .section-title { color: #fff; }
+
+    #team .section-desc { color: rgba(255,255,255,0.55); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .team-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border: 1px solid rgba(190, 24, 93, 0.2);
+      border-radius: 4px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .team-card:hover {
+      border-color: rgba(190, 24, 93, 0.6);
+      transform: translateY(-4px);
+    }
+
+    .team-avatar {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-avatar::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      animation: shimmer 3s linear infinite;
+    }
+
+    .avatar-alex  { background: linear-gradient(135deg, #be185d, #78350f); }
+    .avatar-jordan{ background: linear-gradient(135deg, #7c3aed, #be185d); }
+    .avatar-morgan{ background: linear-gradient(135deg, #78350f, #d97706); }
+
+    .team-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 0.35rem;
+    }
+
+    .team-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fbbf24;
+      margin-bottom: 1rem;
+    }
+
+    .team-bio {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+
+    .team-stars {
+      margin-top: 1rem;
+      color: #fbbf24;
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      background: linear-gradient(160deg, #fdf0f5 0%, #fff 100%);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 200px 200px;
+      gap: 0.75rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.85);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s, filter 0.3s;
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: -100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+      animation: shimmer 4s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .gallery-item:hover::after { animation-play-state: running; }
+
+    .gallery-item:hover { transform: scale(1.02); filter: brightness(1.08); }
+
+    .g1 { grid-column: span 2; grid-row: span 2;
+      background: linear-gradient(135deg, #9d174d, #be185d); }
+    .g2 { grid-column: span 2;
+      background: linear-gradient(135deg, #78350f, #d97706); }
+    .g3 { grid-column: span 2;
+      background: linear-gradient(135deg, #4a1a2c, #9d174d); }
+    .g4 { grid-column: span 1;
+      background: linear-gradient(135deg, #d97706, #fbbf24); }
+    .g5 { grid-column: span 2;
+      background: linear-gradient(135deg, #be185d, #78350f); }
+    .g6 { grid-column: span 1;
+      background: linear-gradient(135deg, #7c3d52, #be185d); }
+
+    .gallery-icon { font-size: 2rem; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: linear-gradient(160deg, #1a0a10 0%, #2d0f1e 100%);
+    }
+
+    #testimonials .section-title { color: #fff; }
+    #testimonials .section-desc  { color: rgba(255,255,255,0.5); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(190, 24, 93, 0.2);
+      border-radius: 4px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-size: 3.5rem;
+      color: rgba(190, 24, 93, 0.4);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: #fff;
+      margin-bottom: 0.15rem;
+    }
+
+    .author-stars {
+      color: #fbbf24;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+    }
+
+    /* ── BOOKING ── */
+    #booking {
+      background: linear-gradient(160deg, #fdf0f5 0%, #fff 100%);
+    }
+
+    .booking-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 6px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 60px rgba(190, 24, 93, 0.1);
+      border: 1px solid rgba(190, 24, 93, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.35rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.45rem;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(190, 24, 93, 0.2);
+      border-radius: 3px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: #fff;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--rose), var(--rose-dk));
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: opacity 0.25s, transform 0.2s;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .form-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    .form-message {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: 3px;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .form-message.success {
+      background: rgba(5, 150, 105, 0.08);
+      border: 1px solid rgba(5, 150, 105, 0.3);
+      color: #065f46;
+      display: block;
+    }
+
+    .form-message.error {
+      background: rgba(190, 24, 93, 0.06);
+      border: 1px solid rgba(190, 24, 93, 0.3);
+      color: var(--rose-dk);
+      display: block;
+    }
+
+    /* ── HOURS & LOCATION ── */
+    #location {
+      background: var(--cream);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid rgba(190, 24, 93, 0.1);
+    }
+
+    .hours-table td {
+      padding: 0.75rem 0;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .hours-table td:first-child { color: var(--muted); font-weight: 700; }
+    .hours-table td:last-child  { text-align: right; }
+
+    .hours-closed { color: var(--rose) !important; font-style: italic; }
+
+    .location-info { display: flex; flex-direction: column; gap: 1.75rem; }
+
+    .info-block {}
+
+    .info-block h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--rose);
+      margin-bottom: 0.5rem;
+    }
+
+    .info-block p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .info-block a {
+      color: var(--rose);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, rgba(190,24,93,0.07), rgba(120,53,15,0.07));
+      border: 1px solid rgba(190, 24, 93, 0.15);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+    }
+
+    .map-placeholder .map-icon { font-size: 2.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 4rem 1.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(190, 24, 93, 0.25);
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      background: linear-gradient(90deg, #f9a8d4, #fbbf24, #f9a8d4);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      color: rgba(249,168,212,0.7);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .footer-links a:hover { color: #fbbf24; }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 2rem 0;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.28);
+    }
+
+    .footer-phone {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #fbbf24;
+      font-size: 1.1rem;
+      text-decoration: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; gap: 0; }
+
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 68px; left: 0;
+        width: 100%;
+        background: rgba(26, 10, 16, 0.97);
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(190, 24, 93, 0.3);
+      }
+
+      .nav-links.open li a {
+        display: block;
+        padding: 0.85rem 2rem;
+      }
+
+      .nav-links.open .nav-cta {
+        margin: 0.5rem 2rem;
+        display: block;
+        text-align: center;
+      }
+
+      nav { position: sticky; }
+
+      .hamburger { display: flex; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .g1 { grid-column: span 2; grid-row: span 1; }
+      .g2, .g3, .g5 { grid-column: span 1; }
+      .g4, .g6 { grid-column: span 1; }
+
+      .location-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      .booking-wrap { padding: 2rem 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 4rem 1rem; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-outline { width: 100%; max-width: 280px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-brand">Luxe &amp; Co.</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Stylists</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#location">Hours</a></li>
+      <li><a href="#booking" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Manhattan's Premier Hair Studio</p>
+      <h1 class="hero-title">
+        Where Beauty<br />Becomes <em>Art</em>
+      </h1>
+      <p class="hero-sub">
+        Bespoke hair artistry for the discerning individual. From precision cuts to luminous color, every visit is a curated luxury experience in the heart of New York City.
+      </p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-primary">Request Appointment</a>
+        <a href="#services" class="btn-outline">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Discover</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ SERVICES ═══════════════════════════════════════ -->
+  <section id="services">
+    <div class="text-center reveal">
+      <p class="section-label">Our Offerings</p>
+      <h2 class="section-title">Signature <em>Services</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">Each service is tailored to your unique hair type and vision, delivered with only the finest professional products.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">✂️</div>
+        <div class="service-name">Haircut &amp; Style</div>
+        <p class="service-desc">Precision cuts sculpted to your bone structure and lifestyle. Includes deep conditioning wash, blow-out, and finishing.</p>
+        <div class="service-price">From $95<span class="service-price-note">/ session</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">Color &amp; Highlights</div>
+        <p class="service-desc">Dimensional color crafted by master colorists using Olaplex and Redken. Full color, partial or full highlights.</p>
+        <div class="service-price">From $165<span class="service-price-note">/ session</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🌿</div>
+        <div class="service-name">Balayage</div>
+        <p class="service-desc">Hand-painted sun-kissed luminosity for effortlessly natural, grow-out-friendly results that move beautifully.</p>
+        <div class="service-price">From $220<span class="service-price-note">/ session</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">💎</div>
+        <div class="service-name">Extensions</div>
+        <p class="service-desc">Seamless tape-in, weft, and micro-link extensions using 100% Remy human hair. Consultations required.</p>
+        <div class="service-price">From $450<span class="service-price-note">/ session</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">✨</div>
+        <div class="service-name">Keratin Treatment</div>
+        <p class="service-desc">Smoothing Brazilian keratin therapy that eliminates frizz, adds mirror-like shine, and lasts up to five months.</p>
+        <div class="service-price">From $280<span class="service-price-note">/ session</span></div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">👑</div>
+        <div class="service-name">Bridal Package</div>
+        <p class="service-desc">Complete bridal beauty from trial to wedding day — including updo, touch-ups, and a dedicated stylist on-site.</p>
+        <div class="service-price">From $395<span class="service-price-note">/ package</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ TEAM ═══════════════════════════════════════ -->
+  <section id="team">
+    <div class="text-center reveal">
+      <p class="section-label" style="color: #fbbf24;">Meet the Artists</p>
+      <h2 class="section-title">Our <em style="color: var(--rose-lt);">Stylists</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">Each member of our team is a trained artisan with a passion for transformation and an eye for timeless beauty.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card reveal">
+        <div class="team-avatar avatar-alex">A</div>
+        <div class="team-name">Alex Renard</div>
+        <div class="team-title">Lead Colorist &amp; Balayage Specialist</div>
+        <p class="team-bio">Over 12 years crafting luminous color for editorial shoots, runway, and discerning NYC clientele. Featured in Vogue &amp; Harper's Bazaar.</p>
+        <div class="team-stars">★★★★★</div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-avatar avatar-jordan">J</div>
+        <div class="team-name">Jordan Vale</div>
+        <div class="team-title">Master Stylist &amp; Extension Artist</div>
+        <p class="team-bio">Certified in four extension methods with a sculptor's precision for cuts. Known for her transformative consultations and razor-sharp technique.</p>
+        <div class="team-stars">★★★★★</div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-avatar avatar-morgan">M</div>
+        <div class="team-name">Morgan Ellis</div>
+        <div class="team-title">Bridal Specialist &amp; Keratin Expert</div>
+        <p class="team-bio">The go-to stylist for Manhattan brides. Combines a meticulous approach to special occasions with expertise in smoothing and restorative treatments.</p>
+        <div class="team-stars">★★★★★</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ GALLERY ═══════════════════════════════════════ -->
+  <section id="gallery">
+    <div class="text-center reveal">
+      <p class="section-label">The Portfolio</p>
+      <h2 class="section-title">Our <em>Work</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">A glimpse into transformations created within our studio — each look a story of craft and confidence.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item g1 reveal">
+        <div class="gallery-icon">💇‍♀️</div>
+        <span>Balayage</span>
+      </div>
+      <div class="gallery-item g2 reveal">
+        <div class="gallery-icon">🌟</div>
+        <span>Color</span>
+      </div>
+      <div class="gallery-item g3 reveal">
+        <div class="gallery-icon">✂️</div>
+        <span>Precision Cut</span>
+      </div>
+      <div class="gallery-item g4 reveal">
+        <div class="gallery-icon">👑</div>
+        <span>Bridal</span>
+      </div>
+      <div class="gallery-item g5 reveal">
+        <div class="gallery-icon">💎</div>
+        <span>Extensions</span>
+      </div>
+      <div class="gallery-item g6 reveal">
+        <div class="gallery-icon">✨</div>
+        <span>Keratin</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ TESTIMONIALS ═══════════════════════════════════════ -->
+  <section id="testimonials">
+    <div class="text-center reveal">
+      <p class="section-label" style="color: #fbbf24;">Client Love</p>
+      <h2 class="section-title">What They <em style="color: var(--rose-lt);">Say</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">Our clients don't just leave with great hair — they leave feeling like the best version of themselves.</p>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Alex completely transformed my hair with the most breathtaking balayage I have ever seen. I've been to salons across the city and nothing compares to the artistry here. I am obsessed.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SC</div>
+          <div>
+            <div class="author-name">Sophia C., TriBeCa</div>
+            <div class="author-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Morgan did my bridal hair and it was absolutely flawless from the trial to the wedding morning. She is calm, precise, and a true artist. Every guest asked who did my hair.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RL</div>
+          <div>
+            <div class="author-name">Rachel L., Upper East Side</div>
+            <div class="author-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">The keratin treatment Jordan gave me is life-changing. Six weeks post-treatment and my hair is still silky, smooth, and easier to style than ever. Worth every single penny.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">NM</div>
+          <div>
+            <div class="author-name">Naomi M., Midtown West</div>
+            <div class="author-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ BOOKING ═══════════════════════════════════════ -->
+  <section id="booking">
+    <div class="text-center reveal">
+      <p class="section-label">Reserve Your Chair</p>
+      <h2 class="section-title">Book an <em>Appointment</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">Complete the form below and our team will confirm your appointment within 24 hours. We look forward to welcoming you.</p>
+    </div>
+
+    <div class="booking-wrap reveal">
+      <form id="booking-form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="b-name">Full Name</label>
+            <input type="text" id="b-name" name="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="b-phone">Phone Number</label>
+            <input type="tel" id="b-phone" name="phone" placeholder="(212) 555-0000" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="b-email">Email Address</label>
+          <input type="email" id="b-email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="b-service">Service</label>
+            <select id="b-service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="Haircut &amp; Style">Haircut &amp; Style</option>
+              <option value="Color &amp; Highlights">Color &amp; Highlights</option>
+              <option value="Balayage">Balayage</option>
+              <option value="Extensions">Extensions</option>
+              <option value="Keratin Treatment">Keratin Treatment</option>
+              <option value="Bridal Package">Bridal Package</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="b-date">Preferred Date</label>
+            <input type="date" id="b-date" name="preferred_date" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="b-stylist">Stylist Preference</label>
+          <select id="b-stylist" name="stylist_preference">
+            <option value="No Preference">No Preference</option>
+            <option value="Alex">Alex Renard</option>
+            <option value="Jordan">Jordan Vale</option>
+            <option value="Morgan">Morgan Ellis</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="b-notes">Additional Notes</label>
+          <textarea id="b-notes" name="notes" placeholder="Any special requests, hair history, or inspiration photos you'd like to share…"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" id="submit-btn">
+          <span id="btn-text">Request Appointment</span>
+        </button>
+
+        <div class="form-message" id="form-message"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ HOURS & LOCATION ═══════════════════════════════════════ -->
+  <section id="location">
+    <div class="text-center reveal">
+      <p class="section-label">Find Us</p>
+      <h2 class="section-title">Hours &amp; <em>Location</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="location-grid reveal">
+
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--dark); margin-bottom:1.5rem;">Studio Hours</h3>
+        <table class="hours-table">
+          <tbody>
+            <tr><td>Monday</td><td>10:00 AM – 7:00 PM</td></tr>
+            <tr><td>Tuesday</td><td>10:00 AM – 7:00 PM</td></tr>
+            <tr><td>Wednesday</td><td>10:00 AM – 7:00 PM</td></tr>
+            <tr><td>Thursday</td><td>10:00 AM – 8:00 PM</td></tr>
+            <tr><td>Friday</td><td>9:00 AM – 8:00 PM</td></tr>
+            <tr><td>Saturday</td><td>9:00 AM – 7:00 PM</td></tr>
+            <tr><td>Sunday</td><td class="hours-closed">Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="location-info">
+        <div class="info-block">
+          <h4>Address</h4>
+          <p>Luxe &amp; Co. Hair Studio<br />320 W 57th Street, Suite 4B<br />Manhattan, New York, NY 10019</p>
+        </div>
+        <div class="info-block">
+          <h4>Phone</h4>
+          <p><a href="tel:9295550319">(929) 555-0319</a></p>
+        </div>
+        <div class="info-block">
+          <h4>Email</h4>
+          <p><a href="mailto:hello@luxeandcohair.com">hello@luxeandcohair.com</a></p>
+        </div>
+        <div class="info-block">
+          <h4>Getting Here</h4>
+          <p>Steps from Columbus Circle. Subway: A, C, B, D, 1 lines. Valet parking available nearby on weekends.</p>
+        </div>
+        <div class="map-placeholder">
+          <div class="map-icon">📍</div>
+          <span>320 W 57th St, Manhattan, NYC</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-brand">Luxe &amp; Co. Hair Studio</div>
+    <p class="footer-tagline">Where Beauty Becomes Art — Manhattan, NYC</p>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#team">Stylists</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#booking">Book Now</a>
+      <a href="#location">Location</a>
+    </div>
+    <a href="tel:9295550319" class="footer-phone">(929) 555-0319</a>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">&copy; 2026 Luxe &amp; Co. Hair Studio. All rights reserved. Manhattan, New York City.</p>
+  </footer>
+
+  <script>
+    // ── Hamburger menu ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ── Scroll-reveal ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const delay = (i % 4) * 80;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── Set min date on date input ──
+    const dateInput = document.getElementById('b-date');
+    const today = new Date();
+    today.setDate(today.getDate() + 1);
+    dateInput.min = today.toISOString().split('T')[0];
+
+    // ── Booking form submit ──
+    const form       = document.getElementById('booking-form');
+    const submitBtn  = document.getElementById('submit-btn');
+    const btnText    = document.getElementById('btn-text');
+    const msgEl      = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Basic validation
+      const name   = document.getElementById('b-name').value.trim();
+      const phone  = document.getElementById('b-phone').value.trim();
+      const email  = document.getElementById('b-email').value.trim();
+      const service = document.getElementById('b-service').value;
+      const date   = document.getElementById('b-date').value;
+      const stylist = document.getElementById('b-stylist').value;
+      const notes  = document.getElementById('b-notes').value.trim();
+
+      if (!name || !phone || !email || !service || !date) {
+        showMessage('error', 'Please fill in all required fields before submitting.');
+        return;
+      }
+
+      // Loading state
+      submitBtn.disabled = true;
+      btnText.textContent = '';
+      const spinner = document.createElement('div');
+      spinner.className = 'spinner';
+      submitBtn.appendChild(spinner);
+      msgEl.className = 'form-message';
+      msgEl.style.display = 'none';
+
+      const payload = {
+        business:        'salon',
+        name,
+        phone,
+        email,
+        service,
+        preferred_date:  date,
+        stylist_preference: stylist,
+        notes,
+        status:          'pending'
+      };
+
+      try {
+        const res = await fetch('https://YOUR_SUPABASE_URL/rest/v1/bookings', {
+          method:  'POST',
+          headers: {
+            'Content-Type':  'application/json',
+            'apikey':        'YOUR_SUPABASE_KEY',
+            'Authorization': 'Bearer YOUR_SUPABASE_KEY',
+            'Prefer':        'return=minimal'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok || res.status === 201) {
+          showMessage('success', '✨ Thank you, ' + name + '! Your appointment request has been received. Our team will confirm within 24 hours at ' + email + '.');
+          form.reset();
+          dateInput.min = today.toISOString().split('T')[0];
+        } else {
+          const body = await res.text();
+          throw new Error('Server responded with ' + res.status + ': ' + body);
+        }
+      } catch (err) {
+        // If Supabase URL is placeholder, show a graceful demo message
+        if (err.message && err.message.includes('YOUR_SUPABASE_URL')) {
+          showMessage('success', '✨ Thank you, ' + name + '! (Demo mode) Your appointment request has been received. Our team will confirm within 24 hours at ' + email + '.');
+          form.reset();
+          dateInput.min = today.toISOString().split('T')[0];
+        } else {
+          showMessage('error', 'We were unable to process your request at this time. Please call us directly at (929) 555-0319 and we\'ll be happy to assist.');
+        }
+      } finally {
+        submitBtn.disabled = false;
+        btnText.textContent = 'Request Appointment';
+        const sp = submitBtn.querySelector('.spinner');
+        if (sp) sp.remove();
+      }
+    });
+
+    function showMessage(type, text) {
+      msgEl.className = 'form-message ' + type;
+      msgEl.textContent = text;
+      msgEl.style.display = 'block';
+      msgEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // ── Smooth nav highlight on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    const navAs    = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+      });
+      navAs.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + cur
+          ? '#fbbf24'
+          : '';
+      });
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
