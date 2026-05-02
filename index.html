@@ -2,14 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=websiteportfolio/">
-  <title>Kaoz625 — Design Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYC Tailblazers — Client Sites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { background: #080808; color: #f0ede8; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-    a { color: #e8c87a; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c14;
+      --surface: #0f1623;
+      --border: #1e2a3a;
+      --gold: #e8c87a;
+      --text: #f0ede8;
+      --muted: #8a9bb0;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 64px;
+    }
+    .logo {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 15px;
+      text-align: center;
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 52px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 960px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card:hover { border-color: var(--accent, var(--gold)); transform: translateY(-3px); }
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+    .card-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent, var(--gold));
+      background: color-mix(in srgb, var(--accent, var(--gold)) 12%, transparent);
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+    .card h2 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .card-arrow {
+      margin-top: auto;
+      padding-top: 16px;
+      font-size: 13px;
+      color: var(--accent, var(--gold));
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .divider {
+      width: 100%;
+      max-width: 960px;
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0 36px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    footer {
+      margin-top: 64px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <p>Redirecting… <a href="websiteportfolio/">Click here if not redirected</a></p>
+  <div class="logo">NYC Tailblazers</div>
+  <h1>Client Websites</h1>
+  <p class="sub">AI-powered local business sites with automated lead capture, booking, and follow-up agents.</p>
+
+  <div class="grid">
+    <a class="card" href="peakprohvac/" style="--accent:#f97316">
+      <div class="card-icon">🔧</div>
+      <span class="card-tag">HVAC &amp; Plumbing</span>
+      <h2>Peak Pro HVAC</h2>
+      <p>24/7 emergency service, AC repair &amp; install, heating, plumbing — NYC metro area.</p>
+      <div class="card-arrow">View site →</div>
+    </a>
+
+    <a class="card" href="claritycoachingpro/" style="--accent:#7c3aed">
+      <div class="card-icon">🎯</div>
+      <span class="card-tag">Life &amp; Business Coaching</span>
+      <h2>Clarity Coaching Pro</h2>
+      <p>1:1 coaching, group programs, career clarity and leadership development for professionals.</p>
+      <div class="card-arrow">View site →</div>
+    </a>
+
+    <a class="card" href="luxeandcohair/" style="--accent:#be185d">
+      <div class="card-icon">✂️</div>
+      <span class="card-tag">Luxury Hair Salon</span>
+      <h2>Luxe &amp; Co. Hair Studio</h2>
+      <p>Upscale Manhattan salon — color, balayage, extensions, keratin treatments &amp; bridal packages.</p>
+      <div class="card-arrow">View site →</div>
+    </a>
+  </div>
+
+  <hr class="divider">
+  <div class="section-label">Design Portfolio</div>
+
+  <div class="grid" style="max-width:480px">
+    <a class="card" href="websiteportfolio/">
+      <div class="card-icon">🎨</div>
+      <span class="card-tag">Portfolio</span>
+      <h2>Website Design Gallery</h2>
+      <p>Browse all client site designs, compare packages, and take the style quiz.</p>
+      <div class="card-arrow">Open portfolio →</div>
+    </a>
+  </div>
+
+  <footer>© 2026 NYC Tailblazers · kaoz625.github.io</footer>
 </body>
 </html>
