@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Luxe & Co. Hair Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0d0d0d; --black-mid: #141414; --black-light: #1e1e1e;
+      --rose: #c88b8b; --rose-light: #dba8a8; --rose-deep: #a86f6f;
+      --champagne: #f5e6d0; --champagne-mid: #e8d4b8;
+      --gray: #888; --gray-light: #aaa; --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--black); color: var(--champagne); line-height: 1.6; }
+
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,13,13,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,139,139,0.1);
+      padding: 0 clamp(1rem, 5vw, 4rem); height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-left { display: flex; gap: 2rem; list-style: none; }
+    .nav-left a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-brand { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; }
+    .nav-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.06em; color: var(--champagne); text-decoration: none; display: block; }
+    .nav-brand-name span { color: var(--rose); }
+    .nav-tagline { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-top: -2px; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-right a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-right a:hover { color: var(--champagne); }
+    .nav-book { background: var(--rose); color: var(--black); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.4rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
+    .nav-book:hover { background: var(--rose-light); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--champagne); }
+
+    .page-hero {
+      padding: 120px clamp(1rem, 5vw, 4rem) 4rem;
+      background: var(--black-mid); border-bottom: 1px solid rgba(200,139,139,0.1); text-align: center;
+    }
+    .s-eyebrow { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 1rem; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; color: var(--champagne); line-height: 1.05; margin-bottom: 1.25rem; }
+    .page-title em { font-style: italic; color: var(--rose-light); }
+    .page-desc { font-size: 0.95rem; color: var(--gray-light); line-height: 1.85; font-weight: 300; max-width: 560px; margin: 0 auto; }
+
+    .section { padding: 5rem clamp(1rem, 5vw, 4rem); }
+
+    /* MASONRY GALLERY */
+    .gallery-grid {
+      max-width: 1200px; margin: 0 auto;
+      columns: 3; column-gap: 12px;
+    }
+    .gallery-item {
+      break-inside: avoid; margin-bottom: 12px;
+      position: relative; overflow: hidden; border-radius: 3px;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%; display: block;
+      transition: transform 0.6s var(--ease);
+      filter: brightness(0.9);
+    }
+    .gallery-item:hover img { transform: scale(1.04); filter: brightness(1); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,13,13,0.8) 0%, transparent 50%);
+      opacity: 0; transition: opacity 0.3s;
+      display: flex; align-items: flex-end; padding: 1.25rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-caption {
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--champagne); font-weight: 500;
+    }
+
+    /* INSTAGRAM CTA */
+    .ig-cta {
+      max-width: 600px; margin: 4rem auto 0; text-align: center;
+      padding: 3rem; background: var(--black-light);
+      border: 1px solid rgba(200,139,139,0.15); border-radius: 4px;
+    }
+    .ig-cta .s-eyebrow { margin-bottom: 0.75rem; }
+    .ig-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: var(--champagne); margin-bottom: 0.75rem; }
+    .ig-cta p { font-size: 0.875rem; color: var(--gray); line-height: 1.8; margin-bottom: 1.75rem; font-weight: 300; }
+    .btn-rose {
+      background: var(--rose); color: var(--black); font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.5rem;
+      border-radius: 2px; text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-rose:hover { background: var(--rose-light); transform: translateY(-1px); }
+
+    footer { background: #080808; border-top: 1px solid rgba(200,139,139,0.1); padding: 3.5rem clamp(1rem, 5vw, 4rem) 2rem; }
+    .footer-brand-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 2rem; }
+    .footer-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--champagne); letter-spacing: 0.06em; }
+    .footer-logo-name span { color: var(--rose); }
+    .footer-socials { display: flex; gap: 1.5rem; }
+    .footer-socials a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--rose-light); }
+    .footer-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: 2.5rem; }
+    .footer-col-h { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(136,136,136,0.6); margin-bottom: 1rem; }
+    .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col-links a { color: rgba(200,180,160,0.5); font-size: 0.85rem; text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .footer-col-links a:hover { color: var(--champagne); }
+    .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: rgba(136,136,136,0.4); border-top: 1px solid rgba(255,255,255,0.04); padding-top: 1.5rem; }
+
+    @media (max-width: 860px) { .gallery-grid { columns: 2; } }
+    @media (max-width: 480px) { .gallery-grid { columns: 1; } }
+    @media (max-width: 960px) { .nav-left, .nav-right li:not(:last-child) { display: none; } }
+    @media (max-width: 640px) { .nav-left, .nav-right { display: none; } .nav-hamburger { display: flex; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <ul class="nav-left">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+  <div class="nav-brand">
+    <a class="nav-brand-name" href="index.html">Luxe <span>&amp;</span> Co.</a>
+    <div class="nav-tagline">Hair Studio · Williamsburg</div>
+  </div>
+  <ul class="nav-right">
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="book.html" class="nav-book">Book Now</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="s-eyebrow">Portfolio</div>
+  <h1 class="page-title">Before <em>&amp; After</em></h1>
+  <p class="page-desc">Every photo is a real client at Luxe &amp; Co. These aren't stock images — they're the results of careful consultations, precise technique, and genuine artistry.</p>
+</div>
+
+<section class="section">
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600" alt="Balayage transformation" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Balayage</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600" alt="Color correction" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Color Correction</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600" alt="Highlights" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Highlights</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600" alt="Extensions" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Extensions</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1605497787954-6fdac71cf455?w=600" alt="Cut and style" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Cut &amp; Style</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600" alt="Vivid color" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Vivid Color</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=600" alt="Bridal styling" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Bridal Styling</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf96cf5ca?w=600" alt="Lived-in color" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Lived-In Color</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600" alt="Blowout" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Blowout</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600" alt="Precision cut" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Precision Cut</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600" alt="Keratin treatment" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Keratin Treatment</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1470259078422-826894b933aa?w=600" alt="Full color" loading="lazy">
+      <div class="gallery-overlay"><span class="gallery-caption">Full Color</span></div>
+    </div>
+  </div>
+
+  <div class="ig-cta">
+    <div class="s-eyebrow">Follow Along</div>
+    <h3>@luxeandcosalon</h3>
+    <p>More transformations, behind-the-scenes moments, and daily inspiration live on our Instagram. Follow us to see new work as it happens.</p>
+    <a href="https://instagram.com/luxeandcosalon" target="_blank" class="btn-rose">Follow on Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand-row">
+    <div class="footer-logo-name">Luxe <span>&amp;</span> Co. Hair Studio</div>
+    <div class="footer-socials">
+      <a href="https://instagram.com/luxeandcosalon" target="_blank">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Google</a>
+    </div>
+  </div>
+  <div class="footer-cols">
+    <div>
+      <div class="footer-col-h">Services</div>
+      <ul class="footer-col-links">
+        <li><a href="services/color.html">Color</a></li>
+        <li><a href="services/cuts.html">Cuts &amp; Style</a></li>
+        <li><a href="services/extensions.html">Extensions</a></li>
+        <li><a href="services/treatments.html">Treatments</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Studio</div>
+      <ul class="footer-col-links">
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="book.html">Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="tel:+17185550234">(718) 555-0234</a></li>
+        <li><a href="mailto:hello@luxeandcohair.com">hello@luxeandcohair.com</a></li>
+        <li><a href="contact.html">186 Bedford Ave, Brooklyn</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Hours</div>
+      <ul class="footer-col-links">
+        <li><a>Tue–Fri: 10am–7pm</a></li>
+        <li><a>Saturday: 9am–6pm</a></li>
+        <li><a>Sunday: 10am–4pm</a></li>
+        <li><a>Monday: Closed</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Luxe &amp; Co. Hair Studio. All rights reserved.</span>
+    <span>By appointment · Walk-ins welcome</span>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.7rem;letter-spacing:0.08em;color:rgba(200,139,139,0.4);border-top:1px solid rgba(200,139,139,0.08)">
+    DESIGNED &amp; BUILT BY <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(200,139,139,0.6);text-decoration:none">NYCTAILBLAZERS</a> · © 2026
+  </div>
+</footer>
+
+<script>
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#c88b8b;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>

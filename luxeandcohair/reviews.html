@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Reviews | Luxe & Co. Hair Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0d0d0d; --black-mid: #141414; --black-light: #1e1e1e;
+      --rose: #c88b8b; --rose-light: #dba8a8; --rose-deep: #a86f6f;
+      --champagne: #f5e6d0; --champagne-mid: #e8d4b8;
+      --gray: #888; --gray-light: #aaa; --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--black); color: var(--champagne); line-height: 1.6; }
+
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,13,13,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,139,139,0.1);
+      padding: 0 clamp(1rem, 5vw, 4rem); height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-left { display: flex; gap: 2rem; list-style: none; }
+    .nav-left a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-brand { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; }
+    .nav-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.06em; color: var(--champagne); text-decoration: none; display: block; }
+    .nav-brand-name span { color: var(--rose); }
+    .nav-tagline { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-top: -2px; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-right a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-right a:hover { color: var(--champagne); }
+    .nav-book { background: var(--rose); color: var(--black); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.4rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
+    .nav-book:hover { background: var(--rose-light); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--champagne); }
+
+    .page-hero {
+      padding: 120px clamp(1rem, 5vw, 4rem) 4rem;
+      background: var(--black-mid); border-bottom: 1px solid rgba(200,139,139,0.1); text-align: center;
+    }
+    .s-eyebrow { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 1rem; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; color: var(--champagne); line-height: 1.05; margin-bottom: 1.25rem; }
+    .page-title em { font-style: italic; color: var(--rose-light); }
+
+    /* RATING HERO */
+    .rating-hero {
+      display: flex; align-items: center; justify-content: center; gap: 3rem;
+      flex-wrap: wrap; padding: 3rem clamp(1rem, 5vw, 4rem);
+      background: var(--black); border-bottom: 1px solid rgba(200,139,139,0.08);
+    }
+    .rating-block { text-align: center; }
+    .rating-num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 600; color: var(--champagne); line-height: 1; }
+    .rating-stars { color: var(--rose-light); font-size: 1.2rem; letter-spacing: 3px; display: block; margin: 0.25rem 0; }
+    .rating-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+    .rating-divider { width: 1px; height: 60px; background: rgba(200,139,139,0.2); }
+
+    .section { padding: 5rem clamp(1rem, 5vw, 4rem); }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .review-card {
+      background: var(--black-light); border: 1px solid rgba(200,139,139,0.1);
+      border-radius: 4px; padding: 2rem; transition: border-color 0.2s;
+    }
+    .review-card:hover { border-color: rgba(200,139,139,0.25); }
+    .rv-platform { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(136,136,136,0.5); margin-bottom: 0.75rem; }
+    .rv-stars { color: var(--rose); font-size: 0.85rem; letter-spacing: 3px; margin-bottom: 1rem; }
+    .rv-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.7; color: var(--champagne-mid); margin-bottom: 1.25rem; font-style: italic; }
+    .rv-person { display: flex; align-items: center; gap: 10px; }
+    .rv-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-deep), var(--champagne-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 600; color: var(--black);
+      flex-shrink: 0;
+    }
+    .rv-name { font-size: 0.875rem; color: var(--champagne); font-weight: 500; }
+    .rv-meta { font-size: 0.75rem; color: var(--gray); }
+
+    .btn-rose {
+      background: var(--rose); color: var(--black); font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.5rem;
+      border-radius: 2px; text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-rose:hover { background: var(--rose-light); transform: translateY(-1px); }
+    .cta-band {
+      background: var(--black-mid); border-top: 1px solid rgba(200,139,139,0.1);
+      padding: 4rem clamp(1rem, 5vw, 4rem); text-align: center;
+    }
+    .cta-band h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 600; color: var(--champagne); margin-bottom: 0.75rem; }
+    .cta-band p { font-size: 0.9rem; color: var(--gray); margin-bottom: 2rem; font-weight: 300; }
+
+    footer { background: #080808; border-top: 1px solid rgba(200,139,139,0.1); padding: 3.5rem clamp(1rem, 5vw, 4rem) 2rem; }
+    .footer-brand-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 2rem; }
+    .footer-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--champagne); letter-spacing: 0.06em; }
+    .footer-logo-name span { color: var(--rose); }
+    .footer-socials { display: flex; gap: 1.5rem; }
+    .footer-socials a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--rose-light); }
+    .footer-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: 2.5rem; }
+    .footer-col-h { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(136,136,136,0.6); margin-bottom: 1rem; }
+    .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col-links a { color: rgba(200,180,160,0.5); font-size: 0.85rem; text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .footer-col-links a:hover { color: var(--champagne); }
+    .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: rgba(136,136,136,0.4); border-top: 1px solid rgba(255,255,255,0.04); padding-top: 1.5rem; }
+
+    @media (max-width: 900px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .reviews-grid { grid-template-columns: 1fr; } .rating-divider { display: none; } }
+    @media (max-width: 960px) { .nav-left, .nav-right li:not(:last-child) { display: none; } }
+    @media (max-width: 640px) { .nav-left, .nav-right { display: none; } .nav-hamburger { display: flex; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <ul class="nav-left">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+  <div class="nav-brand">
+    <a class="nav-brand-name" href="index.html">Luxe <span>&amp;</span> Co.</a>
+    <div class="nav-tagline">Hair Studio · Williamsburg</div>
+  </div>
+  <ul class="nav-right">
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="book.html" class="nav-book">Book Now</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="s-eyebrow">Client Love</div>
+  <h1 class="page-title">What They're <em>Saying</em></h1>
+</div>
+
+<div class="rating-hero">
+  <div class="rating-block">
+    <div class="rating-num">4.9</div>
+    <span class="rating-stars">★★★★★</span>
+    <div class="rating-label">Google Rating</div>
+  </div>
+  <div class="rating-divider"></div>
+  <div class="rating-block">
+    <div class="rating-num">180+</div>
+    <span class="rating-stars" style="font-size:0.8rem;letter-spacing:2px">Reviews</span>
+    <div class="rating-label">Verified Reviews</div>
+  </div>
+  <div class="rating-divider"></div>
+  <div class="rating-block">
+    <div class="rating-num">8+</div>
+    <span class="rating-stars" style="font-size:0.8rem;letter-spacing:2px">Years</span>
+    <div class="rating-label">Serving Williamsburg</div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="rv-platform">Google Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Sofia completely transformed my hair. I came in with box-dye damage from two years of neglect and left with the most beautiful, natural-looking balayage. She spent nearly three hours and it absolutely shows. Worth every penny."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">AM</div>
+        <div><div class="rv-name">Alicia M.</div><div class="rv-meta">Balayage · 2 weeks ago</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="rv-platform">Google Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"I've been chasing a haircut like this for three years. Jordan just gets it — they listened to exactly what I wanted, asked the right questions, and delivered. The studio is intimate and the vibe is genuinely welcoming."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">KS</div>
+        <div><div class="rv-name">Kiran S.</div><div class="rv-meta">Men's Cut · 1 month ago</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="rv-platform">Vagaro Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Daniela did my tape-in extensions and I genuinely cannot stop staring in mirrors. They are seamless, full, and she matched my texture so perfectly that my own mother couldn't tell. A client for life."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">JO</div>
+        <div><div class="rv-name">Jade O.</div><div class="rv-meta">Tape-In Extensions · 3 weeks ago</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="rv-platform">Yelp Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Had a color correction after a bad at-home dye job — I was terrified. Sofia was honest during the consultation about what was realistic, then over-delivered on the result. Two appointments later I have the hair of my dreams."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">RP</div>
+        <div><div class="rv-name">Rachel P.</div><div class="rv-meta">Color Correction · 5 weeks ago</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="rv-platform">Google Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Daniela did my hair for my wedding and I cried happy tears when I saw the final look. She remembered every detail from our trial and executed it flawlessly under time pressure. She is a true professional."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">TN</div>
+        <div><div class="rv-name">Tanya N.</div><div class="rv-meta">Bridal Styling · 2 months ago</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="rv-platform">Google Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"I moved to Brooklyn from LA and was nervous to find a new salon. Luxe &amp; Co. exceeded every expectation. The studio is beautiful, the service is impeccable, and Sofia's balayage work is genuinely the best I've had anywhere."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">MC</div>
+        <div><div class="rv-name">Maya C.</div><div class="rv-meta">Balayage · 6 weeks ago</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="rv-platform">Vagaro Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Jordan did vivid color on my hair and the result is absolutely stunning. They had such a strong vision and the technical skill to back it up. I came in with a vague idea and left with something better than I imagined."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">AS</div>
+        <div><div class="rv-name">Avery S.</div><div class="rv-meta">Vivid Color · 3 weeks ago</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="rv-platform">Yelp Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"My scalp treatment with Jordan was an experience I didn't know I needed. I've been struggling with dryness for years and within one session I could feel the difference. Already booked my follow-up. This place is a gem."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">LW</div>
+        <div><div class="rv-name">Lena W.</div><div class="rv-meta">Scalp Treatment · 1 month ago</div></div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="rv-platform">Google Review</div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Came in for a keratin treatment after years of fighting frizz. Daniela was thorough, explained the process in full, and the results have lasted months. My morning routine has completely changed. Cannot recommend enough."</p>
+      <div class="rv-person">
+        <div class="rv-avatar">CB</div>
+        <div><div class="rv-name">Carmen B.</div><div class="rv-meta">Keratin Treatment · 2 months ago</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Ready to Experience It Yourself?</h2>
+  <p>Join 180+ satisfied clients. Book your appointment today — we'll confirm within 2 hours.</p>
+  <a href="book.html" class="btn-rose">Book Your Appointment</a>
+</div>
+
+<footer>
+  <div class="footer-brand-row">
+    <div class="footer-logo-name">Luxe <span>&amp;</span> Co. Hair Studio</div>
+    <div class="footer-socials">
+      <a href="https://instagram.com/luxeandcosalon" target="_blank">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Google</a>
+    </div>
+  </div>
+  <div class="footer-cols">
+    <div>
+      <div class="footer-col-h">Services</div>
+      <ul class="footer-col-links">
+        <li><a href="services/color.html">Color</a></li>
+        <li><a href="services/cuts.html">Cuts &amp; Style</a></li>
+        <li><a href="services/extensions.html">Extensions</a></li>
+        <li><a href="services/treatments.html">Treatments</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Studio</div>
+      <ul class="footer-col-links">
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="book.html">Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="tel:+17185550234">(718) 555-0234</a></li>
+        <li><a href="mailto:hello@luxeandcohair.com">hello@luxeandcohair.com</a></li>
+        <li><a href="contact.html">186 Bedford Ave, Brooklyn</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Hours</div>
+      <ul class="footer-col-links">
+        <li><a>Tue–Fri: 10am–7pm</a></li>
+        <li><a>Saturday: 9am–6pm</a></li>
+        <li><a>Sunday: 10am–4pm</a></li>
+        <li><a>Monday: Closed</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Luxe &amp; Co. Hair Studio. All rights reserved.</span>
+    <span>By appointment · Walk-ins welcome</span>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.7rem;letter-spacing:0.08em;color:rgba(200,139,139,0.4);border-top:1px solid rgba(200,139,139,0.08)">
+    DESIGNED &amp; BUILT BY <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(200,139,139,0.6);text-decoration:none">NYCTAILBLAZERS</a> · © 2026
+  </div>
+</footer>
+
+<script>
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#c88b8b;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>

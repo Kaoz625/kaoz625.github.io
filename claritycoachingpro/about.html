@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Dr. Sarah Chen | Clarity Coaching & Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f8f4ee; --cream-mid: #f0e9df; --sage: #4a7c59; --sage-light: #6a9c79;
+      --sage-deep: #3a6247; --gold: #c9a84c; --gold-light: #e0c46a;
+      --charcoal: #2c3e35; --gray: #7a8c82; --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(248,244,238,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(74,124,89,0.12); padding: 0 clamp(1rem, 5vw, 5rem); display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--charcoal); text-decoration: none; }
+    .nav-logo span { color: var(--sage); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+    .nav-cta { background: var(--sage); color: white; font-weight: 600; font-size: 0.875rem; padding: 0.5rem 1.4rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--sage-deep); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); }
+    .section { padding: 5.5rem clamp(1rem, 5vw, 5rem); }
+    .bg-white-section { background: white; }
+    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
+    .eyebrow.center { justify-content: center; }
+    .eyebrow.center::before, .eyebrow.center::after { content: ''; flex: 0 0 24px; height: 1px; background: var(--gold); }
+    h2.serif { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 700; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1rem; }
+    .sub { color: var(--gray); font-size: 1rem; max-width: 520px; margin: 0 auto 3rem; line-height: 1.75; }
+    .about-hero { padding: 8rem clamp(1rem, 5vw, 5rem) 0; background: var(--cream); }
+    .about-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .about-photo { position: relative; }
+    .about-photo img { width: 100%; border-radius: 24px; display: block; object-fit: cover; aspect-ratio: 4/5; }
+    .about-photo-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: white; border-radius: 16px; padding: 1rem 1.25rem; box-shadow: 0 12px 36px rgba(44,62,53,0.15); display: flex; align-items: center; gap: 10px; }
+    .about-photo-badge .badge-icon { font-size: 1.5rem; }
+    .about-photo-badge strong { display: block; font-size: 0.875rem; color: var(--charcoal); }
+    .about-photo-badge span { font-size: 0.75rem; color: var(--gray); }
+    .about-hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .about-hero-text h1 em { color: var(--sage); font-style: italic; }
+    .about-hero-text p { color: var(--gray); font-size: 0.975rem; line-height: 1.85; margin-bottom: 1rem; }
+    .credentials { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+    .credential { background: rgba(74,124,89,0.08); color: var(--sage); font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.9rem; border-radius: 100px; }
+    .btn-sage { display: inline-block; background: var(--sage); color: white; font-weight: 600; font-size: 0.95rem; padding: 0.875rem 2rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; margin-top: 1.5rem; }
+    .btn-sage:hover { background: var(--sage-deep); transform: translateY(-1px); }
+    .creds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .cred-card { background: white; border-radius: 20px; padding: 2rem; border: 1.5px solid rgba(74,124,89,0.12); text-align: center; }
+    .cred-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--sage); line-height: 1; margin-bottom: 0.5rem; }
+    .cred-label { font-size: 0.875rem; color: var(--gray); line-height: 1.5; }
+    .press-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center; max-width: 900px; margin: 0 auto; }
+    .press-item { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--cream-mid); letter-spacing: -0.02em; }
+    .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+    .philosophy-card { background: var(--cream); border-radius: 20px; padding: 2.5rem; border-left: 4px solid var(--sage); }
+    .philosophy-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.75rem; }
+    .philosophy-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.75; }
+    footer { background: #1a2820; border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem clamp(1rem, 5vw, 5rem) 2rem; color: rgba(255,255,255,0.6); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.75rem; }
+    .footer-brand p { font-size: 0.875rem; max-width: 280px; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; }
+    @media (max-width: 900px) { .about-hero-grid { grid-template-columns: 1fr; } .about-photo-badge { right: 0; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .nav-links, .nav-cta { display: none; } .nav-hamburger { display: flex; } .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Clarity <span>Coaching</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Programs</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a href="apply.html" class="nav-cta">Apply to Work Together</a>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- Hero -->
+<section class="about-hero">
+  <div class="about-hero-grid">
+    <div class="about-photo">
+      <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600" alt="Dr. Sarah Chen, PCC — Executive Life Coach">
+      <div class="about-photo-badge">
+        <span class="badge-icon">🏅</span>
+        <div><strong>ICF Professional Certified Coach</strong><span>PCC Credential · 500+ Coaching Hours</span></div>
+      </div>
+    </div>
+    <div class="about-hero-text">
+      <div class="eyebrow">Meet Your Coach</div>
+      <h1>Dr. Sarah Chen,<br><em>PCC</em></h1>
+      <p>I grew up in Queens as a first-generation college student, driven by a relentless need to prove something. I got into Columbia, earned a master's in psychology, and then spent eight years in corporate finance — performing well, moving up, and quietly falling apart.</p>
+      <p>Burnout has a way of making things clear. I left the corporate world in 2015 with a PCC certification from ICF and a single conviction: that most high-achievers are solving the wrong problem. They're optimizing execution when what they need is clarity about direction.</p>
+      <p>Since then, I've worked with over 200 clients — executives at Fortune 500 companies, early-stage founders, people at career crossroads, and anyone who feels the gap between where they are and where they know they could be. The work is rigorous, practical, and it produces results that last.</p>
+      <div class="credentials">
+        <span class="credential">ICF PCC</span>
+        <span class="credential">MA Psychology, Columbia University</span>
+        <span class="credential">EQ-i 2.0 Certified</span>
+        <span class="credential">10+ Years Coaching</span>
+        <span class="credential">200+ Clients</span>
+      </div>
+      <a href="apply.html" class="btn-sage">Work With Dr. Chen →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section">
+  <div class="creds-grid">
+    <div class="cred-card">
+      <div class="cred-num">200+</div>
+      <div class="cred-label">Clients coached across industries and career stages</div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-num">10yr</div>
+      <div class="cred-label">In practice, with 500+ certified coaching hours logged</div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-num">94%</div>
+      <div class="cred-label">Of clients achieve their primary goal within six months</div>
+    </div>
+    <div class="cred-card">
+      <div class="cred-num">4.9★</div>
+      <div class="cred-label">Average client rating across all programs</div>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy -->
+<section class="section bg-white-section">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div class="eyebrow center">My Approach</div>
+    <h2 class="serif">Clarity Over Comfort.</h2>
+    <p class="sub">The coaching philosophy at Clarity is grounded in three commitments that shape every session, every conversation, and every recommendation.</p>
+  </div>
+  <div class="philosophy-grid">
+    <div class="philosophy-card">
+      <h3>Clarity over comfort</h3>
+      <p>Good coaching isn't always comfortable. I'll ask the questions that matter, not just the easy ones. The goal isn't to feel better in the session — it's to make decisions you won't second-guess a year from now.</p>
+    </div>
+    <div class="philosophy-card">
+      <h3>Evidence over intuition alone</h3>
+      <p>I use validated frameworks from positive psychology, cognitive behavioral theory, and leadership research. Feelings matter enormously — and they're most useful when paired with structured thinking tools that help you act on them.</p>
+    </div>
+    <div class="philosophy-card">
+      <h3>Progress over perfection</h3>
+      <p>The clients who transform most rapidly aren't the ones who plan the most carefully. They're the ones willing to move before everything feels perfectly aligned. We build momentum by starting imperfectly and adjusting fast.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Press -->
+<section class="section" style="background: var(--charcoal);">
+  <div style="text-align:center;margin-bottom:2.5rem;">
+    <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.5rem;">As Featured In</div>
+  </div>
+  <div class="press-grid">
+    <div class="press-item">Forbes</div>
+    <div class="press-item">Fast Company</div>
+    <div class="press-item">New York Magazine</div>
+    <div class="press-item">Harvard Business Review</div>
+    <div class="press-item">Inc.</div>
+  </div>
+</section>
+
+<!-- Personal -->
+<section class="section bg-white-section">
+  <div style="max-width:720px;margin:0 auto;text-align:center;">
+    <div class="eyebrow center">Beyond the Office</div>
+    <h2 class="serif">The Human Behind the Practice</h2>
+    <p style="color:var(--gray);font-size:1rem;line-height:1.85;margin-bottom:1.5rem;">When I'm not coaching, I'm hiking the Hudson Valley, reading too many books simultaneously, and trying to teach my rescue dog — a three-legged terrier mix named Sable — New York manners. (Progress is slow on both fronts.)</p>
+    <p style="color:var(--gray);font-size:1rem;line-height:1.85;margin-bottom:2rem;">I believe deeply that the examined life is worth living, that most of us are more capable than we believe, and that a good question asked at the right moment can change everything.</p>
+    <a href="apply.html" class="btn-sage" style="display:inline-block">Schedule Your Free Discovery Call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Clarity Coaching &amp; Consulting</div>
+      <p>ICF-certified coaching for executives, founders, and ambitious professionals ready to stop spinning and start leading.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="services.html">Programs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="apply.html">Apply</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@claritycoachingpro.com">hello@claritycoachingpro.com</a></li>
+        <li><a href="tel:2125550189">(212) 555-0189</a></li>
+        <li><a href="https://linkedin.com/in/sarahchencoach" target="_blank">LinkedIn</a></li>
+        <li><a href="https://instagram.com/claritycoachingpro" target="_blank">@claritycoachingpro</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Clarity Coaching &amp; Consulting. All rights reserved.</p>
+    <p>ICF Certified · Confidential · 100% Personalized</p>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.75rem;color:rgba(74,124,89,0.5);border-top:1px solid rgba(74,124,89,0.1)">
+    Designed &amp; built by <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(74,124,89,0.7);text-decoration:none">NYCTailblazers</a> · © 2026 All rights reserved
+  </div>
+</footer>
+<script>
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#4a7c59;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Results & Stories | Clarity Coaching & Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f8f4ee; --cream-mid: #f0e9df; --sage: #4a7c59; --sage-light: #6a9c79;
+      --sage-deep: #3a6247; --gold: #c9a84c; --gold-light: #e0c46a;
+      --charcoal: #2c3e35; --gray: #7a8c82; --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(248,244,238,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(74,124,89,0.12); padding: 0 clamp(1rem, 5vw, 5rem); display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--charcoal); text-decoration: none; }
+    .nav-logo span { color: var(--sage); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+    .nav-cta { background: var(--sage); color: white; font-weight: 600; font-size: 0.875rem; padding: 0.5rem 1.4rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--sage-deep); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); }
+    .page-hero { padding: 8rem clamp(1rem, 5vw, 5rem) 4rem; text-align: center; background: var(--cream); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; opacity: 0.3; background-image: radial-gradient(circle, var(--sage) 1px, transparent 1px); background-size: 28px 28px; }
+    .page-hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .eyebrow::before, .eyebrow::after { content: ''; flex: 0 0 24px; height: 1px; background: var(--gold); }
+    h1.serif { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1rem; line-height: 1.15; }
+    h2.serif { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 700; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1rem; }
+    .sub { color: var(--gray); font-size: 1rem; max-width: 520px; margin: 0 auto 3rem; line-height: 1.75; }
+    .section { padding: 5.5rem clamp(1rem, 5vw, 5rem); }
+    .bg-white-section { background: white; }
+    .stats-banner { background: var(--charcoal); padding: 3.5rem clamp(1rem, 5vw, 5rem); }
+    .stats-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--gold-light); line-height: 1; margin-bottom: 0.5rem; }
+    .stat-label { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.5; }
+    .stories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+    .story-card { background: white; border-radius: 24px; padding: 2.5rem; border: 1.5px solid rgba(74,124,89,0.12); transition: all 0.3s var(--ease); }
+    .story-card:hover { transform: translateY(-4px); box-shadow: 0 20px 56px rgba(74,124,89,0.1); border-color: var(--sage); }
+    .story-label { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); background: rgba(74,124,89,0.08); padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .story-state { margin-bottom: 1.25rem; }
+    .story-state-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .story-state p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
+    .story-divider { border: none; border-top: 1px solid rgba(74,124,89,0.1); margin: 1.25rem 0; }
+    .story-quote { font-family: 'Playfair Display', serif; font-size: 0.975rem; line-height: 1.75; color: var(--charcoal); font-style: italic; margin-bottom: 1.25rem; position: relative; padding-left: 1.25rem; }
+    .story-quote::before { content: '"'; position: absolute; left: 0; top: -0.25rem; font-size: 2rem; color: var(--sage); opacity: 0.3; line-height: 1; font-family: 'Playfair Display', serif; }
+    .story-client { font-size: 0.8rem; font-weight: 600; color: var(--charcoal); }
+    .story-client span { color: var(--gray); font-weight: 400; }
+    .cta-section { background: var(--sage); padding: 5rem clamp(1rem, 5vw, 5rem); text-align: center; color: white; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,0.75); font-size: 1rem; max-width: 500px; margin: 0 auto 2rem; line-height: 1.75; }
+    .btn-white { display: inline-block; background: white; color: var(--sage); font-weight: 700; font-size: 1rem; padding: 0.9rem 2.25rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+    .btn-white:hover { background: var(--cream); transform: translateY(-1px); }
+    footer { background: #1a2820; border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem clamp(1rem, 5vw, 5rem) 2rem; color: rgba(255,255,255,0.6); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.75rem; }
+    .footer-brand p { font-size: 0.875rem; max-width: 280px; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; }
+    @media (max-width: 900px) { .stats-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .nav-links, .nav-cta { display: none; } .nav-hamburger { display: flex; } .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Clarity <span>Coaching</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Programs</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="results.html" class="active">Results</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a href="apply.html" class="nav-cta">Apply to Work Together</a>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Client Results</div>
+    <h1 class="serif">Real People.<br>Real Results.</h1>
+    <p class="sub">Names have been changed to protect privacy. Every story below is real. No cherry-picking — these outcomes represent what happens when the right person does the work.</p>
+  </div>
+</div>
+
+<!-- Stats banner -->
+<div class="stats-banner">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">94%</div>
+      <div class="stat-label">Of clients achieve their primary goal within 6 months</div>
+    </div>
+    <div>
+      <div class="stat-num">$28k</div>
+      <div class="stat-label">Average income increase reported within 12 months</div>
+    </div>
+    <div>
+      <div class="stat-num">89%</div>
+      <div class="stat-label">Report significantly reduced anxiety around decisions</div>
+    </div>
+  </div>
+</div>
+
+<!-- Stories -->
+<section class="section">
+  <div style="text-align:center;margin-bottom:3.5rem;">
+    <div class="eyebrow">Six Stories</div>
+    <h2 class="serif">The Work in Practice</h2>
+  </div>
+  <div class="stories-grid">
+
+    <div class="story-card">
+      <div class="story-label">Career Pivot</div>
+      <div class="story-state">
+        <div class="story-state-label">Before</div>
+        <p>Marketing Director at a mid-size agency. Fourteen-hour days, two promotions in three years, and a growing sense that she was excellent at a job she no longer wanted.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">The Work</div>
+        <p>Six-month engagement. Clarified values and career drivers. Identified a transferable skills profile. Built a transition strategy that reduced financial risk while testing new directions.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">After</div>
+        <p>Launched an independent brand consultancy. Revenue matched her salary within 8 months. Reports feeling "finally aligned" for the first time in a decade.</p>
+      </div>
+      <hr class="story-divider">
+      <p class="story-quote">Sarah helped me realize I wasn't burned out from working too hard — I was burned out from working on the wrong things. That distinction changed everything.</p>
+      <div class="story-client">Marketing Director, 34 <span>· 6-Month Program</span></div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-label">Founder Clarity</div>
+      <div class="story-state">
+        <div class="story-state-label">Before</div>
+        <p>Startup founder, 42. Series A raised. Team of 18. Increasingly indecisive, avoiding hard conversations with co-founders, and unsure whether he was still the right CEO for his own company.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">The Work</div>
+        <p>VIP Day followed by monthly coaching. Worked through leadership identity, decision-making frameworks, and the co-founder dynamic. Built a structure for difficult conversations.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">After</div>
+        <p>Resolved the co-founder tension. Led a successful pivot. Company grew revenue 3x in the following year. Says the coaching was "the highest-ROI thing" he's invested in outside the product.</p>
+      </div>
+      <hr class="story-divider">
+      <p class="story-quote">I came in thinking I needed a business coach. What I actually needed was to understand why I'd stopped trusting myself. Sarah got there fast.</p>
+      <div class="story-client">Startup Founder, 42 <span>· VIP Day + Monthly</span></div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-label">Executive Leadership</div>
+      <div class="story-state">
+        <div class="story-state-label">Before</div>
+        <p>VP of Operations at a healthcare company. Up for C-suite consideration but receiving feedback that her communication style was "too direct" — code she wasn't sure how to interpret.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">The Work</div>
+        <p>Monthly coaching over 5 months. EQ-i 2.0 assessment. Explored the gap between her intent and others' experience. Built a communication approach that stayed authentic while landing better.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">After</div>
+        <p>Promoted to Chief Operating Officer six months after we started. Reports that the work changed not just how she communicates but how she thinks about influence.</p>
+      </div>
+      <hr class="story-divider">
+      <p class="story-quote">I didn't want to soften myself. I wanted to be more effective. Those aren't the same thing, and Sarah knew the difference from day one.</p>
+      <div class="story-client">VP of Operations, 39 <span>· Monthly Coaching</span></div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-label">Life Transition</div>
+      <div class="story-state">
+        <div class="story-state-label">Before</div>
+        <p>Attorney, 47. Twenty years in practice. Kids in college. Divorce finalizing. Asked himself, for the first time in his adult life: "What do I actually want?"</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">The Work</div>
+        <p>Clarity Intensive followed by ongoing monthly sessions. Explored identity outside professional achievement. Mapped values for the first time. Started designing life around answers, not obligations.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">After</div>
+        <p>Transitioned to a consulting practice with a 30% reduction in hours and 15% income increase. Bought a property upstate. Says he feels "lighter than I have in twenty years."</p>
+      </div>
+      <hr class="story-divider">
+      <p class="story-quote">I had never once asked what I wanted — I'd only ever asked what I should do. Sarah gave me permission to treat that question as legitimate.</p>
+      <div class="story-client">Attorney, 47 <span>· Clarity Intensive + Monthly</span></div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-label">Early Career</div>
+      <div class="story-state">
+        <div class="story-state-label">Before</div>
+        <p>Product manager, 28. Two years post-MBA, paralyzed between three job offers and unsure which direction would serve her long-term goals — goals she hadn't fully defined.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">The Work</div>
+        <p>Short-term engagement (4 sessions). Worked on decision frameworks and values clarification. Identified what "success at 40" actually looked like to her — not her parents' version of it.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">After</div>
+        <p>Chose the offer that aligned with her 10-year vision, not the highest salary. Eighteen months in, still confident it was the right call. Now on a leadership track at a company she believes in.</p>
+      </div>
+      <hr class="story-divider">
+      <p class="story-quote">I thought I needed someone to help me decide. What I needed was someone to help me figure out what I was actually deciding between. Sarah made that distinction immediate.</p>
+      <div class="story-client">Product Manager, 28 <span>· 4-Session Package</span></div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-label">Entrepreneur Stuck</div>
+      <div class="story-state">
+        <div class="story-state-label">Before</div>
+        <p>E-commerce entrepreneur, 36. Business was profitable but had plateaued. She felt stuck in operations, unable to think strategically, and increasingly resentful of a business she'd built from nothing.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">The Work</div>
+        <p>Monthly coaching for 7 months. Identified the role she needed to step out of and the leader she needed to hire. Worked on delegation, identity as a CEO, and rebuilding her relationship with the business.</p>
+      </div>
+      <div class="story-state">
+        <div class="story-state-label">After</div>
+        <p>Hired an operations lead, stepped into a true CEO role. Revenue grew 40% in 10 months. Says she "finally likes coming to work again" — and that she didn't realize how much she'd missed that.</p>
+      </div>
+      <hr class="story-divider">
+      <p class="story-quote">I built something I was proud of and then got trapped inside it. Sarah helped me see that the problem wasn't the business — it was that I'd stopped growing alongside it.</p>
+      <div class="story-client">E-commerce Founder, 36 <span>· Monthly Coaching</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Your Story Could Be Next</h2>
+  <p>The work is rigorous and the results are real. If you're ready to have an honest conversation about where you are and where you want to go, apply for a free discovery call.</p>
+  <a href="apply.html" class="btn-white">Apply for Your Discovery Call</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Clarity Coaching &amp; Consulting</div>
+      <p>ICF-certified coaching for executives, founders, and ambitious professionals ready to stop spinning and start leading.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="services.html">Programs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="apply.html">Apply</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@claritycoachingpro.com">hello@claritycoachingpro.com</a></li>
+        <li><a href="tel:2125550189">(212) 555-0189</a></li>
+        <li><a href="https://linkedin.com/in/sarahchencoach" target="_blank">LinkedIn</a></li>
+        <li><a href="https://instagram.com/claritycoachingpro" target="_blank">@claritycoachingpro</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Clarity Coaching &amp; Consulting. All rights reserved.</p>
+    <p>ICF Certified · Confidential · 100% Personalized</p>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.75rem;color:rgba(74,124,89,0.5);border-top:1px solid rgba(74,124,89,0.1)">
+    Designed &amp; built by <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(74,124,89,0.7);text-decoration:none">NYCTailblazers</a> · © 2026 All rights reserved
+  </div>
+</footer>
+<script>
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#4a7c59;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>

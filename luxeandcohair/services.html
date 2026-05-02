@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Luxe & Co. Hair Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0d0d0d;
+      --black-mid: #141414;
+      --black-light: #1e1e1e;
+      --rose: #c88b8b;
+      --rose-light: #dba8a8;
+      --rose-deep: #a86f6f;
+      --champagne: #f5e6d0;
+      --champagne-mid: #e8d4b8;
+      --champagne-light: #fdf8f3;
+      --gray: #888;
+      --gray-light: #aaa;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--black); color: var(--champagne); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,13,13,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,139,139,0.1);
+      padding: 0 clamp(1rem, 5vw, 4rem); height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-left { display: flex; gap: 2rem; list-style: none; }
+    .nav-left a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-left a:hover { color: var(--champagne); }
+    .nav-brand { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; }
+    .nav-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.06em; color: var(--champagne); text-decoration: none; display: block; }
+    .nav-brand-name span { color: var(--rose); }
+    .nav-tagline { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-top: -2px; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-right a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-right a:hover { color: var(--champagne); }
+    .nav-book {
+      background: var(--rose); color: var(--black); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.4rem;
+      border-radius: 2px; text-decoration: none; transition: all 0.2s;
+    }
+    .nav-book:hover { background: var(--rose-light); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--champagne); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 120px clamp(1rem, 5vw, 4rem) 4rem;
+      background: var(--black-mid);
+      border-bottom: 1px solid rgba(200,139,139,0.1);
+    }
+    .page-hero-inner { max-width: 700px; }
+    .s-eyebrow { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 1rem; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; color: var(--champagne); line-height: 1.05; margin-bottom: 1.25rem; }
+    .page-title em { font-style: italic; color: var(--rose-light); }
+    .page-desc { font-size: 0.95rem; color: var(--gray-light); line-height: 1.85; font-weight: 300; max-width: 560px; }
+
+    /* SECTION */
+    .section { padding: 5rem clamp(1rem, 5vw, 4rem); }
+    .s-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 600; color: var(--champagne); margin-bottom: 0.75rem; line-height: 1.1; }
+    .s-sub { font-size: 0.9rem; color: var(--gray); font-weight: 300; line-height: 1.8; margin-bottom: 2.5rem; }
+    .bg-mid { background: var(--black-mid); }
+    .bg-light { background: var(--black-light); }
+
+    /* SERVICE CATEGORY GRID */
+    .service-cats { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 4rem; }
+    .service-cat-block { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; }
+    .cat-label { position: sticky; top: 90px; }
+    .cat-label h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--rose-light); margin-bottom: 0.75rem; }
+    .cat-label p { font-size: 0.85rem; color: var(--gray); line-height: 1.75; font-weight: 300; margin-bottom: 1.5rem; }
+    .cat-link { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); text-decoration: none; border-bottom: 1px solid rgba(200,139,139,0.3); padding-bottom: 2px; transition: all 0.2s; }
+    .cat-link:hover { color: var(--rose-light); border-color: var(--rose-light); }
+
+    /* Menu items */
+    .menu-item { display: flex; align-items: baseline; padding: 0.65rem 0; border-bottom: 1px dashed rgba(255,255,255,0.06); }
+    .menu-name { font-size: 0.9rem; color: var(--champagne-mid); font-weight: 400; }
+    .menu-note { font-size: 0.72rem; color: var(--gray); display: block; margin-top: 0.2rem; }
+    .menu-dots { flex: 1; border-bottom: 1px dotted rgba(255,255,255,0.15); margin: 0 0.75rem; position: relative; top: -4px; }
+    .menu-price { font-size: 0.9rem; color: var(--rose-light); font-weight: 500; white-space: nowrap; }
+
+    /* POLICY NOTE */
+    .policy-note {
+      max-width: 860px; margin: 0 auto;
+      background: var(--black-light); border: 1px solid rgba(200,139,139,0.15);
+      border-radius: 4px; padding: 2rem 2.5rem;
+      font-size: 0.875rem; color: var(--gray); line-height: 1.8; font-weight: 300;
+    }
+    .policy-note strong { color: var(--champagne-mid); font-weight: 500; }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--black-mid); border-top: 1px solid rgba(200,139,139,0.1);
+      border-bottom: 1px solid rgba(200,139,139,0.1);
+      padding: 4rem clamp(1rem, 5vw, 4rem); text-align: center;
+    }
+    .cta-band h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 600; color: var(--champagne); margin-bottom: 0.75rem; }
+    .cta-band p { font-size: 0.9rem; color: var(--gray); margin-bottom: 2rem; font-weight: 300; }
+    .btn-rose {
+      background: var(--rose); color: var(--black); font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.5rem;
+      border-radius: 2px; text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-rose:hover { background: var(--rose-light); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      background: #080808; border-top: 1px solid rgba(200,139,139,0.1);
+      padding: 3.5rem clamp(1rem, 5vw, 4rem) 2rem;
+    }
+    .footer-brand-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 2rem; }
+    .footer-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--champagne); letter-spacing: 0.06em; }
+    .footer-logo-name span { color: var(--rose); }
+    .footer-socials { display: flex; gap: 1.5rem; }
+    .footer-socials a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--rose-light); }
+    .footer-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: 2.5rem; }
+    .footer-col-h { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(136,136,136,0.6); margin-bottom: 1rem; }
+    .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col-links a { color: rgba(200,180,160,0.5); font-size: 0.85rem; text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .footer-col-links a:hover { color: var(--champagne); }
+    .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: rgba(136,136,136,0.4); border-top: 1px solid rgba(255,255,255,0.04); padding-top: 1.5rem; }
+
+    @media (max-width: 860px) {
+      .service-cat-block { grid-template-columns: 1fr; gap: 1.5rem; }
+      .cat-label { position: static; }
+    }
+    @media (max-width: 640px) {
+      .nav-left, .nav-right { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 960px) {
+      .nav-left, .nav-right li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <ul class="nav-left">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+  <div class="nav-brand">
+    <a class="nav-brand-name" href="index.html">Luxe <span>&amp;</span> Co.</a>
+    <div class="nav-tagline">Hair Studio · Williamsburg</div>
+  </div>
+  <ul class="nav-right">
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="book.html" class="nav-book">Book Now</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="s-eyebrow">Our Services</div>
+    <h1 class="page-title">The <em>Menu</em></h1>
+    <p class="page-desc">Every service at Luxe &amp; Co. is performed with intention — no assembly line, no rushing. Your stylist will take the time to understand your hair, your lifestyle, and your vision before a single strand is touched.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="service-cats">
+
+    <!-- COLOR -->
+    <div class="service-cat-block">
+      <div class="cat-label">
+        <h2>Color</h2>
+        <p>Our color work is built on technical precision and an artist's eye. From subtle glosses to full transformations, every color appointment begins with a thorough consultation.</p>
+        <a href="services/color.html" class="cat-link">Explore Color Services →</a>
+      </div>
+      <div>
+        <div class="menu-item"><span class="menu-name">Balayage / Lived-In Color<span class="menu-note">Custom sun-kissed dimension, hand-painted</span></span><span class="menu-dots"></span><span class="menu-price">$220–$380</span></div>
+        <div class="menu-item"><span class="menu-name">Full Color</span><span class="menu-dots"></span><span class="menu-price">$150–$260</span></div>
+        <div class="menu-item"><span class="menu-name">Highlights — Partial</span><span class="menu-dots"></span><span class="menu-price">$160–$220</span></div>
+        <div class="menu-item"><span class="menu-name">Highlights — Full</span><span class="menu-dots"></span><span class="menu-price">$220–$300</span></div>
+        <div class="menu-item"><span class="menu-name">Color Correction<span class="menu-note">Consultation required — pricing based on assessment</span></span><span class="menu-dots"></span><span class="menu-price">From $350</span></div>
+        <div class="menu-item"><span class="menu-name">Gloss / Toner</span><span class="menu-dots"></span><span class="menu-price">$65–$95</span></div>
+      </div>
+    </div>
+
+    <!-- CUTS & STYLING -->
+    <div class="service-cat-block">
+      <div class="cat-label">
+        <h2>Cuts &amp; Styling</h2>
+        <p>A great cut is the foundation of everything. We take our time. Every cut begins with a dry consultation so your stylist understands your hair's natural behavior before water touches it.</p>
+        <a href="services/cuts.html" class="cat-link">Explore Cuts &amp; Styling →</a>
+      </div>
+      <div>
+        <div class="menu-item"><span class="menu-name">Women's Cut &amp; Style</span><span class="menu-dots"></span><span class="menu-price">$85–$120</span></div>
+        <div class="menu-item"><span class="menu-name">Men's Cut</span><span class="menu-dots"></span><span class="menu-price">$55–$75</span></div>
+        <div class="menu-item"><span class="menu-name">Blowout</span><span class="menu-dots"></span><span class="menu-price">$65–$95</span></div>
+        <div class="menu-item"><span class="menu-name">Curly Cut (Dry Technique)<span class="menu-note">Cut dry, in natural curl pattern</span></span><span class="menu-dots"></span><span class="menu-price">$95–$130</span></div>
+        <div class="menu-item"><span class="menu-name">Trim Only</span><span class="menu-dots"></span><span class="menu-price">$45–$65</span></div>
+      </div>
+    </div>
+
+    <!-- EXTENSIONS -->
+    <div class="service-cat-block">
+      <div class="cat-label">
+        <h2>Extensions</h2>
+        <p>We specialize in two extension methods that deliver the most natural result. All extension appointments begin with a complimentary consultation to assess your hair health and set expectations.</p>
+        <a href="services/extensions.html" class="cat-link">Explore Extensions →</a>
+      </div>
+      <div>
+        <div class="menu-item"><span class="menu-name">Tape-In Extensions — Install<span class="menu-note">Consultation required</span></span><span class="menu-dots"></span><span class="menu-price">$600–$1,200</span></div>
+        <div class="menu-item"><span class="menu-name">Hand-Tied Extensions — Install<span class="menu-note">Consultation required</span></span><span class="menu-dots"></span><span class="menu-price">$900–$1,800</span></div>
+        <div class="menu-item"><span class="menu-name">Extension Move-Up / Maintenance<span class="menu-note">Every 6–8 weeks</span></span><span class="menu-dots"></span><span class="menu-price">Quoted at consultation</span></div>
+      </div>
+    </div>
+
+    <!-- TREATMENTS -->
+    <div class="service-cat-block">
+      <div class="cat-label">
+        <h2>Treatments</h2>
+        <p>Investment pieces for your hair. Treatments are designed to address damage, add longevity to your color, and fundamentally improve the way your hair feels and behaves day to day.</p>
+        <a href="services/treatments.html" class="cat-link">Explore Treatments →</a>
+      </div>
+      <div>
+        <div class="menu-item"><span class="menu-name">Brazilian Blowout</span><span class="menu-dots"></span><span class="menu-price">$280–$420</span></div>
+        <div class="menu-item"><span class="menu-name">Keratin Treatment</span><span class="menu-dots"></span><span class="menu-price">$250–$380</span></div>
+        <div class="menu-item"><span class="menu-name">Deep Conditioning Treatment</span><span class="menu-dots"></span><span class="menu-price">$65–$95</span></div>
+        <div class="menu-item"><span class="menu-name">Scalp Treatment</span><span class="menu-dots"></span><span class="menu-price">$75–$110</span></div>
+      </div>
+    </div>
+
+    <!-- BRIDAL -->
+    <div class="service-cat-block">
+      <div class="cat-label">
+        <h2>Bridal</h2>
+        <p>Your wedding day hair should be an experience, not a transaction. We offer comprehensive bridal packages built around your vision, from the trial to the morning-of styling.</p>
+        <a href="book.html" class="cat-link">Inquire About Bridal →</a>
+      </div>
+      <div>
+        <div class="menu-item"><span class="menu-name">Bridal Trial<span class="menu-note">Full run-through of your wedding day style</span></span><span class="menu-dots"></span><span class="menu-price">$150–$220</span></div>
+        <div class="menu-item"><span class="menu-name">Bridal Day-Of Styling</span><span class="menu-dots"></span><span class="menu-price">$250–$580</span></div>
+        <div class="menu-item"><span class="menu-name">Bridal Package (Trial + Day-Of)<span class="menu-note">Includes consultation and touch-up kit</span></span><span class="menu-dots"></span><span class="menu-price">$400–$800</span></div>
+        <div class="menu-item"><span class="menu-name">Bridesmaid Styling<span class="menu-note">Per person, minimum of 2</span></span><span class="menu-dots"></span><span class="menu-price">$95–$150</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section bg-mid">
+  <div class="policy-note">
+    <strong>Pricing Note:</strong> All prices shown are ranges based on hair length, density, and condition. Your stylist will confirm exact pricing at consultation. <strong>Color correction and extension services require a consultation prior to booking.</strong> We believe in full transparency — there are no surprises at the chair.
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Ready to Book?</h2>
+  <p>We'll confirm your appointment within 2 hours and match you with the right stylist.</p>
+  <a href="book.html" class="btn-rose">Book Your Appointment</a>
+</div>
+
+<footer>
+  <div class="footer-brand-row">
+    <div class="footer-logo-name">Luxe <span>&amp;</span> Co. Hair Studio</div>
+    <div class="footer-socials">
+      <a href="https://instagram.com/luxeandcosalon" target="_blank">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Google</a>
+    </div>
+  </div>
+  <div class="footer-cols">
+    <div>
+      <div class="footer-col-h">Services</div>
+      <ul class="footer-col-links">
+        <li><a href="services/color.html">Color</a></li>
+        <li><a href="services/cuts.html">Cuts &amp; Style</a></li>
+        <li><a href="services/extensions.html">Extensions</a></li>
+        <li><a href="services/treatments.html">Treatments</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Studio</div>
+      <ul class="footer-col-links">
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="book.html">Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="tel:+17185550234">(718) 555-0234</a></li>
+        <li><a href="mailto:hello@luxeandcohair.com">hello@luxeandcohair.com</a></li>
+        <li><a href="contact.html">186 Bedford Ave, Brooklyn</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Hours</div>
+      <ul class="footer-col-links">
+        <li><a>Tue–Fri: 10am–7pm</a></li>
+        <li><a>Saturday: 9am–6pm</a></li>
+        <li><a>Sunday: 10am–4pm</a></li>
+        <li><a>Monday: Closed</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Luxe &amp; Co. Hair Studio. All rights reserved.</span>
+    <span>By appointment · Walk-ins welcome</span>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.7rem;letter-spacing:0.08em;color:rgba(200,139,139,0.4);border-top:1px solid rgba(200,139,139,0.08)">
+    DESIGNED &amp; BUILT BY <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(200,139,139,0.6);text-decoration:none">NYCTAILBLAZERS</a> · © 2026
+  </div>
+</footer>
+
+<script>
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#c88b8b;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>

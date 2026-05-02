@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peak Pro HVAC & Plumbing | Brooklyn & NYC | 24/7 Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a1628;
+      --navy-mid: #0f2040;
+      --navy-light: #1a3058;
+      --orange: #ff6b35;
+      --orange-light: #ff8555;
+      --white: #f8f9fa;
+      --gray: #8a9ab5;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,107,53,0.15);
+      padding: 0 clamp(1rem, 5vw, 4rem);
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon {
+      width: 38px; height: 38px; background: var(--orange); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-text { font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .nav-logo-text span { color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--orange); color: var(--navy); font-weight: 700; font-size: 0.875rem;
+      padding: 0.5rem 1.25rem; border-radius: 6px; text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--orange-light); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--white); transition: all 0.3s; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem clamp(1rem, 5vw, 4rem) 4rem;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0a1e35 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(255,107,53,0.08) 0%, transparent 70%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; max-width: 720px; }
+    .emergency-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.4);
+      color: #fca5a5; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem;
+    }
+    .emergency-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #ef4444;
+      animation: pulse-red 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-red {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.7); }
+      50% { box-shadow: 0 0 0 6px rgba(239,68,68,0); }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.03em; margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: var(--orange); }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem); color: var(--gray); max-width: 540px;
+      margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--orange); color: var(--navy); font-weight: 700; font-size: 1rem;
+      padding: 0.875rem 2rem; border-radius: 8px; text-decoration: none; transition: all 0.2s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--white); font-weight: 600; font-size: 1rem;
+      padding: 0.875rem 2rem; border-radius: 8px; text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.25); transition: all 0.2s; cursor: pointer;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-1px); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap;
+    }
+    .stat-num { font-size: 2rem; font-weight: 900; color: var(--orange); line-height: 1; }
+    .stat-label { font-size: 0.8rem; color: var(--gray); margin-top: 0.2rem; }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 1.25rem clamp(1rem, 5vw, 4rem);
+      display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; align-items: center;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; color: var(--gray); font-size: 0.85rem; font-weight: 500; }
+    .trust-icon { color: var(--orange); font-size: 1.1rem; }
+
+    /* SERVICES */
+    .section { padding: 5rem clamp(1rem, 5vw, 4rem); }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .section-sub { color: var(--gray); font-size: 1.05rem; max-width: 540px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .service-card {
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; padding: 2rem; transition: all 0.3s var(--ease); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover { border-color: rgba(255,107,53,0.3); transform: translateY(-3px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 52px; height: 52px; background: rgba(255,107,53,0.12); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
+    }
+    .service-icon svg { width: 26px; height: 26px; fill: var(--orange); }
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .service-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
+    .service-badge {
+      display: inline-block; margin-top: 1rem; font-size: 0.75rem; font-weight: 600;
+      color: var(--orange); background: rgba(255,107,53,0.12); padding: 0.2rem 0.6rem; border-radius: 4px;
+    }
+
+    /* PROCESS */
+    .process-bg { background: var(--navy-mid); }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin-top: 3rem; }
+    .process-step { padding: 2rem; position: relative; text-align: center; }
+    .process-step:not(:last-child)::after {
+      content: '→'; position: absolute; right: -0.5rem; top: 50%; transform: translateY(-50%);
+      font-size: 1.5rem; color: var(--orange); opacity: 0.5;
+    }
+    .process-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(255,107,53,0.12); border: 2px solid var(--orange);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+      font-size: 1.4rem; font-weight: 900; color: var(--orange);
+    }
+    .process-step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .process-step p { color: var(--gray); font-size: 0.875rem; }
+
+    /* REVIEWS */
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .review-card {
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; padding: 1.75rem;
+    }
+    .stars { color: #fbbf24; font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .review-text { color: var(--gray); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 10px; }
+    .reviewer-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), #ff9a6c);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.85rem; color: var(--navy);
+    }
+    .reviewer-name { font-weight: 600; font-size: 0.9rem; }
+    .reviewer-meta { font-size: 0.75rem; color: var(--gray); }
+
+    /* BOOKING FORM */
+    .booking-bg { background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%); }
+    .booking-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .booking-info h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .booking-info p { color: var(--gray); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+    .booking-promise { display: flex; flex-direction: column; gap: 1rem; }
+    .promise-item { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--gray); }
+    .promise-check { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,107,53,0.15); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--orange); font-size: 0.7rem; }
+    .form-card { background: var(--navy); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem; }
+    .form-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .form-card p { color: var(--gray); font-size: 0.85rem; margin-bottom: 2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+    .field label { font-size: 0.8rem; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; }
+    .field input, .field select, .field textarea {
+      background: var(--navy-mid); border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 0.75rem 1rem; color: var(--white); font-family: inherit; font-size: 0.9rem;
+      transition: border-color 0.2s; width: 100%; outline: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--orange); }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(138,154,181,0.6); }
+    .field select option { background: var(--navy-mid); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%; background: var(--orange); color: var(--navy); font-weight: 700; font-size: 1rem;
+      padding: 0.9rem; border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .form-success {
+      display: none; text-align: center; padding: 2rem;
+      background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 12px; margin-top: 1rem;
+    }
+    .form-success.show { display: block; }
+    .form-success h4 { color: #4ade80; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .form-success p { color: var(--gray); font-size: 0.875rem; }
+
+    /* FOOTER */
+    footer { background: #060e1a; border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem clamp(1rem, 5vw, 4rem) 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand p { color: var(--gray); font-size: 0.875rem; margin-top: 0.75rem; max-width: 280px; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: rgba(138,154,181,0.7); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact p { color: rgba(138,154,181,0.7); font-size: 0.875rem; margin-bottom: 0.5rem; }
+    .footer-contact strong { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { color: rgba(138,154,181,0.5); font-size: 0.8rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .booking-wrap { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .process-step:not(:last-child)::after { display: none; }
+    }
+    @media (max-width: 640px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </div>
+    <span class="nav-logo-text">Peak <span>Pro</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="service-areas.html">Areas</a></li>
+    <li><a href="emergency.html">Emergency</a></li>
+  </ul>
+  <a href="quote.html" class="nav-cta">Get a Quote</a>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="emergency-badge">
+      <span class="emergency-dot"></span>
+      Available 24/7 — Emergency Response
+    </div>
+    <h1>Brooklyn's Most<br>Trusted <span>HVAC &amp; Plumbing</span></h1>
+    <p>Licensed HVAC &amp; plumbing professionals serving Brooklyn &amp; NYC since 2014. Fast response, honest pricing, and work guaranteed. When something breaks, we fix it right.</p>
+    <div class="hero-btns">
+      <a href="quote.html" class="btn-primary">Get a Free Quote</a>
+      <a href="emergency.html" class="btn-outline">🚨 Emergency Line</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Years in Business</div>
+      </div>
+      <div>
+        <div class="stat-num">3,200+</div>
+        <div class="stat-label">Jobs Completed</div>
+      </div>
+      <div>
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">60min</div>
+        <div class="stat-label">Avg. Response Time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✓</span> NYC Licensed &amp; Insured</div>
+  <div class="trust-item"><span class="trust-icon">✓</span> Same-Day Service Available</div>
+  <div class="trust-item"><span class="trust-icon">✓</span> Upfront Flat-Rate Pricing</div>
+  <div class="trust-item"><span class="trust-icon">✓</span> 100% Satisfaction Guarantee</div>
+  <div class="trust-item"><span class="trust-icon">✓</span> No Hidden Fees</div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Complete Home Comfort Services</div>
+  <p class="section-sub">From emergency repairs to full system installs, our certified techs handle it all across Brooklyn and NYC.</p>
+  <div class="services-grid">
+    <a href="services/ac-repair.html" style="text-decoration:none;color:inherit">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 4c-.828 0-1.5.672-1.5 1.5S16.172 7 17 7s1.5-.672 1.5-1.5S17.828 4 17 4zm-9 7H6v2h2v-2zm-2-2V7h2v2H6zm0 4v2h2v-2H6zm4-4V7h2v2h-2zm0 2h2v2h-2v-2zm0 4v2h2v-2h-2zm4-6h2v2h-2V9zm0 4h2v2h-2v-2zm2-6h2v2h-2V7zm2 4v2h2v-2h-2zm0 4h2v2h-2v-2z"/></svg>
+      </div>
+      <h3>AC Repair &amp; Service</h3>
+      <p>Tune-ups, refrigerant recharge, compressor repair, and full central AC installs. All brands serviced.</p>
+      <span class="service-badge">From $149</span>
+    </div>
+    </a>
+    <a href="services/heating.html" style="text-decoration:none;color:inherit">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.96 2 6.5 4.46 6.5 7.5c0 2.28 1.34 4.25 3.29 5.17L9 21h6l-.79-8.33C16.16 11.75 17.5 9.78 17.5 7.5 17.5 4.46 15.04 2 12 2zm0 2c1.93 0 3.5 1.57 3.5 3.5S13.93 11 12 11s-3.5-1.57-3.5-3.5S10.07 4 12 4z"/></svg>
+      </div>
+      <h3>Heating Repair &amp; Service</h3>
+      <p>Furnaces, boilers, heat pumps, and radiators. Don't wake up cold — we service all heating systems.</p>
+      <span class="service-badge">From $149</span>
+    </div>
+    </a>
+    <a href="services/installation.html" style="text-decoration:none;color:inherit">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+      </div>
+      <h3>New System Installation</h3>
+      <p>Central AC, ductless mini-splits, heat pumps, gas furnaces. Carrier, Trane, Lennox, Mitsubishi.</p>
+      <span class="service-badge">From $3,500</span>
+    </div>
+    </a>
+    <a href="services/maintenance.html" style="text-decoration:none;color:inherit">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.72L13 18v4h6l-1.22-1.22C20.91 19.07 23 16.15 23 12c0-5.18-3.83-9.47-9-9.95H11v2.05h2zM11 2.05C5.83 2.52 2 6.81 2 12c0 4.15 2.09 7.07 5.22 8.78L6 22h6v-4l-2.28 1.65C7.81 18 6 15.21 6 12c0-4.08 3.05-7.44 7-7.93V2.05h-2z"/></svg>
+      </div>
+      <h3>Maintenance Plans</h3>
+      <p>Annual tune-ups, priority scheduling, and repair discounts. Keep your system running at peak efficiency.</p>
+      <span class="service-badge">From $149/yr</span>
+    </div>
+    </a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process-bg" id="process">
+  <div style="text-align:center">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">Fixed in 3 Simple Steps</div>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="process-num">1</div>
+      <h3>Call or Book Online</h3>
+      <p>Describe the problem. We'll confirm a time that works for you — often same day or next morning.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">2</div>
+      <h3>We Diagnose On-Site</h3>
+      <p>Our certified tech arrives on time, assesses the issue, and gives you a flat-rate quote before touching anything.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">3</div>
+      <h3>Problem Solved</h3>
+      <p>We fix it right the first time. You approve every step. No surprises on the invoice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <div class="section-label">What Customers Say</div>
+  <div class="section-title">Trusted by Brooklyn &amp; NYC</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Our AC died on a Sunday in July. They were at my door in under an hour and had it running again before dinner. Fair price, no BS. These are my guys for life."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">MR</div>
+        <div><div class="reviewer-name">Marcus R.</div><div class="reviewer-meta">Google Review · 3 weeks ago · Flatbush</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Found a burst pipe at 2am. Called Peak Pro and a tech was here by 3:15. Professional, fast, and didn't gouge me on the emergency rate. Highly recommend."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">JL</div>
+        <div><div class="reviewer-name">Jennifer L.</div><div class="reviewer-meta">Google Review · 1 month ago · Park Slope</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Used them for a full HVAC replacement. Got 3 quotes — Peak Pro was the most detailed and competitive. Install was clean, quick, and they explained everything."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">DT</div>
+        <div><div class="reviewer-name">David T.</div><div class="reviewer-meta">Google Review · 2 months ago · Bay Ridge</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2rem">
+    <a href="reviews.html" class="btn-outline">Read All 312 Reviews →</a>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="section booking-bg" id="booking">
+  <div class="booking-wrap">
+    <div class="booking-info">
+      <div class="section-label">Get In Touch</div>
+      <h2>Request a Free Quote or Service Call</h2>
+      <p>Fill out the form and we'll get back to you within 30 minutes during business hours — or immediately for emergencies. Serving Brooklyn &amp; NYC since 2014.</p>
+      <div class="booking-promise">
+        <div class="promise-item"><div class="promise-check">✓</div>Free diagnostic estimate</div>
+        <div class="promise-item"><div class="promise-check">✓</div>Flexible scheduling, including weekends</div>
+        <div class="promise-item"><div class="promise-check">✓</div>Upfront pricing — no surprises</div>
+        <div class="promise-item"><div class="promise-check">✓</div>All work guaranteed</div>
+      </div>
+      <div style="margin-top:2rem;padding:1.5rem;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);border-radius:12px">
+        <div style="font-weight:700;margin-bottom:0.5rem">📍 2847 Atlantic Ave, Brooklyn, NY 11207</div>
+        <div style="color:var(--gray);font-size:0.875rem">Mon–Fri 7am–8pm · Sat 8am–6pm · Emergency 24/7</div>
+        <div style="color:var(--gray);font-size:0.875rem;margin-top:0.25rem">Main: <strong style="color:var(--white)">(718) 555-0172</strong> · Emergency: <strong style="color:#fca5a5">(718) 555-0199</strong></div>
+      </div>
+    </div>
+    <div>
+      <div class="form-card">
+        <h3>Book a Service</h3>
+        <p>We'll confirm your appointment within 30 minutes.</p>
+        <form id="bookingForm">
+          <div class="form-row">
+            <div class="field"><label>First Name</label><input type="text" name="fname" placeholder="John" required></div>
+            <div class="field"><label>Last Name</label><input type="text" name="lname" placeholder="Smith" required></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="(718) 000-0000" required></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="john@email.com"></div>
+          </div>
+          <div class="field">
+            <label>Service Needed</label>
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option>AC Repair / Maintenance</option>
+              <option>Heating Repair / Maintenance</option>
+              <option>New System Installation</option>
+              <option>Plumbing Repair</option>
+              <option>Emergency Service</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Describe the Problem</label>
+            <textarea name="message" placeholder="What's going on? The more detail, the better we can prepare..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Request Service →</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <h4>✓ Request Received!</h4>
+          <p>We'll call you back within 30 minutes. For emergencies, call us directly at <strong>(718) 555-0172</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:0.5rem">
+        <div class="nav-logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div>
+        <span class="nav-logo-text">Peak <span>Pro</span> HVAC &amp; Plumbing</span>
+      </div>
+      <p>Licensed and insured HVAC &amp; plumbing contractors serving Brooklyn &amp; NYC since 2014. EPA 608 · NATE Certified · BBB A+.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="services/ac-repair.html">AC Repair</a></li>
+        <li><a href="services/heating.html">Heating</a></li>
+        <li><a href="services/installation.html">New Installation</a></li>
+        <li><a href="services/maintenance.html">Maintenance Plans</a></li>
+        <li><a href="emergency.html">Emergency Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>Contact</h4>
+      <p><strong>(718) 555-0172</strong></p>
+      <p>Emergency: <strong style="color:#fca5a5">(718) 555-0199</strong></p>
+      <p>service@peakprohvac.com</p>
+      <p style="margin-top:0.75rem">2847 Atlantic Ave<br>Brooklyn, NY 11207</p>
+      <p style="margin-top:0.5rem">Mon–Fri: 7am–8pm<br>Sat: 8am–6pm · Emergency: 24/7</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Peak Pro HVAC &amp; Plumbing. All rights reserved.</p>
+    <p>Licensed · Insured · Satisfaction Guaranteed</p>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.75rem;color:rgba(255,255,255,0.3);border-top:1px solid rgba(255,255,255,0.05)">
+    Designed &amp; built by <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(255,107,53,0.7);text-decoration:none">NYCTailblazers</a> · © 2026 All rights reserved
+  </div>
+</footer>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    const lead = {
+      business: 'peakprohvac',
+      name: `${fd.get('fname')} ${fd.get('lname')}`.trim(),
+      phone: fd.get('phone'),
+      email: fd.get('email'),
+      service: fd.get('service'),
+      message: fd.get('message'),
+      status: 'new'
+    };
+    try {
+      await fetch('https://api.nyctailblazers.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead)
+      });
+    } catch {}
+    this.style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  });
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#ff6b35;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>

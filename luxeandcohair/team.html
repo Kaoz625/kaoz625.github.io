@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team | Luxe & Co. Hair Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0d0d0d; --black-mid: #141414; --black-light: #1e1e1e;
+      --rose: #c88b8b; --rose-light: #dba8a8; --rose-deep: #a86f6f;
+      --champagne: #f5e6d0; --champagne-mid: #e8d4b8; --champagne-light: #fdf8f3;
+      --gray: #888; --gray-light: #aaa; --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; background: var(--black); color: var(--champagne); line-height: 1.6; }
+
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,13,13,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,139,139,0.1);
+      padding: 0 clamp(1rem, 5vw, 4rem); height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-left { display: flex; gap: 2rem; list-style: none; }
+    .nav-left a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-left a:hover { color: var(--champagne); }
+    .nav-brand { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; }
+    .nav-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; letter-spacing: 0.06em; color: var(--champagne); text-decoration: none; display: block; }
+    .nav-brand-name span { color: var(--rose); }
+    .nav-tagline { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); margin-top: -2px; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-right a { color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-right a:hover { color: var(--champagne); }
+    .nav-book { background: var(--rose); color: var(--black); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.4rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
+    .nav-book:hover { background: var(--rose-light); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--champagne); }
+
+    .page-hero {
+      padding: 120px clamp(1rem, 5vw, 4rem) 4rem;
+      background: var(--black-mid);
+      border-bottom: 1px solid rgba(200,139,139,0.1);
+      text-align: center;
+    }
+    .s-eyebrow { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 1rem; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; color: var(--champagne); line-height: 1.05; margin-bottom: 1.25rem; }
+    .page-title em { font-style: italic; color: var(--rose-light); }
+    .page-desc { font-size: 0.95rem; color: var(--gray-light); line-height: 1.85; font-weight: 300; max-width: 560px; margin: 0 auto; }
+
+    .section { padding: 5rem clamp(1rem, 5vw, 4rem); }
+    .bg-mid { background: var(--black-mid); }
+
+    /* STYLIST PROFILES */
+    .team-grid { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 5rem; }
+    .stylist-profile { display: grid; grid-template-columns: 340px 1fr; gap: 4rem; align-items: start; }
+    .stylist-profile:nth-child(even) { grid-template-columns: 1fr 340px; }
+    .stylist-profile:nth-child(even) .profile-visual { order: 2; }
+    .stylist-profile:nth-child(even) .profile-info { order: 1; }
+
+    .profile-visual { position: relative; }
+    .profile-avatar-large {
+      width: 100%; aspect-ratio: 3/4; border-radius: 4px;
+      display: flex; align-items: flex-end; justify-content: flex-start;
+      padding: 1.5rem; overflow: hidden; position: relative;
+    }
+    .pa-bg { position: absolute; inset: 0; }
+    .pa-initials {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%);
+      font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 600;
+      color: rgba(245,230,208,0.15); letter-spacing: 0.05em;
+    }
+    .pa-bg-1 { background: linear-gradient(180deg, #3a2020 0%, #1a0f0f 100%); }
+    .pa-bg-2 { background: linear-gradient(180deg, #2a1e28 0%, #14100f 100%); }
+    .pa-bg-3 { background: linear-gradient(180deg, #1e2838 0%, #0f1214 100%); }
+
+    .profile-badge {
+      position: absolute; bottom: 1.5rem; left: 1.5rem;
+      background: rgba(13,13,13,0.85); backdrop-filter: blur(8px);
+      border: 1px solid rgba(200,139,139,0.2); border-radius: 3px;
+      padding: 0.75rem 1rem;
+    }
+    .badge-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--champagne); }
+    .badge-title { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-top: 2px; }
+
+    .profile-info { padding-top: 1rem; }
+    .profile-info .s-eyebrow { margin-bottom: 0.75rem; }
+    .profile-name { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; color: var(--champagne); margin-bottom: 0.4rem; line-height: 1; }
+    .profile-title { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose); margin-bottom: 2rem; }
+    .profile-bio { font-size: 0.95rem; color: var(--gray-light); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+    .profile-specialties { margin-bottom: 2.5rem; }
+    .profile-specialties h4 { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(136,136,136,0.6); margin-bottom: 1rem; }
+    .spec-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .spec-tag {
+      font-size: 0.75rem; letter-spacing: 0.06em; color: var(--champagne-mid);
+      background: rgba(200,139,139,0.1); border: 1px solid rgba(200,139,139,0.2);
+      padding: 0.35rem 0.85rem; border-radius: 2px;
+    }
+    .btn-rose {
+      background: var(--rose); color: var(--black); font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.5rem;
+      border-radius: 2px; text-decoration: none; transition: all 0.2s; display: inline-block;
+    }
+    .btn-rose:hover { background: var(--rose-light); transform: translateY(-1px); }
+    .btn-outline-rose {
+      background: transparent; color: var(--rose); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.5rem;
+      border-radius: 2px; text-decoration: none; border: 1px solid var(--rose); transition: all 0.2s; display: inline-block;
+    }
+    .btn-outline-rose:hover { background: rgba(200,139,139,0.1); }
+    .profile-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .experience-stat { display: inline-flex; align-items: baseline; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .exp-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--rose-light); }
+    .exp-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+
+    /* STUDIO INTRO */
+    .studio-intro {
+      max-width: 800px; margin: 0 auto 4rem; text-align: center;
+    }
+    .studio-intro p { font-size: 1rem; color: var(--gray-light); line-height: 1.9; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: #080808; border-top: 1px solid rgba(200,139,139,0.1); padding: 3.5rem clamp(1rem, 5vw, 4rem) 2rem; }
+    .footer-brand-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 2rem; }
+    .footer-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--champagne); letter-spacing: 0.06em; }
+    .footer-logo-name span { color: var(--rose); }
+    .footer-socials { display: flex; gap: 1.5rem; }
+    .footer-socials a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: var(--rose-light); }
+    .footer-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: 2.5rem; }
+    .footer-col-h { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(136,136,136,0.6); margin-bottom: 1rem; }
+    .footer-col-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col-links a { color: rgba(200,180,160,0.5); font-size: 0.85rem; text-decoration: none; font-weight: 300; transition: color 0.2s; }
+    .footer-col-links a:hover { color: var(--champagne); }
+    .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: rgba(136,136,136,0.4); border-top: 1px solid rgba(255,255,255,0.04); padding-top: 1.5rem; }
+
+    @media (max-width: 860px) {
+      .stylist-profile, .stylist-profile:nth-child(even) { grid-template-columns: 1fr; }
+      .stylist-profile:nth-child(even) .profile-visual, .stylist-profile:nth-child(even) .profile-info { order: unset; }
+      .profile-avatar-large { aspect-ratio: 4/3; }
+    }
+    @media (max-width: 960px) { .nav-left, .nav-right li:not(:last-child) { display: none; } }
+    @media (max-width: 640px) { .nav-left, .nav-right { display: none; } .nav-hamburger { display: flex; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <ul class="nav-left">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+  <div class="nav-brand">
+    <a class="nav-brand-name" href="index.html">Luxe <span>&amp;</span> Co.</a>
+    <div class="nav-tagline">Hair Studio · Williamsburg</div>
+  </div>
+  <ul class="nav-right">
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="book.html" class="nav-book">Book Now</a></li>
+  </ul>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="s-eyebrow">Meet the Artists</div>
+  <h1 class="page-title">Your <em>Stylists</em></h1>
+  <p class="page-desc">A curated team of NYC's most talented hair artists. Each one brings a distinct point of view and years of mastery to every chair. Find your match.</p>
+</div>
+
+<section class="section">
+  <div class="team-grid">
+
+    <!-- SOFIA REYES -->
+    <div class="stylist-profile">
+      <div class="profile-visual">
+        <div class="profile-avatar-large">
+          <div class="pa-bg pa-bg-1"></div>
+          <div class="pa-initials">SR</div>
+          <div class="profile-badge">
+            <div class="badge-name">Sofia Reyes</div>
+            <div class="badge-title">Lead Colorist &amp; Owner</div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-info">
+        <div class="s-eyebrow">Lead Colorist &amp; Owner</div>
+        <div class="profile-name">Sofia Reyes</div>
+        <div class="profile-title">Lead Colorist &amp; Owner · 12 Years Experience</div>
+        <div class="experience-stat"><span class="exp-num">12</span><span class="exp-label">Years in the industry</span></div>
+        <p class="profile-bio">Sofia founded Luxe &amp; Co. in 2018 with a single conviction: that Williamsburg deserved a color studio built on artistry, not volume. Trained at the Sassoon Academy in New York and further refined in London, her approach to color is architectural — every decision is deliberate, every tone is earned. She specializes in balayage, color correction, and the kind of lived-in blondes that look effortless but take genuine expertise to execute. New clients are her favorite: she loves a challenge, and she especially loves the moment someone sees themselves differently for the first time.</p>
+        <div class="profile-specialties">
+          <h4>Specialties</h4>
+          <div class="spec-list">
+            <span class="spec-tag">Balayage</span>
+            <span class="spec-tag">Color Correction</span>
+            <span class="spec-tag">Lived-In Blondes</span>
+            <span class="spec-tag">Highlights &amp; Lowlights</span>
+            <span class="spec-tag">Bridal Color</span>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <a href="book.html" class="btn-rose">Book with Sofia</a>
+          <a href="contact.html" class="btn-outline-rose">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DANIELA PARK -->
+    <div class="stylist-profile">
+      <div class="profile-visual">
+        <div class="profile-avatar-large">
+          <div class="pa-bg pa-bg-2"></div>
+          <div class="pa-initials">DP</div>
+          <div class="profile-badge">
+            <div class="badge-name">Daniela Park</div>
+            <div class="badge-title">Extension Specialist &amp; Senior Stylist</div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-info">
+        <div class="s-eyebrow">Extension Specialist &amp; Senior Stylist</div>
+        <div class="profile-name">Daniela Park</div>
+        <div class="profile-title">Extension Specialist &amp; Senior Stylist · 8 Years Experience</div>
+        <div class="experience-stat"><span class="exp-num">8</span><span class="exp-label">Years in the industry</span></div>
+        <p class="profile-bio">Daniela has built her reputation on one promise: extensions that no one can detect. She is certified in both hand-tied and tape-in methods, and her eye for color-matching is nothing short of extraordinary. Beyond extensions, she brings the same precision to bridal styling — she has been the hands behind over 80 weddings and counting. Her approach is methodical and thorough: she wants to know your life, your routine, and your hair goals before she picks up a single weft. If you've been hesitant about extensions, Daniela is who will change your mind.</p>
+        <div class="profile-specialties">
+          <h4>Specialties</h4>
+          <div class="spec-list">
+            <span class="spec-tag">Hand-Tied Extensions</span>
+            <span class="spec-tag">Tape-In Extensions</span>
+            <span class="spec-tag">Bridal Hair</span>
+            <span class="spec-tag">Precision Cuts</span>
+            <span class="spec-tag">Bridal Updo</span>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <a href="book.html" class="btn-rose">Book with Daniela</a>
+          <a href="contact.html" class="btn-outline-rose">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- JORDAN VASQUEZ -->
+    <div class="stylist-profile">
+      <div class="profile-visual">
+        <div class="profile-avatar-large">
+          <div class="pa-bg pa-bg-3"></div>
+          <div class="pa-initials">JV</div>
+          <div class="profile-badge">
+            <div class="badge-name">Jordan Vasquez</div>
+            <div class="badge-title">Color Technician &amp; Junior Stylist</div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-info">
+        <div class="s-eyebrow">Color Technician &amp; Junior Stylist</div>
+        <div class="profile-name">Jordan Vasquez</div>
+        <div class="profile-title">Color Technician &amp; Junior Stylist · 4 Years Experience</div>
+        <div class="experience-stat"><span class="exp-num">4</span><span class="exp-label">Years in the industry</span></div>
+        <p class="profile-bio">Jordan came up under Sofia's mentorship and has become the studio's resident authority on vivid, unconventional color. If you've ever wanted to try something bold but didn't know who to trust with it — Jordan is your person. They have an instinct for which vivid tones will genuinely flatter a face, and they execute color-to-color transitions with a technical confidence that belies their years. Beyond vivid work, Jordan is the studio's go-to for men's cuts and a wide range of treatment services. Energy is warm, vibes are immaculate, and the chair is always comfortable.</p>
+        <div class="profile-specialties">
+          <h4>Specialties</h4>
+          <div class="spec-list">
+            <span class="spec-tag">Vivid Color</span>
+            <span class="spec-tag">Men's Cuts</span>
+            <span class="spec-tag">Color Treatments</span>
+            <span class="spec-tag">Glosses &amp; Toners</span>
+            <span class="spec-tag">Scalp Treatments</span>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <a href="book.html" class="btn-rose">Book with Jordan</a>
+          <a href="contact.html" class="btn-outline-rose">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand-row">
+    <div class="footer-logo-name">Luxe <span>&amp;</span> Co. Hair Studio</div>
+    <div class="footer-socials">
+      <a href="https://instagram.com/luxeandcosalon" target="_blank">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Google</a>
+    </div>
+  </div>
+  <div class="footer-cols">
+    <div>
+      <div class="footer-col-h">Services</div>
+      <ul class="footer-col-links">
+        <li><a href="services/color.html">Color</a></li>
+        <li><a href="services/cuts.html">Cuts &amp; Style</a></li>
+        <li><a href="services/extensions.html">Extensions</a></li>
+        <li><a href="services/treatments.html">Treatments</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Studio</div>
+      <ul class="footer-col-links">
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="book.html">Book Now</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="tel:+17185550234">(718) 555-0234</a></li>
+        <li><a href="mailto:hello@luxeandcohair.com">hello@luxeandcohair.com</a></li>
+        <li><a href="contact.html">186 Bedford Ave, Brooklyn</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Hours</div>
+      <ul class="footer-col-links">
+        <li><a>Tue–Fri: 10am–7pm</a></li>
+        <li><a>Saturday: 9am–6pm</a></li>
+        <li><a>Sunday: 10am–4pm</a></li>
+        <li><a>Monday: Closed</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Luxe &amp; Co. Hair Studio. All rights reserved.</span>
+    <span>By appointment · Walk-ins welcome</span>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.7rem;letter-spacing:0.08em;color:rgba(200,139,139,0.4);border-top:1px solid rgba(200,139,139,0.08)">
+    DESIGNED &amp; BUILT BY <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(200,139,139,0.6);text-decoration:none">NYCTAILBLAZERS</a> · © 2026
+  </div>
+</footer>
+
+<script>
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#c88b8b;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs & Packages | Clarity Coaching & Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f8f4ee;
+      --cream-mid: #f0e9df;
+      --sage: #4a7c59;
+      --sage-light: #6a9c79;
+      --sage-deep: #3a6247;
+      --gold: #c9a84c;
+      --gold-light: #e0c46a;
+      --charcoal: #2c3e35;
+      --gray: #7a8c82;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; }
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(248,244,238,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(74,124,89,0.12);
+      padding: 0 clamp(1rem, 5vw, 5rem);
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--charcoal); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--sage); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+    .nav-cta { background: var(--sage); color: white; font-weight: 600; font-size: 0.875rem; padding: 0.5rem 1.4rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--sage-deep); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); }
+    .page-hero { padding: 8rem clamp(1rem, 5vw, 5rem) 4rem; text-align: center; background: var(--cream); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; opacity: 0.3; background-image: radial-gradient(circle, var(--sage) 1px, transparent 1px); background-size: 28px 28px; }
+    .page-hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .eyebrow::before, .eyebrow::after { content: ''; flex: 0 0 24px; height: 1px; background: var(--gold); }
+    h1.serif { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1rem; line-height: 1.15; }
+    h2.serif { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 700; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1rem; }
+    .sub { color: var(--gray); font-size: 1rem; max-width: 520px; margin: 0 auto 3rem; line-height: 1.75; }
+    .section { padding: 5.5rem clamp(1rem, 5vw, 5rem); }
+    .section-center { text-align: center; }
+    .bg-white-section { background: white; }
+    .intro-banner { background: var(--charcoal); color: white; text-align: center; padding: 1.5rem clamp(1rem, 5vw, 5rem); font-size: 0.95rem; }
+    .intro-banner em { color: var(--gold-light); font-style: italic; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+    .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+    .tier-card { background: white; border-radius: 24px; padding: 2.5rem; border: 1.5px solid rgba(74,124,89,0.15); transition: all 0.3s var(--ease); position: relative; overflow: hidden; }
+    .tier-card:hover { transform: translateY(-4px); box-shadow: 0 20px 56px rgba(74,124,89,0.1); border-color: var(--sage); }
+    .tier-card.featured { background: var(--sage); border-color: var(--sage); }
+    .tier-icon { font-size: 2.5rem; margin-bottom: 1.25rem; }
+    .tier-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--charcoal); }
+    .tier-card.featured h3 { color: white; }
+    .tier-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.75; margin-bottom: 1.5rem; }
+    .tier-card.featured p { color: rgba(255,255,255,0.75); }
+    .tier-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+    .tier-list li { font-size: 0.875rem; color: var(--charcoal); display: flex; align-items: flex-start; gap: 8px; }
+    .tier-card.featured .tier-list li { color: rgba(255,255,255,0.85); }
+    .tier-list li::before { content: '→'; color: var(--sage); font-weight: 700; flex-shrink: 0; }
+    .tier-card.featured .tier-list li::before { color: var(--gold-light); }
+    .tier-price { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--sage); margin-bottom: 1.5rem; }
+    .tier-card.featured .tier-price { color: var(--gold-light); }
+    .tier-price span { font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 400; color: var(--gray); }
+    .tier-card.featured .tier-price span { color: rgba(255,255,255,0.6); }
+    .btn-sage { display: inline-block; background: var(--sage); color: white; font-weight: 600; font-size: 0.95rem; padding: 0.875rem 2rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+    .btn-sage:hover { background: var(--sage-deep); transform: translateY(-1px); }
+    .btn-outline { display: inline-block; background: transparent; color: var(--sage); font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.75rem; border-radius: 100px; text-decoration: none; border: 1.5px solid var(--sage); transition: all 0.2s; }
+    .btn-outline:hover { background: var(--sage); color: white; }
+    .tier-card.featured .btn-outline { border-color: white; color: white; }
+    .tier-card.featured .btn-outline:hover { background: white; color: var(--sage); }
+    .faq-teaser { background: var(--cream-mid); border-radius: 20px; padding: 3rem; text-align: center; max-width: 700px; margin: 0 auto; }
+    .faq-teaser h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.75rem; }
+    .faq-teaser p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.75; }
+    footer { background: #1a2820; border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem clamp(1rem, 5vw, 5rem) 2rem; color: rgba(255,255,255,0.6); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.75rem; }
+    .footer-brand p { font-size: 0.875rem; max-width: 280px; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; }
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .nav-links, .nav-cta { display: none; } .nav-hamburger { display: flex; } .footer-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Clarity <span>Coaching</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html" class="active">Programs</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a href="apply.html" class="nav-cta">Apply to Work Together</a>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Programs & Packages</div>
+    <h1 class="serif">Find the Right Path<br>for Where You Are Now</h1>
+    <p class="sub">Every client starts with a free discovery call. No pressure, no pitch — just clarity about whether we're the right fit and which program serves your goals best.</p>
+  </div>
+</div>
+
+<div class="intro-banner">
+  <em>"The most important investment you'll ever make is in understanding yourself clearly."</em>
+  &nbsp;— Dr. Sarah Chen
+</div>
+
+<section class="section">
+  <div class="section-center" style="margin-bottom: 3rem;">
+    <div class="eyebrow">Three Paths Forward</div>
+    <h2 class="serif">Choose Your Engagement</h2>
+    <p class="sub">Whether you need focused momentum, deep transformation, or community support — there's a program designed for exactly where you are.</p>
+  </div>
+
+  <div class="tier-grid">
+    <!-- Individual -->
+    <div class="tier-card">
+      <div class="tier-icon">🎯</div>
+      <h3>Individual Coaching</h3>
+      <p>One-on-one sessions tailored entirely to your goals, challenges, and pace. This is where the deepest and most lasting change happens.</p>
+      <div class="tier-price">From $275 <span>/ session</span></div>
+      <ul class="tier-list">
+        <li>Single sessions or monthly packages</li>
+        <li>50-minute video or in-person sessions</li>
+        <li>Homework and reflection exercises between calls</li>
+        <li>Voxer access between sessions</li>
+        <li>Personalized frameworks and tools</li>
+      </ul>
+      <a href="services/1-on-1.html" class="btn-outline">Learn More</a>
+    </div>
+
+    <!-- Intensive -->
+    <div class="tier-card featured">
+      <div class="tier-icon" style="color:var(--gold-light)">⚡</div>
+      <h3>Intensives & VIP Day</h3>
+      <p>Accelerated formats for those who want results fast. The Clarity Intensive condenses 3 months of work into 6 focused sessions. The VIP Day delivers a breakthrough in a single day.</p>
+      <div class="tier-price">From $1,500 <span>/ program</span></div>
+      <ul class="tier-list">
+        <li>Clarity Intensive: 6 sessions at $1,500</li>
+        <li>VIP Day: 4-hour deep dive at $1,750</li>
+        <li>Custom action plan delivered within 48 hrs</li>
+        <li>2-week follow-up call included</li>
+        <li>Limited to 2 VIP Days per month</li>
+      </ul>
+      <a href="services/vip-day.html" class="btn-outline">Learn More</a>
+    </div>
+
+    <!-- Group & Corporate -->
+    <div class="tier-card">
+      <div class="tier-icon">🌿</div>
+      <h3>Group & Corporate</h3>
+      <p>The Clarity Collective brings together a small group of high-achievers for shared accountability and growth. Corporate packages bring the work inside your organization.</p>
+      <div class="tier-price">From $497 <span>/ month</span></div>
+      <ul class="tier-list">
+        <li>Clarity Collective: $497/mo, max 8 participants</li>
+        <li>2 group calls/month + Slack community</li>
+        <li>Corporate team coaching from $3,500/day</li>
+        <li>Keynotes and workshops available</li>
+        <li>Customized to your organization's goals</li>
+      </ul>
+      <a href="services/group-program.html" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing table -->
+<section class="section bg-white-section">
+  <div class="section-center">
+    <div class="eyebrow">All Programs at a Glance</div>
+    <h2 class="serif">Transparent Pricing</h2>
+    <p class="sub">No hidden fees, no upsells mid-program. What you see is what you invest.</p>
+  </div>
+  <div style="max-width: 750px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:1rem 1.5rem;background:var(--cream);border-radius:12px;align-items:center;">
+      <div><strong>Free Discovery Call</strong><br><span style="font-size:0.85rem;color:var(--gray)">30-minute conversation — no obligation</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--sage);text-align:right">Free</div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:1rem 1.5rem;background:var(--cream);border-radius:12px;align-items:center;">
+      <div><strong>Single 1:1 Session</strong><br><span style="font-size:0.85rem;color:var(--gray)">50-minute coaching session</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--sage);text-align:right">$275</div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:1rem 1.5rem;background:var(--cream);border-radius:12px;align-items:center;">
+      <div><strong>Monthly Coaching (4 sessions)</strong><br><span style="font-size:0.85rem;color:var(--gray)">4 sessions/month with Voxer access</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--sage);text-align:right">$950<span style="font-size:0.85rem;font-family:'DM Sans',sans-serif;color:var(--gray)">/mo</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:1rem 1.5rem;background:var(--cream);border-radius:12px;align-items:center;">
+      <div><strong>Clarity Intensive (6 sessions)</strong><br><span style="font-size:0.85rem;color:var(--gray)">Condensed high-impact program</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--sage);text-align:right">$1,500</div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:1rem 1.5rem;background:var(--sage);border-radius:12px;align-items:center;">
+      <div><strong style="color:white">VIP Day (4-hour deep dive)</strong><br><span style="font-size:0.85rem;color:rgba(255,255,255,0.65)">Custom plan + follow-up call</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold-light);text-align:right">$1,750</div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:1rem 1.5rem;background:var(--cream);border-radius:12px;align-items:center;">
+      <div><strong>Clarity Collective (group)</strong><br><span style="font-size:0.85rem;color:var(--gray)">Max 8 participants, 2 calls/month</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--sage);text-align:right">$497<span style="font-size:0.85rem;font-family:'DM Sans',sans-serif;color:var(--gray)">/mo</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:1rem 1.5rem;background:var(--cream);border-radius:12px;align-items:center;">
+      <div><strong>6-Month Transformation Program</strong><br><span style="font-size:0.85rem;color:var(--gray)">24 sessions + full support package</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--sage);text-align:right">$4,800</div>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:1rem 1.5rem;background:var(--cream);border-radius:12px;align-items:center;">
+      <div><strong>Corporate & Team Coaching</strong><br><span style="font-size:0.85rem;color:var(--gray)">Custom scope, minimum 1 day</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--sage);text-align:right">From $3,500</div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem;">
+    <a href="apply.html" class="btn-sage">Apply for a Free Discovery Call</a>
+  </div>
+</section>
+
+<!-- FAQ teaser -->
+<section class="section">
+  <div class="faq-teaser">
+    <h3>Have Questions?</h3>
+    <p>From "What's the difference between coaching and therapy?" to "How long until I see results?" — the FAQ page answers the questions every new client asks before their first call.</p>
+    <a href="faq.html" class="btn-outline">Read the FAQ</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Clarity Coaching &amp; Consulting</div>
+      <p>ICF-certified coaching for executives, founders, and ambitious professionals ready to stop spinning and start leading.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="services.html">Programs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="apply.html">Apply</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@claritycoachingpro.com">hello@claritycoachingpro.com</a></li>
+        <li><a href="tel:2125550189">(212) 555-0189</a></li>
+        <li><a href="https://linkedin.com/in/sarahchencoach" target="_blank">LinkedIn</a></li>
+        <li><a href="https://instagram.com/claritycoachingpro" target="_blank">@claritycoachingpro</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Clarity Coaching &amp; Consulting. All rights reserved.</p>
+    <p>ICF Certified · Confidential · 100% Personalized</p>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.75rem;color:rgba(74,124,89,0.5);border-top:1px solid rgba(74,124,89,0.1)">
+    Designed &amp; built by <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(74,124,89,0.7);text-decoration:none">NYCTailblazers</a> · © 2026 All rights reserved
+  </div>
+</footer>
+<script>
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#4a7c59;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>

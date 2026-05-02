@@ -1,0 +1,9 @@
+# humans
+
+/* TEAM */
+Designer & Developer: Mark Anthony / NYCTailblazers
+Contact: nyctailblazers@nyctailblazers.com
+
+/* SITE */
+Built: April 2026
+Language: English

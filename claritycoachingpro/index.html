@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- © 2026 NYCTailblazers Digital Agency. All rights reserved.
+       Designed & developed by NYCTailblazers | nyctailblazers.com -->
+  <meta name="author" content="NYCTailblazers Digital Agency">
+  <meta name="designer" content="NYCTailblazers | nyctailblazers.com">
+  <meta name="copyright" content="© 2026 NYCTailblazers Digital Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clarity Coaching & Consulting | Transform Your Path</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f8f4ee;
+      --cream-mid: #f0e9df;
+      --sage: #4a7c59;
+      --sage-light: #6a9c79;
+      --sage-deep: #3a6247;
+      --gold: #c9a84c;
+      --gold-light: #e0c46a;
+      --charcoal: #2c3e35;
+      --gray: #7a8c82;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(248,244,238,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(74,124,89,0.12);
+      padding: 0 clamp(1rem, 5vw, 5rem);
+      display: flex; align-items: center; justify-content: space-between; height: 68px;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--charcoal); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--sage); font-style: italic; }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; list-style: none; }
+    .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--sage); color: white; font-weight: 600; font-size: 0.875rem;
+      padding: 0.5rem 1.4rem; border-radius: 100px; text-decoration: none; transition: all 0.2s;
+    }
+    .nav-cta:hover { background: var(--sage-deep); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 7rem clamp(1rem, 5vw, 5rem) 5rem;
+      position: relative; overflow: hidden;
+      background: var(--cream);
+    }
+    .hero-dots {
+      position: absolute; inset: 0; opacity: 0.35;
+      background-image: radial-gradient(circle, var(--sage) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .hero-glow {
+      position: absolute; top: 10%; right: 5%; width: 45vw; height: 45vw; max-width: 600px;
+      background: radial-gradient(ellipse, rgba(74,124,89,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 1.5rem;
+    }
+    .eyebrow-line { width: 32px; height: 1.5px; background: var(--gold); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 4.5vw, 4rem);
+      font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--sage); font-style: italic; }
+    .hero p { font-size: 1.05rem; color: var(--gray); max-width: 460px; line-height: 1.8; margin-bottom: 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-sage {
+      background: var(--sage); color: white; font-weight: 600; font-size: 0.95rem;
+      padding: 0.875rem 2rem; border-radius: 100px; text-decoration: none; transition: all 0.2s;
+      border: none; cursor: pointer;
+    }
+    .btn-sage:hover { background: var(--sage-deep); transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: var(--charcoal); font-weight: 600; font-size: 0.95rem;
+      padding: 0.875rem 2rem; border-radius: 100px; text-decoration: none;
+      border: 1.5px solid rgba(44,62,53,0.25); transition: all 0.2s; cursor: pointer;
+    }
+    .btn-ghost:hover { border-color: var(--sage); color: var(--sage); transform: translateY(-1px); }
+    .hero-social-proof { display: flex; align-items: center; gap: 12px; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(74,124,89,0.15); }
+    .proof-avatars { display: flex; }
+    .proof-avatars span {
+      width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--cream);
+      background: linear-gradient(135deg, var(--sage-light), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; color: white; margin-left: -8px;
+    }
+    .proof-avatars span:first-child { margin-left: 0; }
+    .proof-text { font-size: 0.85rem; color: var(--gray); }
+    .proof-text strong { color: var(--charcoal); }
+
+    /* HERO CARD (right side) */
+    .hero-card {
+      background: white; border-radius: 24px; padding: 2.5rem;
+      box-shadow: 0 20px 60px rgba(44,62,53,0.1), 0 4px 16px rgba(44,62,53,0.06);
+      position: relative;
+    }
+    .hero-card::before {
+      content: '"'; position: absolute; top: -0.5rem; left: 1.5rem;
+      font-family: 'Playfair Display', serif; font-size: 6rem; color: var(--sage); opacity: 0.15; line-height: 1;
+    }
+    .card-quote { font-family: 'Playfair Display', serif; font-size: 1.1rem; line-height: 1.7; color: var(--charcoal); margin-bottom: 1.5rem; font-style: italic; }
+    .card-person { display: flex; align-items: center; gap: 12px; margin-bottom: 2rem; }
+    .card-avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage), var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1.1rem; color: white; font-weight: 700;
+    }
+    .card-name { font-weight: 700; font-size: 0.9rem; }
+    .card-role { font-size: 0.8rem; color: var(--gray); }
+    .card-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .card-stat { background: var(--cream); border-radius: 12px; padding: 1rem; text-align: center; }
+    .card-stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--sage); line-height: 1; }
+    .card-stat-label { font-size: 0.75rem; color: var(--gray); margin-top: 0.25rem; }
+
+    /* SERVICES */
+    .section { padding: 5.5rem clamp(1rem, 5vw, 5rem); }
+    .section-center { text-align: center; }
+    .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .eyebrow::before, .eyebrow::after { content: ''; flex: 0 0 24px; height: 1px; background: var(--gold); }
+    h2.serif { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 700; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1rem; }
+    .sub { color: var(--gray); font-size: 1rem; max-width: 520px; margin: 0 auto 3rem; line-height: 1.75; }
+    .bg-white-section { background: white; }
+    .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .package-card {
+      border: 1.5px solid rgba(74,124,89,0.15); border-radius: 20px; padding: 2.5rem;
+      transition: all 0.3s var(--ease); position: relative; background: white;
+    }
+    .package-card.featured {
+      background: var(--sage); color: white; border-color: var(--sage);
+    }
+    .package-card:hover:not(.featured) { border-color: var(--sage); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(74,124,89,0.1); }
+    .package-card.featured:hover { transform: translateY(-4px); }
+    .package-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 100px;
+      background: rgba(201,168,76,0.15); color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .package-card.featured .package-tag { background: rgba(255,255,255,0.2); color: white; }
+    .package-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .package-card.featured h3 { color: white; }
+    .package-price { font-size: 2.2rem; font-weight: 700; margin: 1rem 0; color: var(--sage); }
+    .package-card.featured .package-price { color: var(--gold-light); }
+    .package-price span { font-size: 1rem; font-weight: 400; color: var(--gray); }
+    .package-card.featured .package-price span { color: rgba(255,255,255,0.6); }
+    .package-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
+    .package-card.featured .package-desc { color: rgba(255,255,255,0.75); }
+    .package-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+    .package-features li { font-size: 0.875rem; color: var(--charcoal); display: flex; align-items: center; gap: 8px; }
+    .package-card.featured .package-features li { color: rgba(255,255,255,0.85); }
+    .package-features li::before { content: '✓'; color: var(--sage); font-weight: 700; flex-shrink: 0; }
+    .package-card.featured .package-features li::before { color: var(--gold-light); }
+    .pkg-btn {
+      display: block; text-align: center; font-weight: 600; font-size: 0.9rem;
+      padding: 0.75rem 1.5rem; border-radius: 100px; text-decoration: none; transition: all 0.2s;
+      border: 1.5px solid var(--sage); color: var(--sage);
+    }
+    .pkg-btn:hover { background: var(--sage); color: white; }
+    .package-card.featured .pkg-btn { background: white; color: var(--sage); border-color: white; }
+    .package-card.featured .pkg-btn:hover { background: var(--cream); }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+    .about-visual {
+      position: relative; aspect-ratio: 4/5;
+      background: linear-gradient(145deg, var(--sage-light) 0%, var(--sage-deep) 100%);
+      border-radius: 24px; overflow: hidden;
+    }
+    .about-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .about-visual-inner { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; }
+    .about-badge {
+      background: white; border-radius: 12px; padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 12px; width: fit-content;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .badge-icon { font-size: 1.5rem; }
+    .badge-text strong { display: block; font-size: 0.95rem; color: var(--charcoal); }
+    .badge-text span { font-size: 0.75rem; color: var(--gray); }
+    .about-text { padding: 1rem 0; }
+    .about-text .eyebrow { justify-content: flex-start; }
+    .about-text .eyebrow::after { display: none; }
+    .about-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: var(--charcoal); margin-bottom: 1.25rem; }
+    .about-text p { color: var(--gray); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
+    .credentials { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+    .credential { background: rgba(74,124,89,0.08); color: var(--sage); font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.9rem; border-radius: 100px; }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+    .testimonial-card { background: white; border-radius: 20px; padding: 2rem; border: 1px solid rgba(74,124,89,0.1); }
+    .t-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
+    .t-text { font-family: 'Playfair Display', serif; font-size: 1rem; line-height: 1.75; color: var(--charcoal); margin-bottom: 1.5rem; font-style: italic; }
+    .t-person { display: flex; align-items: center; gap: 10px; }
+    .t-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--cream-mid), var(--sage-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; color: var(--sage);
+    }
+    .t-name { font-weight: 600; font-size: 0.875rem; color: var(--charcoal); }
+    .t-role { font-size: 0.775rem; color: var(--gray); }
+
+    /* BOOKING FORM */
+    .booking-section { background: var(--charcoal); color: white; }
+    .booking-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; max-width: 1100px; margin: 0 auto; }
+    .bi-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+    .bi-left h2 em { color: var(--gold-light); font-style: italic; }
+    .bi-left p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
+    .process-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .pl-item { display: flex; align-items: flex-start; gap: 16px; }
+    .pl-num {
+      width: 36px; height: 36px; border-radius: 50%; background: rgba(201,168,76,0.2);
+      border: 1.5px solid var(--gold); color: var(--gold-light); font-weight: 700; font-size: 0.875rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .pl-text strong { display: block; font-size: 0.9rem; color: white; margin-bottom: 0.2rem; }
+    .pl-text span { font-size: 0.825rem; color: rgba(255,255,255,0.55); }
+    .form-card-light {
+      background: white; border-radius: 24px; padding: 2.5rem;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+    }
+    .form-card-light h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--charcoal); margin-bottom: 0.5rem; }
+    .form-card-light .fc-sub { color: var(--gray); font-size: 0.875rem; margin-bottom: 2rem; }
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+    .field label { font-size: 0.75rem; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; }
+    .field input, .field select, .field textarea {
+      background: var(--cream); border: 1.5px solid rgba(74,124,89,0.15);
+      border-radius: 10px; padding: 0.75rem 1rem; color: var(--charcoal); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+      transition: border-color 0.2s; width: 100%; outline: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--sage); background: white; }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit-sage {
+      width: 100%; background: var(--sage); color: white; font-weight: 600; font-size: 1rem;
+      padding: 0.9rem; border-radius: 100px; border: none; cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .form-submit-sage:hover { background: var(--sage-deep); transform: translateY(-1px); }
+    .form-success-light {
+      display: none; text-align: center; padding: 2rem;
+      background: rgba(74,124,89,0.08); border: 1px solid rgba(74,124,89,0.25);
+      border-radius: 12px; margin-top: 1rem;
+    }
+    .form-success-light.show { display: block; }
+    .form-success-light h4 { color: var(--sage); font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .form-success-light p { color: var(--gray); font-size: 0.875rem; }
+
+    /* FOOTER */
+    footer { background: #1a2820; border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem clamp(1rem, 5vw, 5rem) 2rem; color: rgba(255,255,255,0.6); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 0.75rem; }
+    .footer-brand p { font-size: 0.875rem; max-width: 280px; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { aspect-ratio: 16/9; max-height: 300px; }
+      .booking-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Clarity <span>Coaching</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Programs</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a href="apply.html" class="nav-cta">Apply to Work Together</a>
+  <div class="nav-hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-dots"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="eyebrow-line"></span> Business &amp; Life Coaching</div>
+      <h1>Stop Surviving.<br>Start <em>Leading</em><br>With Clarity.</h1>
+      <p>I help entrepreneurs, executives, and high-achievers cut through the noise, make confident decisions, and build a life that actually looks like what they envisioned.</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn-sage">Book a Free Discovery Call</a>
+        <a href="#services" class="btn-ghost">View Packages</a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="proof-avatars">
+          <span>JR</span><span>TM</span><span>AK</span><span>+</span>
+        </div>
+        <div class="proof-text"><strong>147 clients</strong> have found their clarity in 2024</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="card-quote">"Working with Clarity Coaching was the turning point I needed. I went from paralyzed by options to building my second business in 90 days."</div>
+      <div class="card-person">
+        <div class="card-avatar">SR</div>
+        <div><div class="card-name">Sarah R.</div><div class="card-role">Founder, 2× founder</div></div>
+      </div>
+      <div class="card-stats">
+        <div class="card-stat"><div class="card-stat-num">94%</div><div class="card-stat-label">Client goal rate</div></div>
+        <div class="card-stat"><div class="card-stat-num">147</div><div class="card-stat-label">Lives transformed</div></div>
+        <div class="card-stat"><div class="card-stat-num">8yr</div><div class="card-stat-label">Coaching experience</div></div>
+        <div class="card-stat"><div class="card-stat-num">4.9★</div><div class="card-stat-label">Average rating</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section bg-white-section" id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-visual-inner">
+        <div class="about-badge">
+          <span class="badge-icon">🌿</span>
+          <div class="badge-text"><strong>Certified ICF Coach</strong><span>International Coaching Federation</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="eyebrow">About Me</div>
+      <h2 font-family>Hi, I'm Morgan.<br>I've been where you are.</h2>
+      <p>After 12 years in corporate leadership — burning out twice and nearly losing everything that mattered — I found the framework that changed everything. Not hustle harder. Not fake it til you make it. Actual clarity about what you want and a strategy to get there.</p>
+      <p>Today I work with founders, executives, and ambitious professionals who know they're capable of more but keep getting in their own way. Together we break the patterns holding you back and build momentum that sticks.</p>
+      <div class="credentials">
+        <span class="credential">ICF Certified (PCC)</span>
+        <span class="credential">MBA — Strategy</span>
+        <span class="credential">Mindset &amp; Performance</span>
+        <span class="credential">Leadership Coach</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section" id="services">
+  <div class="section-center">
+    <div class="eyebrow">How We Work Together</div>
+    <h2 class="serif">Choose Your Path to Clarity</h2>
+    <p class="sub">Every engagement is customized. These are the starting points. We always begin with a free discovery call.</p>
+  </div>
+  <div class="packages-grid">
+    <div class="package-card">
+      <div class="package-tag">Get Started</div>
+      <h3>Clarity Session</h3>
+      <div class="package-price">$197 <span>/ session</span></div>
+      <p class="package-desc">One focused 90-minute session to untangle a specific challenge and leave with a clear action plan.</p>
+      <ul class="package-features">
+        <li>90-min deep-dive session</li>
+        <li>Pre-session intake form</li>
+        <li>Personalized action plan</li>
+        <li>48hr follow-up email support</li>
+      </ul>
+      <a href="#booking" class="pkg-btn">Book a Session</a>
+    </div>
+    <div class="package-card featured">
+      <div class="package-tag">Most Popular</div>
+      <h3>3-Month Journey</h3>
+      <div class="package-price">$1,800 <span>/ 3 months</span></div>
+      <p class="package-desc">12 sessions across 3 months. Deep work on your goals, beliefs, and the habits keeping you stuck.</p>
+      <ul class="package-features">
+        <li>12 bi-weekly 60-min sessions</li>
+        <li>Unlimited email between sessions</li>
+        <li>Custom workbooks &amp; frameworks</li>
+        <li>Weekly voice note check-ins</li>
+        <li>30-day follow-up support</li>
+      </ul>
+      <a href="#booking" class="pkg-btn">Apply Now</a>
+    </div>
+    <div class="package-card">
+      <div class="package-tag">Intensive</div>
+      <h3>VIP Day</h3>
+      <div class="package-price">$2,200 <span>/ day</span></div>
+      <p class="package-desc">A full day of 1:1 coaching (in-person or virtual) designed to create a breakthrough and a 90-day roadmap.</p>
+      <ul class="package-features">
+        <li>Full day (6hr) immersive session</li>
+        <li>Custom 90-day strategy doc</li>
+        <li>2 follow-up sessions (30 days)</li>
+        <li>Priority access for 60 days</li>
+      </ul>
+      <a href="#booking" class="pkg-btn">Inquire</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section bg-white-section" id="testimonials">
+  <div class="section-center">
+    <div class="eyebrow">Client Stories</div>
+    <h2 class="serif">Real People. Real Results.</h2>
+    <p class="sub">These aren't cherry-picked. Every one of my clients sees this kind of progress when they do the work.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"I came in wanting help with my business. I left understanding myself. The ROI has been 10× what I paid, easily. I can't imagine where I'd be without this work."</p>
+      <div class="t-person">
+        <div class="t-avatar">JK</div>
+        <div><div class="t-name">James K.</div><div class="t-role">E-commerce founder, 3-month client</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Morgan helped me see that the career I was chasing wasn't actually mine — it was my parents'. That realization changed everything. I'm now 6 months into a pivot I love."</p>
+      <div class="t-person">
+        <div class="t-avatar">NP</div>
+        <div><div class="t-name">Nadia P.</div><div class="t-role">VP turned entrepreneur, VIP Day client</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"I was skeptical of coaching. But the frameworks are so practical, not fluffy. I have a system for decisions now. Anxiety around my business is down. Output is up."</p>
+      <div class="t-person">
+        <div class="t-avatar">TL</div>
+        <div><div class="t-name">Thomas L.</div><div class="t-role">SaaS founder, ongoing client</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section booking-section" id="booking">
+  <div class="booking-inner">
+    <div class="bi-left">
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.75rem;">Start Here</div>
+      <h2>Book Your Free<br><em>Discovery Call</em></h2>
+      <p>30 minutes. No pitch. No pressure. Just an honest conversation about where you are, where you want to be, and whether working together makes sense.</p>
+      <div class="process-list">
+        <div class="pl-item"><div class="pl-num">1</div><div class="pl-text"><strong>Fill out the intake form</strong><span>Tell me a bit about your situation and goals</span></div></div>
+        <div class="pl-item"><div class="pl-num">2</div><div class="pl-text"><strong>We schedule a 30-min call</strong><span>I respond within 24 hours with available times</span></div></div>
+        <div class="pl-item"><div class="pl-num">3</div><div class="pl-text"><strong>We talk honestly</strong><span>No scripts. I'll tell you if I'm not the right fit.</span></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="form-card-light">
+        <h3>Discovery Call Intake</h3>
+        <p class="fc-sub">Takes 3 minutes. Helps me prepare to actually help you.</p>
+        <form id="coachingForm">
+          <div class="form-row">
+            <div class="field"><label>First Name</label><input type="text" name="fname" placeholder="Morgan" required></div>
+            <div class="field"><label>Last Name</label><input type="text" name="lname" placeholder="Smith" required></div>
+          </div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+          <div class="field"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="(555) 000-0000"></div>
+          <div class="field">
+            <label>What area do you most need clarity in?</label>
+            <select name="service">
+              <option value="">Select one...</option>
+              <option>Career / Direction change</option>
+              <option>Building / scaling a business</option>
+              <option>Leadership &amp; team challenges</option>
+              <option>Work-life integration</option>
+              <option>Confidence &amp; self-belief</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>What's the main thing holding you back right now?</label>
+            <textarea name="message" placeholder="Be honest — the more specific you are, the more value we can create in 30 minutes..."></textarea>
+          </div>
+          <button type="submit" class="form-submit-sage">Request My Discovery Call →</button>
+        </form>
+        <div class="form-success-light" id="coachingSuccess">
+          <h4>✓ You're on my calendar.</h4>
+          <p>I'll email you within 24 hours with 3 available time slots. Check your inbox (and spam, just in case).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Clarity Coaching &amp; Consulting</div>
+      <p>ICF-certified coaching for founders, executives, and ambitious professionals ready to stop spinning and start leading.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="services.html">Programs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="apply.html">Apply</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@claritycoachingpro.com">hello@claritycoachingpro.com</a></li>
+        <li><a href="tel:2125550189">(212) 555-0189</a></li>
+        <li><a href="https://linkedin.com/in/sarahchencoach" target="_blank">LinkedIn</a></li>
+        <li><a href="https://instagram.com/claritycoachingpro" target="_blank">@claritycoachingpro</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Clarity Coaching &amp; Consulting. All rights reserved.</p>
+    <p>ICF Certified · Confidential · 100% Personalized</p>
+  </div>
+  <div style="text-align:center;padding:0.75rem 0;font-size:0.75rem;color:rgba(74,124,89,0.5);border-top:1px solid rgba(74,124,89,0.1)">
+    Designed &amp; built by <a href="https://nyctailblazers.com" target="_blank" style="color:rgba(74,124,89,0.7);text-decoration:none">NYCTailblazers</a> · © 2026 All rights reserved
+  </div>
+</footer>
+
+<script>
+  document.getElementById('coachingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    const lead = {
+      business: 'coaching',
+      name: `${fd.get('fname')} ${fd.get('lname')}`.trim(),
+      phone: fd.get('phone') || null,
+      email: fd.get('email'),
+      service: fd.get('service'),
+      message: fd.get('message'),
+      status: 'new'
+    };
+    try {
+      await fetch('https://api.nyctailblazers.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead)
+      });
+    } catch {}
+    this.style.display = 'none';
+    document.getElementById('coachingSuccess').classList.add('show');
+  });
+  /* NYCTailblazers Digital Agency — nyctailblazers.com © 2026 */
+  console.info('%cNYCTailblazers Digital Agency','color:#4a7c59;font-weight:bold;font-size:13px');
+</script>
+</body>
+</html>
