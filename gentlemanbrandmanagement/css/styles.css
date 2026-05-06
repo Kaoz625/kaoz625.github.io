@@ -826,8 +826,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonial-card__avatar {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: var(--navy-light);
   display: flex;
@@ -1591,7 +1591,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .toggle-switch {
   position: relative;
-  width: 44px;
+  width: 64px;
   height: 24px;
 }
 
@@ -2001,8 +2001,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Nav Logo Image ── */
 .nav__logo-img {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   display: block;
   mix-blend-mode: screen;
