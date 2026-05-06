@@ -1998,3 +1998,48 @@ h1, h2, h3, h4, h5, h6 {
     display: none !important;
   }
 }
+
+/* ── Nav Logo Image ── */
+.nav__logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* ── Hero Portrait ── */
+.hero .container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.hero__photo {
+  flex: 0 0 340px;
+  order: 2;
+}
+.hero__portrait {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 4px;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+.hero__content {
+  flex: 1;
+  order: 1;
+}
+@media (max-width: 768px) {
+  .hero .container {
+    flex-direction: column;
+  }
+  .hero__photo {
+    flex: none;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    order: -1;
+  }
+}
