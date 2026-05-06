@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Services — Gentleman Brand Management. Business registration, consulting, marketing, financial, leadership development, and contract guidance. SBA-certified, veteran-owned.">
+  <title>Services — Gentleman Brand Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>(function(){var p=new URLSearchParams(window.location.search).get('p');if(p){window.history.replaceState(null,null,'/'+p);}})();</script>
+  <style>
+    .service-detail-card {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: var(--space-8);
+    }
+    .service-detail-card__header {
+      background: var(--navy);
+      padding: var(--space-8) var(--space-10);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-6);
+    }
+    .service-detail-card__icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .service-detail-card__header h2 {
+      color: var(--white);
+      font-size: 1.5rem;
+      margin-bottom: var(--space-2);
+    }
+    .service-detail-card__header p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .service-detail-card__body {
+      padding: var(--space-8) var(--space-10);
+    }
+    .service-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    .service-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: 0.9rem;
+      color: var(--gray-700, #495057);
+      line-height: 1.6;
+    }
+    .service-feature-item::before {
+      content: '✓';
+      color: var(--scarlet);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .service-expand-content {
+      display: none;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--gray-200);
+      margin-top: var(--space-4);
+    }
+    .service-expand-content p {
+      font-size: 0.92rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: var(--space-4);
+    }
+    @media (max-width: 768px) {
+      .service-features { grid-template-columns: 1fr; }
+      .service-detail-card__header { flex-direction: column; padding: var(--space-6); }
+      .service-detail-card__body { padding: var(--space-6); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Gentleman Brand Management home">
+        <span class="nav__logo">Gentleman <span>Brand</span> Management</span>
+        <span class="nav__badge">Veteran-Owned &middot; SBA-Certified &middot; Semper Fi.</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="case-studies.html" class="nav__link">Case Studies</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary nav__cta">Book a Consultation</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="case-studies.html" class="nav__link">Case Studies</a>
+    <a href="insights.html" class="nav__link">Insights</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="tailblazers.html" class="nav__link">NYC Tailblazers</a>
+    <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" style="min-height:50vh;" aria-labelledby="services-hero-heading">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__content">
+          <div class="hero__eyebrow">Full-Service Consulting</div>
+          <h1 id="services-hero-heading">Your Mission.<br>Our <em>Expertise.</em></h1>
+          <p class="hero__sub">Six core service areas. One operating standard: Semper Fidelis. We don't stop until your objective is achieved.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" aria-labelledby="services-list-heading">
+      <div class="container">
+        <h2 id="services-list-heading" class="sr-only">All Services</h2>
+
+        <!-- 1: Registration -->
+        <article class="service-detail-card animate-on-scroll" id="registration" aria-labelledby="svc1-heading">
+          <div class="service-detail-card__header">
+            <div class="service-detail-card__icon" aria-hidden="true">&#127981;</div>
+            <div>
+              <h2 id="svc1-heading">Business Registration &amp; Planning</h2>
+              <p>From idea to incorporated entity — we handle every legal and strategic step to get your business operational with a clear roadmap for growth.</p>
+            </div>
+          </div>
+          <div class="service-detail-card__body">
+            <div class="service-features" role="list" aria-label="Features of Business Registration and Planning">
+              <div class="service-feature-item" role="listitem">LLC, Corporation, and DBA formation</div>
+              <div class="service-feature-item" role="listitem">Federal and state business registration</div>
+              <div class="service-feature-item" role="listitem">EIN and tax ID acquisition</div>
+              <div class="service-feature-item" role="listitem">Business license and permit guidance</div>
+              <div class="service-feature-item" role="listitem">Business plan development</div>
+              <div class="service-feature-item" role="listitem">Market research and competitive analysis</div>
+              <div class="service-feature-item" role="listitem">Operating agreements and bylaws</div>
+              <div class="service-feature-item" role="listitem">SBA certification preparation</div>
+            </div>
+            <div id="svc1-expand" class="service-expand-content" aria-label="Additional details">
+              <p>Starting a business is a mission — and every mission requires proper planning before execution. We guide you through every administrative and strategic requirement so nothing is left to chance. Whether you're a first-time entrepreneur or an experienced operator launching a new venture, our registration service eliminates the friction and ensures your entity is structured for tax efficiency, liability protection, and long-term scalability.</p>
+              <p>Our business plan development goes beyond templates. We build financially modeled, investor-ready plans that serve as your operational roadmap for the first 12-36 months.</p>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+              <a href="contact.html" class="btn btn-primary">Get Started</a>
+              <button class="btn btn-outline-dark" data-expand="svc1-expand">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2: Consulting -->
+        <article class="service-detail-card animate-on-scroll" id="consulting" aria-labelledby="svc2-heading">
+          <div class="service-detail-card__header">
+            <div class="service-detail-card__icon" aria-hidden="true">&#127775;</div>
+            <div>
+              <h2 id="svc2-heading">Business Consulting &amp; Coaching</h2>
+              <p>Strategic coaching and operational consulting — delivered with military precision. We identify gaps, build systems, and accelerate your trajectory.</p>
+            </div>
+          </div>
+          <div class="service-detail-card__body">
+            <div class="service-features" role="list" aria-label="Features of Business Consulting and Coaching">
+              <div class="service-feature-item" role="listitem">One-on-one executive coaching sessions</div>
+              <div class="service-feature-item" role="listitem">Operational systems design</div>
+              <div class="service-feature-item" role="listitem">Growth strategy development</div>
+              <div class="service-feature-item" role="listitem">KPI frameworks and performance tracking</div>
+              <div class="service-feature-item" role="listitem">Organizational structure consulting</div>
+              <div class="service-feature-item" role="listitem">Sales process optimization</div>
+              <div class="service-feature-item" role="listitem">Vendor and partnership strategy</div>
+              <div class="service-feature-item" role="listitem">Monthly accountability sessions</div>
+            </div>
+            <div id="svc2-expand" class="service-expand-content">
+              <p>Business consulting without accountability is just advice. We build structured engagements with defined objectives, measurable milestones, and regular check-ins that mirror the accountability structures that make military units effective. You'll always know exactly where you stand against your objectives.</p>
+              <p>Our coaching programs are available in 90-day sprints or ongoing monthly retainers, depending on your stage of growth and the complexity of your objectives.</p>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+              <a href="contact.html" class="btn btn-primary">Get Started</a>
+              <button class="btn btn-outline-dark" data-expand="svc2-expand">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3: Marketing -->
+        <article class="service-detail-card animate-on-scroll" id="marketing" aria-labelledby="svc3-heading">
+          <div class="service-detail-card__header">
+            <div class="service-detail-card__icon" aria-hidden="true">&#127942;</div>
+            <div>
+              <h2 id="svc3-heading">Marketing &amp; Brand Strategy</h2>
+              <p>Your brand is your unit insignia — it commands recognition, loyalty, and respect. We build brands that mean something and marketing systems that perform.</p>
+            </div>
+          </div>
+          <div class="service-detail-card__body">
+            <div class="service-features" role="list" aria-label="Features of Marketing and Brand Strategy">
+              <div class="service-feature-item" role="listitem">Brand identity development</div>
+              <div class="service-feature-item" role="listitem">Logo and visual system design</div>
+              <div class="service-feature-item" role="listitem">Messaging and positioning strategy</div>
+              <div class="service-feature-item" role="listitem">Digital marketing strategy</div>
+              <div class="service-feature-item" role="listitem">Social media strategy and content planning</div>
+              <div class="service-feature-item" role="listitem">Website strategy and copy</div>
+              <div class="service-feature-item" role="listitem">Email marketing systems</div>
+              <div class="service-feature-item" role="listitem">Competitive market positioning</div>
+            </div>
+            <div id="svc3-expand" class="service-expand-content">
+              <p>Marines take their unit insignia seriously — it represents who they are and what they stand for. Your brand deserves the same intentionality. We develop brand identities rooted in your genuine story and competitive position, then build the marketing infrastructure to amplify that identity at scale.</p>
+              <p>Our marketing engagements are ROI-driven. Every channel, every campaign, and every piece of content is measured against business outcomes — not vanity metrics.</p>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+              <a href="contact.html" class="btn btn-primary">Get Started</a>
+              <button class="btn btn-outline-dark" data-expand="svc3-expand">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4: Financial -->
+        <article class="service-detail-card animate-on-scroll" id="financial" aria-labelledby="svc4-heading">
+          <div class="service-detail-card__header">
+            <div class="service-detail-card__icon" aria-hidden="true">&#128200;</div>
+            <div>
+              <h2 id="svc4-heading">Financial &amp; Accounting Services</h2>
+              <p>Financial intelligence is a force multiplier. We give you the systems, clarity, and strategy to make every dollar work in service of your mission.</p>
+            </div>
+          </div>
+          <div class="service-detail-card__body">
+            <div class="service-features" role="list" aria-label="Features of Financial and Accounting Services">
+              <div class="service-feature-item" role="listitem">Monthly bookkeeping and reconciliation</div>
+              <div class="service-feature-item" role="listitem">Financial statement preparation</div>
+              <div class="service-feature-item" role="listitem">Cash flow management and forecasting</div>
+              <div class="service-feature-item" role="listitem">Tax planning and preparation strategy</div>
+              <div class="service-feature-item" role="listitem">Budget development and variance analysis</div>
+              <div class="service-feature-item" role="listitem">Payroll setup and management</div>
+              <div class="service-feature-item" role="listitem">Investor-ready financial projections</div>
+              <div class="service-feature-item" role="listitem">SBA loan application support</div>
+            </div>
+            <div id="svc4-expand" class="service-expand-content">
+              <p>You cannot lead effectively without accurate intelligence. In business, that intelligence is your financial data. We implement clean bookkeeping systems, build financial dashboards, and provide the analysis you need to make informed decisions quickly — the same way a commanding officer needs accurate battlefield intelligence before making tactical decisions.</p>
+              <p>Our financial services are available as standalone monthly engagements or bundled with our consulting packages for comprehensive support.</p>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+              <a href="contact.html" class="btn btn-primary">Get Started</a>
+              <button class="btn btn-outline-dark" data-expand="svc4-expand">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5: Leadership -->
+        <article class="service-detail-card animate-on-scroll" id="leadership" aria-labelledby="svc5-heading">
+          <div class="service-detail-card__header">
+            <div class="service-detail-card__icon" aria-hidden="true">&#129351;</div>
+            <div>
+              <h2 id="svc5-heading">Leadership Development &amp; Mentorship</h2>
+              <p>Leadership is not a title — it is a standard you set every day. We develop the leaders your business needs to scale beyond you.</p>
+            </div>
+          </div>
+          <div class="service-detail-card__body">
+            <div class="service-features" role="list" aria-label="Features of Leadership Development and Mentorship">
+              <div class="service-feature-item" role="listitem">Executive leadership coaching</div>
+              <div class="service-feature-item" role="listitem">Management training programs</div>
+              <div class="service-feature-item" role="listitem">Team culture and cohesion development</div>
+              <div class="service-feature-item" role="listitem">Conflict resolution frameworks</div>
+              <div class="service-feature-item" role="listitem">Decision-making under pressure</div>
+              <div class="service-feature-item" role="listitem">Delegation and empowerment systems</div>
+              <div class="service-feature-item" role="listitem">Performance review design</div>
+              <div class="service-feature-item" role="listitem">Mentorship program development</div>
+            </div>
+            <div id="svc5-expand" class="service-expand-content">
+              <p>The Marine Corps is arguably the most effective leadership development institution in the world. Every Marine — from private to general — is trained to lead. We bring that philosophy to your organization: every person in your company should be capable of leading when called upon. That depth of leadership is what separates scalable organizations from founder-dependent ones.</p>
+              <p>Our leadership programs are delivered as group workshops, one-on-one mentorship, or embedded consulting depending on your team size and goals.</p>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+              <a href="contact.html" class="btn btn-primary">Get Started</a>
+              <button class="btn btn-outline-dark" data-expand="svc5-expand">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6: Contracts -->
+        <article class="service-detail-card animate-on-scroll" id="contracts" aria-labelledby="svc6-heading">
+          <div class="service-detail-card__header">
+            <div class="service-detail-card__icon" aria-hidden="true">&#128196;</div>
+            <div>
+              <h2 id="svc6-heading">Contract Guidance &amp; Review</h2>
+              <p>Every contract is a commitment. We ensure yours are airtight, favorable, and aligned with your mission before you sign on any dotted line.</p>
+            </div>
+          </div>
+          <div class="service-detail-card__body">
+            <div class="service-features" role="list" aria-label="Features of Contract Guidance and Review">
+              <div class="service-feature-item" role="listitem">Vendor and supplier contract review</div>
+              <div class="service-feature-item" role="listitem">Client service agreement templates</div>
+              <div class="service-feature-item" role="listitem">Government contract procurement guidance</div>
+              <div class="service-feature-item" role="listitem">NDA and IP protection review</div>
+              <div class="service-feature-item" role="listitem">Partnership agreement structuring</div>
+              <div class="service-feature-item" role="listitem">Lease and real estate contract review</div>
+              <div class="service-feature-item" role="listitem">Employee and contractor agreements</div>
+              <div class="service-feature-item" role="listitem">SBA and government grant applications</div>
+            </div>
+            <div id="svc6-expand" class="service-expand-content">
+              <p>A Marine never enters a mission without reading the full briefing. Signing a contract without thorough review is entering a mission blind. We review every contract with the same attention to detail we apply to every client engagement — identifying risks, flagging unfavorable terms, and ensuring your position is protected.</p>
+              <p>As an SBA-certified veteran-owned business, we also specialize in helping veteran entrepreneurs access government contracting opportunities through proper certification and procurement guidance.</p>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+              <a href="contact.html" class="btn btn-primary">Get Started</a>
+              <button class="btn btn-outline-dark" data-expand="svc6-expand">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="services-cta-heading">
+      <div class="container">
+        <div class="animate-on-scroll">
+          <h2 id="services-cta-heading">Every Mission Starts With a Briefing.</h2>
+          <p>Book your free 30-minute discovery call. We'll assess your situation and recommend the right service path.</p>
+          <div class="btn-group">
+            <a href="contact.html" class="btn btn-primary btn-lg">Book Your Free Call</a>
+            <a href="case-studies.html" class="btn btn-outline btn-lg">See Case Studies</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="nav__logo">Gentleman <span>Brand</span> Management</div>
+          <p style="margin-top:1rem;">Veteran-owned, SBA-certified business consulting built on the discipline and honor of the United States Marine Corps.</p>
+          <div class="footer__badge">&#127981; Veteran-Owned &middot; SBA-Certified</div>
+        </div>
+        <div>
+          <div class="footer__heading">Navigation</div>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <div class="footer__contact-item"><strong>Email</strong>info@gentlemanbrandmanagement.com</div>
+          <div class="footer__contact-item"><strong>Phone</strong>(212) 555-0100</div>
+          <div class="footer__contact-item"><strong>Location</strong>New York, NY</div>
+          <div style="margin-top:1.5rem;"><a href="contact.html" class="btn btn-primary btn-sm">Book a Consultation</a></div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Gentleman Brand Management. All rights reserved.</p>
+        <p>Website built by <a href="tailblazers.html">NYC Tailblazers</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="a11y-toggle-btn" id="a11y-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">&#9778;</button>
+  <div class="a11y-panel" id="a11y-panel" role="region" aria-label="Accessibility controls">
+    <div class="a11y-panel__title">Accessibility</div>
+    <div class="a11y-panel__row">
+      <span class="a11y-panel__label" id="hc-label">High Contrast</span>
+      <label class="toggle-switch" aria-labelledby="hc-label">
+        <input type="checkbox" id="hc-toggle" aria-label="Toggle high contrast mode">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="a11y-panel__row">
+      <span class="a11y-panel__label">Font Size</span>
+      <div class="a11y-panel__controls">
+        <button class="a11y-btn" id="font-dec" aria-label="Decrease font size">A&minus;</button>
+        <button class="a11y-btn" id="font-inc" aria-label="Increase font size">A+</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="chat-toggle-btn" id="chat-toggle" aria-label="Open AI assistant chat" aria-expanded="false" aria-controls="chat-panel">&#128172;</button>
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="AI Assistant" aria-modal="true">
+    <div class="chat-panel__header">
+      <div>
+        <div class="chat-panel__title">GBM Assistant</div>
+        <div class="chat-panel__subtitle">Veteran-Owned Business Consulting</div>
+      </div>
+      <button class="chat-panel__close" id="chat-close" aria-label="Close chat">&#x2715;</button>
+    </div>
+    <div class="chat-messages" id="chat-messages" role="list" aria-live="polite">
+      <div class="chat-message bot" role="listitem">Hello. Questions about our services? I'm here to help.</div>
+    </div>
+    <div class="chat-panel__input">
+      <input type="text" id="chat-input" placeholder="Ask about our services..." aria-label="Chat message input" autocomplete="off">
+      <button class="chat-send-btn" id="chat-send" aria-label="Send message">&#10148;</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

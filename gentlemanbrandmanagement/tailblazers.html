@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NYC Tailblazers — Veteran-focused community organization. Dog park advocacy, tech projects, and website building to fund our mission. Veterans helping vets and the city's dogs.">
+  <title>NYC Tailblazers — About the Organization Behind This Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>(function(){var p=new URLSearchParams(window.location.search).get('p');if(p){window.history.replaceState(null,null,'/'+p);}})();</script>
+  <style>
+    .support-card {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+    .support-card:hover {
+      border-color: var(--scarlet);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .support-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-4);
+    }
+    .support-card h3 {
+      margin-bottom: var(--space-3);
+    }
+    .support-card p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: var(--space-5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV — branded to Tailblazers context -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Back to Gentleman Brand Management">
+        <span class="nav__logo">Gentleman <span>Brand</span> Management</span>
+        <span class="nav__badge">Veteran-Owned &middot; SBA-Certified &middot; Semper Fi.</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="case-studies.html" class="nav__link">Case Studies</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="index.html" class="btn btn-primary nav__cta">Back to Site</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="about.html" class="nav__link">About GBM</a>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="case-studies.html" class="nav__link">Case Studies</a>
+    <a href="insights.html" class="nav__link">Insights</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="index.html" class="btn btn-primary">Back to Site</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero tailblazers-hero" style="min-height:55vh;" aria-labelledby="tb-hero-heading">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__content">
+          <div class="hero__eyebrow">Behind This Website</div>
+          <h1 id="tb-hero-heading">NYC <em>Tailblazers.</em></h1>
+          <p class="hero__sub">A veteran-focused community organization building tech projects, advocating for NYC dog parks, and helping veterans transition into business ownership. This website was built by us to fund that mission.</p>
+          <div class="hero__actions">
+            <a href="https://nyctailblazers.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">Visit NYC Tailblazers</a>
+            <a href="#support" class="btn btn-outline btn-lg">How to Support</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IS NYC TAILBLAZERS -->
+    <section class="section" aria-labelledby="about-tb-heading">
+      <div class="container">
+        <div class="grid-2" style="gap:var(--space-16);align-items:center;">
+          <div class="animate-on-scroll">
+            <span class="eyebrow" style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--scarlet);margin-bottom:1rem;">Who We Are</span>
+            <h2 id="about-tb-heading" style="font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:1.5rem;">Veterans. Dogs. Community. Tech.</h2>
+            <p style="font-size:1.05rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.5rem;">NYC Tailblazers is a veteran-focused community organization operating in New York City. We were founded on a simple belief: veterans who served this country deserve community, resources, and opportunity — and the city's dogs deserve proper spaces to run free.</p>
+            <p style="font-size:1.05rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.5rem;">We operate at the intersection of veteran advocacy, community organizing, and technology. Our team builds AI tools, websites, and digital services — with proceeds funding our mission programs.</p>
+            <p style="font-size:1.05rem;color:var(--gray-600);line-height:1.8;">The Gentleman Brand Management website you are viewing is one of our service projects. We build professional websites for veteran-owned and community-focused businesses to generate sustainable funding for our work.</p>
+          </div>
+
+          <div class="animate-on-scroll delay-1">
+            <div style="background:var(--navy);border-radius:var(--radius-xl);padding:var(--space-10);color:var(--white);">
+              <h3 style="font-size:1.25rem;margin-bottom:var(--space-6);color:var(--white);">Our Three Pillars</h3>
+
+              <div style="display:flex;flex-direction:column;gap:var(--space-6);">
+                <div style="display:flex;gap:var(--space-4);">
+                  <div style="font-size:1.75rem;flex-shrink:0;" aria-hidden="true">&#128054;</div>
+                  <div>
+                    <div style="font-weight:600;color:var(--gold);margin-bottom:0.25rem;">Dog Park Advocacy</div>
+                    <div style="font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.65;">Advocating for better, safer, and more accessible dog parks across all five NYC boroughs. Because dogs and their owners deserve great spaces.</div>
+                  </div>
+                </div>
+
+                <div style="display:flex;gap:var(--space-4);">
+                  <div style="font-size:1.75rem;flex-shrink:0;" aria-hidden="true">&#9971;</div>
+                  <div>
+                    <div style="font-weight:600;color:var(--gold);margin-bottom:0.25rem;">Veteran Community</div>
+                    <div style="font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.65;">Connecting veterans with resources, community, and each other. Veterans helping veterans — the same mission-first mentality that defines service.</div>
+                  </div>
+                </div>
+
+                <div style="display:flex;gap:var(--space-4);">
+                  <div style="font-size:1.75rem;flex-shrink:0;" aria-hidden="true">&#128187;</div>
+                  <div>
+                    <div style="font-weight:600;color:var(--gold);margin-bottom:0.25rem;">Tech for Good</div>
+                    <div style="font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.65;">Building AI tools, websites, and digital infrastructure that generates revenue for our mission while serving community organizations and veteran-owned businesses.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THIS WEBSITE -->
+    <section class="section section-gray" aria-labelledby="this-site-heading">
+      <div class="container" style="max-width:800px;">
+        <div class="section-header animate-on-scroll">
+          <span class="eyebrow">Why This Site Exists</span>
+          <h2 id="this-site-heading">This Website Was Built to Fund Our Mission</h2>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="animate-on-scroll" style="text-align:center;">
+          <p style="font-size:1.1rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.5rem;">NYC Tailblazers builds professional websites for veteran-owned businesses, community organizations, and local entrepreneurs. Every project we take on generates income that directly funds our dog park advocacy, veteran support programs, and community initiatives.</p>
+          <p style="font-size:1.1rem;color:var(--gray-600);line-height:1.8;margin-bottom:2rem;">The Gentleman Brand Management website you're viewing is a showcase of our website building service — built with care, deployed professionally, and maintained by our team.</p>
+        </div>
+
+        <div class="blockquote-feature animate-on-scroll" role="blockquote">
+          <p>"When veterans serve veterans, the whole community wins. That's the NYC Tailblazers mission in one sentence."</p>
+          <cite>— NYC Tailblazers Team</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="eyebrow">Active Projects</span>
+          <h2 id="projects-heading">What We're Building</h2>
+          <p>Technology and community projects funded by our website building service.</p>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="grid-3">
+          <div class="project-card animate-on-scroll delay-1">
+            <div class="project-card__tag">E-Commerce</div>
+            <h3>Blazing Tails Storefront</h3>
+            <p>An online storefront for NYC Tailblazers merchandise and community gear. Proceeds fund dog park improvement advocacy across all five boroughs.</p>
+          </div>
+
+          <div class="project-card animate-on-scroll delay-2">
+            <div class="project-card__tag">AI Tools</div>
+            <h3>Veteran AI Assistant</h3>
+            <p>AI-powered tools to help veterans navigate business formation, benefits access, and community resources — built for the veteran community, by veterans.</p>
+          </div>
+
+          <div class="project-card animate-on-scroll delay-3">
+            <div class="project-card__tag">Services</div>
+            <h3>Website Building Service</h3>
+            <p>Professional websites for veteran-owned businesses, non-profits, and community organizations. Like this one — complete, deployable, and beautifully designed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO SUPPORT -->
+    <section class="section section-dark" id="support" aria-labelledby="support-heading">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="eyebrow">Join the Mission</span>
+          <h2 id="support-heading">How to Support NYC Tailblazers</h2>
+          <p>Every form of support directly funds veteran community programs and dog park advocacy in New York City.</p>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="grid-3">
+          <div class="support-card animate-on-scroll delay-1" style="background:var(--navy-mid);border-color:rgba(255,255,255,0.08);">
+            <div class="support-card__icon" aria-hidden="true">&#10084;</div>
+            <h3 style="color:var(--white);">Donate</h3>
+            <p style="color:rgba(255,255,255,0.65);">Direct contributions fund our programs, events, and advocacy work. Every dollar goes toward veterans and NYC dogs.</p>
+            <a href="https://nyctailblazers.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Donate at nyctailblazers.com</a>
+          </div>
+
+          <div class="support-card animate-on-scroll delay-2" style="background:var(--navy-mid);border-color:rgba(255,255,255,0.08);">
+            <div class="support-card__icon" aria-hidden="true">&#128483;</div>
+            <h3 style="color:var(--white);">Volunteer</h3>
+            <p style="color:rgba(255,255,255,0.65);">Join a community cleanup, dog park event, or help with our technology projects. Veterans and allies welcome.</p>
+            <a href="https://nyctailblazers.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Get Involved</a>
+          </div>
+
+          <div class="support-card animate-on-scroll delay-3" style="background:var(--navy-mid);border-color:rgba(255,255,255,0.08);">
+            <div class="support-card__icon" aria-hidden="true">&#128226;</div>
+            <h3 style="color:var(--white);">Spread the Word</h3>
+            <p style="color:rgba(255,255,255,0.65);">Share our mission. Tell other veteran-owned businesses about our website service. Referrals directly fund our programs.</p>
+            <a href="https://nyctailblazers.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Visit Our Site</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACK TO CLIENT SITE -->
+    <section class="section" aria-labelledby="back-to-site-heading" style="text-align:center;">
+      <div class="container" style="max-width:640px;">
+        <div class="animate-on-scroll">
+          <span class="eyebrow" style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--scarlet);margin-bottom:1rem;">Back to Business</span>
+          <h2 id="back-to-site-heading" style="margin-bottom:1.5rem;">Ready to Work With Gentleman Brand Management?</h2>
+          <p style="color:var(--gray-600);margin-bottom:2rem;line-height:1.75;">Now that you know the story behind this site, let's talk about your business. Gentleman Brand Management is ready to help you build, grow, and scale.</p>
+          <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+            <a href="index.html" class="btn btn-primary btn-lg">Return to GBM</a>
+            <a href="contact.html" class="btn btn-outline-dark btn-lg">Book a Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="nav__logo">NYC <span>Tailblazers</span></div>
+          <p style="margin-top:1rem;">Veteran-focused community organization. Dog park advocacy, veteran community support, and tech projects in New York City.</p>
+          <div class="footer__badge">&#128054; Veterans &middot; Dogs &middot; NYC</div>
+        </div>
+        <div>
+          <div class="footer__heading">GBM Navigation</div>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html">GBM Home</a></li>
+            <li><a href="about.html">About GBM</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="contact.html">Book a Consultation</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">NYC Tailblazers</div>
+          <div class="footer__contact-item"><strong>Website</strong><a href="https://nyctailblazers.com" style="color:inherit;">nyctailblazers.com</a></div>
+          <div class="footer__contact-item"><strong>Email</strong>admin@nyctailblazers.com</div>
+          <div class="footer__contact-item"><strong>Location</strong>New York City, NY</div>
+          <div style="margin-top:1.5rem;">
+            <a href="https://nyctailblazers.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">Support Our Mission</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 NYC Tailblazers. This website was built by NYC Tailblazers to fund our mission.</p>
+        <p><a href="index.html">Back to Gentleman Brand Management</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="a11y-toggle-btn" id="a11y-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">&#9778;</button>
+  <div class="a11y-panel" id="a11y-panel" role="region" aria-label="Accessibility controls">
+    <div class="a11y-panel__title">Accessibility</div>
+    <div class="a11y-panel__row">
+      <span class="a11y-panel__label" id="hc-label">High Contrast</span>
+      <label class="toggle-switch" aria-labelledby="hc-label">
+        <input type="checkbox" id="hc-toggle" aria-label="Toggle high contrast mode">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="a11y-panel__row">
+      <span class="a11y-panel__label">Font Size</span>
+      <div class="a11y-panel__controls">
+        <button class="a11y-btn" id="font-dec" aria-label="Decrease font size">A&minus;</button>
+        <button class="a11y-btn" id="font-inc" aria-label="Increase font size">A+</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="chat-toggle-btn" id="chat-toggle" aria-label="Open AI assistant chat" aria-expanded="false" aria-controls="chat-panel">&#128172;</button>
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="AI Assistant" aria-modal="true">
+    <div class="chat-panel__header">
+      <div>
+        <div class="chat-panel__title">GBM Assistant</div>
+        <div class="chat-panel__subtitle">Veteran-Owned Business Consulting</div>
+      </div>
+      <button class="chat-panel__close" id="chat-close" aria-label="Close chat">&#x2715;</button>
+    </div>
+    <div class="chat-messages" id="chat-messages" role="list" aria-live="polite">
+      <div class="chat-message bot" role="listitem">Hello. Questions about Gentleman Brand Management or NYC Tailblazers? I'm here to help.</div>
+    </div>
+    <div class="chat-panel__input">
+      <input type="text" id="chat-input" placeholder="Ask a question..." aria-label="Chat message input" autocomplete="off">
+      <button class="chat-send-btn" id="chat-send" aria-label="Send message">&#10148;</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

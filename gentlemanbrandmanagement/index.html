@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gentleman Brand Management — Veteran-owned, SBA-certified business consulting firm. Built on honor, driven by results. Business registration, consulting, marketing, financial services, and leadership development.">
+  <meta property="og:title" content="Gentleman Brand Management — Built on Honor. Driven by Results.">
+  <meta property="og:description" content="Veteran-owned, SBA-certified business consulting. Semper Fidelis — always faithful to your success.">
+  <meta property="og:type" content="website">
+  <title>Gentleman Brand Management — Built on Honor. Driven by Results.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- GitHub Pages SPA routing fix -->
+  <script>(function(){var p=new URLSearchParams(window.location.search).get('p');if(p){window.history.replaceState(null,null,'/'+p);}})();</script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand" aria-label="Gentleman Brand Management home">
+        <span class="nav__logo">Gentleman <span>Brand</span> Management</span>
+        <span class="nav__badge" aria-label="Veteran-Owned SBA-Certified Semper Fi">Veteran-Owned &middot; SBA-Certified &middot; Semper Fi.</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="case-studies.html" class="nav__link">Case Studies</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary nav__cta" aria-label="Book a consultation">Book a Consultation</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="case-studies.html" class="nav__link">Case Studies</a>
+    <a href="insights.html" class="nav__link">Insights</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="tailblazers.html" class="nav__link">NYC Tailblazers</a>
+    <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__content">
+          <div class="hero__eyebrow" aria-label="Veteran-owned SBA-certified business consulting">
+            Veteran-Owned &middot; SBA-Certified &middot; Marine Corps Values
+          </div>
+          <h1 id="hero-heading">
+            Built on <em>Honor.</em><br>Driven by Results.
+          </h1>
+          <p class="hero__sub">
+            Gentleman Brand Management brings the discipline, precision, and unwavering commitment of the Marine Corps to every client engagement. Semper Fidelis — always faithful to your business mission.
+          </p>
+          <div class="hero__actions">
+            <a href="contact.html" class="btn btn-primary btn-lg">Book a Consultation</a>
+            <a href="services.html" class="btn btn-outline btn-lg">Our Services</a>
+          </div>
+          <div class="hero__stats" aria-label="Key statistics">
+            <div>
+              <div class="hero__stat-value">50+</div>
+              <div class="hero__stat-label">Businesses Launched</div>
+            </div>
+            <div>
+              <div class="hero__stat-value">98%</div>
+              <div class="hero__stat-label">Client Retention</div>
+            </div>
+            <div>
+              <div class="hero__stat-value">SBA</div>
+              <div class="hero__stat-label">Certified Firm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar" aria-label="Company highlights">
+      <div class="container">
+        <div class="stats-bar__grid">
+          <div class="stats-bar__item animate-on-scroll">
+            <div class="stats-bar__value">50+</div>
+            <div class="stats-bar__label">Businesses Successfully Launched</div>
+          </div>
+          <div class="stats-bar__item animate-on-scroll delay-1">
+            <div class="stats-bar__value">98%</div>
+            <div class="stats-bar__label">Client Retention Rate</div>
+          </div>
+          <div class="stats-bar__item animate-on-scroll delay-2">
+            <div class="stats-bar__value">SBA</div>
+            <div class="stats-bar__label">Certified &amp; Veteran-Owned</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES PREVIEW -->
+    <section class="section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="eyebrow">What We Do</span>
+          <h2 id="services-heading">Complete Business Solutions</h2>
+          <p>From first registration to full-scale growth strategy — we bring military precision to every phase of your business journey.</p>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="grid-3">
+          <article class="service-card animate-on-scroll delay-1" aria-label="Business Registration and Planning service">
+            <div class="service-card__icon" aria-hidden="true">&#127981;</div>
+            <h3>Business Registration &amp; Planning</h3>
+            <p>LLC, Corp, or DBA — we handle every step of entity formation, licensing, and strategic business planning to get you operational fast.</p>
+            <a href="services.html#registration" class="btn btn-sm btn-outline-dark">Learn More</a>
+          </article>
+
+          <article class="service-card animate-on-scroll delay-2" aria-label="Business Consulting and Coaching service">
+            <div class="service-card__icon" aria-hidden="true">&#127775;</div>
+            <h3>Business Consulting &amp; Coaching</h3>
+            <p>One-on-one strategic coaching and operational consulting tailored to where you are now and where you're going.</p>
+            <a href="services.html#consulting" class="btn btn-sm btn-outline-dark">Learn More</a>
+          </article>
+
+          <article class="service-card animate-on-scroll delay-3" aria-label="Marketing and Brand Strategy service">
+            <div class="service-card__icon" aria-hidden="true">&#127942;</div>
+            <h3>Marketing &amp; Brand Strategy</h3>
+            <p>Your brand is your standard. We build identities that command attention and create loyalty in competitive markets.</p>
+            <a href="services.html#marketing" class="btn btn-sm btn-outline-dark">Learn More</a>
+          </article>
+
+          <article class="service-card animate-on-scroll delay-1" aria-label="Financial and Accounting Services">
+            <div class="service-card__icon" aria-hidden="true">&#128200;</div>
+            <h3>Financial &amp; Accounting Services</h3>
+            <p>Bookkeeping, financial projections, cash flow management, and tax strategy — the financial intelligence every business needs.</p>
+            <a href="services.html#financial" class="btn btn-sm btn-outline-dark">Learn More</a>
+          </article>
+
+          <article class="service-card animate-on-scroll delay-2" aria-label="Leadership Development service">
+            <div class="service-card__icon" aria-hidden="true">&#129351;</div>
+            <h3>Leadership Development</h3>
+            <p>Marines lead from the front. We build the leadership capacity, team culture, and management systems to scale your organization.</p>
+            <a href="services.html#leadership" class="btn btn-sm btn-outline-dark">Learn More</a>
+          </article>
+
+          <article class="service-card animate-on-scroll delay-3" aria-label="Contract Guidance and Review service">
+            <div class="service-card__icon" aria-hidden="true">&#128196;</div>
+            <h3>Contract Guidance &amp; Review</h3>
+            <p>Vendor agreements, client contracts, government procurement — we ensure every document protects your position and advances your mission.</p>
+            <a href="services.html#contracts" class="btn btn-sm btn-outline-dark">Learn More</a>
+          </article>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="services.html" class="btn btn-primary">View All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EGA DIVIDER -->
+    <div class="container">
+      <div class="ega-divider" aria-hidden="true">
+        <svg class="ega-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <!-- Globe -->
+          <circle cx="60" cy="60" r="38" stroke="#0A1628" stroke-width="2.5" fill="none"/>
+          <!-- Horizontal lines representing latitude -->
+          <ellipse cx="60" cy="60" rx="38" ry="16" stroke="#0A1628" stroke-width="1.5" fill="none"/>
+          <line x1="22" y1="60" x2="98" y2="60" stroke="#0A1628" stroke-width="1.5"/>
+          <line x1="30" y1="40" x2="90" y2="40" stroke="#0A1628" stroke-width="1"/>
+          <line x1="30" y1="80" x2="90" y2="80" stroke="#0A1628" stroke-width="1"/>
+          <!-- Vertical meridian -->
+          <ellipse cx="60" cy="60" rx="16" ry="38" stroke="#0A1628" stroke-width="1.5" fill="none"/>
+          <!-- Anchor -->
+          <line x1="60" y1="20" x2="60" y2="100" stroke="#CC0000" stroke-width="3"/>
+          <path d="M44 36 Q60 28 76 36" stroke="#CC0000" stroke-width="2.5" fill="none"/>
+          <circle cx="60" cy="28" r="5" fill="#CC0000"/>
+          <!-- Anchor flukes -->
+          <path d="M44 92 Q52 100 60 96 Q68 100 76 92" stroke="#CC0000" stroke-width="2.5" fill="none"/>
+          <!-- Eagle suggestion (simplified wings) -->
+          <path d="M32 52 Q45 44 60 48 Q75 44 88 52" stroke="#FFB300" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section-dark" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="eyebrow">Client Testimonials</span>
+          <h2 id="testimonials-heading">Mission Accomplished</h2>
+          <p>Real results from real clients. Semper Fidelis is not a slogan — it is our operating standard.</p>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="grid-3">
+          <article class="testimonial-card animate-on-scroll delay-1" aria-label="Testimonial from Marcus T.">
+            <p class="testimonial-card__text">
+              "Working with Gentleman Brand Management was a turning point for my business. The strategic clarity they brought in just 90 days helped us grow revenue by 140%. Their military discipline translates directly into business results."
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">MT</div>
+              <div>
+                <div class="testimonial-card__name">Marcus T.</div>
+                <div class="testimonial-card__title">Founder, Atlas Construction LLC</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card animate-on-scroll delay-2" aria-label="Testimonial from Denise W.">
+            <p class="testimonial-card__text">
+              "I came in with a business idea and left with a registered LLC, a brand identity, and a 12-month growth plan. The team's commitment to my success never wavered. Truly Semper Fidelis in every interaction."
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">DW</div>
+              <div>
+                <div class="testimonial-card__name">Denise W.</div>
+                <div class="testimonial-card__title">CEO, Elevate Wellness Group</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card animate-on-scroll delay-3" aria-label="Testimonial from James R.">
+            <p class="testimonial-card__text">
+              "The contract review service alone saved my company from a bad deal that would have cost us over $40K. These consultants don't just advise — they protect your flanks. Couldn't recommend more highly."
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">JR</div>
+              <div>
+                <div class="testimonial-card__name">James R.</div>
+                <div class="testimonial-card__title">Principal, Ridgeline Tech Solutions</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT LOGOS -->
+    <section class="section" aria-labelledby="clients-heading">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="eyebrow">Client Partners</span>
+          <h2 id="clients-heading">Trusted By Growing Businesses</h2>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="logo-grid animate-on-scroll">
+          <div class="logo-box">Client Partner</div>
+          <div class="logo-box">Client Partner</div>
+          <div class="logo-box">Client Partner</div>
+          <div class="logo-box">Client Partner</div>
+          <div class="logo-box">Client Partner</div>
+          <div class="logo-box">Client Partner</div>
+          <div class="logo-box">Client Partner</div>
+          <div class="logo-box">Client Partner</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="animate-on-scroll">
+          <h2 id="cta-heading">Ready to Build Your Business Empire?</h2>
+          <p>One free discovery call. Zero obligation. The same discipline that drives Marines drives results for your business.</p>
+          <div class="btn-group">
+            <a href="contact.html" class="btn btn-primary btn-lg">Book Your Free Call</a>
+            <a href="about.html" class="btn btn-outline btn-lg">Our Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="nav__logo">Gentleman <span>Brand</span> Management</div>
+          <p style="margin-top:1rem;">Veteran-owned, SBA-certified business consulting built on the discipline and honor of the United States Marine Corps. Semper Fidelis — always faithful to your mission.</p>
+          <div class="footer__badge">&#127981; Veteran-Owned &middot; SBA-Certified</div>
+        </div>
+        <div>
+          <div class="footer__heading">Navigation</div>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tailblazers.html">NYC Tailblazers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <div class="footer__contact-item">
+            <strong>Email</strong>
+            info@gentlemanbrandmanagement.com
+          </div>
+          <div class="footer__contact-item">
+            <strong>Phone</strong>
+            (212) 555-0100
+          </div>
+          <div class="footer__contact-item">
+            <strong>Location</strong>
+            New York, NY
+          </div>
+          <div style="margin-top:1.5rem;">
+            <a href="contact.html" class="btn btn-primary btn-sm">Book a Consultation</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Gentleman Brand Management. All rights reserved.</p>
+        <p>Website built by <a href="tailblazers.html">NYC Tailblazers</a> &mdash; Veterans serving the community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ACCESSIBILITY WIDGET -->
+  <button class="a11y-toggle-btn" id="a11y-toggle" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">
+    &#9778;
+  </button>
+  <div class="a11y-panel" id="a11y-panel" role="region" aria-label="Accessibility controls">
+    <div class="a11y-panel__title">Accessibility</div>
+    <div class="a11y-panel__row">
+      <span class="a11y-panel__label" id="hc-label">High Contrast</span>
+      <label class="toggle-switch" aria-labelledby="hc-label">
+        <input type="checkbox" id="hc-toggle" aria-label="Toggle high contrast mode">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="a11y-panel__row">
+      <span class="a11y-panel__label">Font Size</span>
+      <div class="a11y-panel__controls">
+        <button class="a11y-btn" id="font-dec" aria-label="Decrease font size">A&minus;</button>
+        <button class="a11y-btn" id="font-inc" aria-label="Increase font size">A+</button>
+      </div>
+    </div>
+    <p style="font-size:0.75rem;color:var(--gray-400);margin-top:0.25rem;">Settings are saved to your browser.</p>
+  </div>
+
+  <!-- AI CHAT WIDGET -->
+  <button class="chat-toggle-btn" id="chat-toggle" aria-label="Open AI assistant chat" aria-expanded="false" aria-controls="chat-panel">
+    &#128172;
+  </button>
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="AI Assistant" aria-modal="true">
+    <div class="chat-panel__header">
+      <div>
+        <div class="chat-panel__title">GBM Assistant</div>
+        <div class="chat-panel__subtitle">Veteran-Owned Business Consulting</div>
+      </div>
+      <button class="chat-panel__close" id="chat-close" aria-label="Close chat">&#x2715;</button>
+    </div>
+    <div class="chat-messages" id="chat-messages" role="list" aria-label="Chat messages" aria-live="polite">
+      <div class="chat-message bot" role="listitem">Hello. I'm the GBM assistant — how can I help you build your business today?</div>
+    </div>
+    <div class="chat-panel__input">
+      <input type="text" id="chat-input" placeholder="Ask about our services..." aria-label="Chat message input" autocomplete="off">
+      <button class="chat-send-btn" id="chat-send" aria-label="Send message">&#10148;</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

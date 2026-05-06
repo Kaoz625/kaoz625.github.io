@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gentleman Brand Management</title>
+  <!-- GitHub Pages 404 → redirect to homepage with path preserved for SPA routing -->
+  <script>
+    (function () {
+      var seg = window.location.pathname.split('/').slice(0, 1).join('/');
+      var path = window.location.pathname.slice(1);
+      if (path) {
+        window.location.replace(seg + '/?p=' + encodeURIComponent(path));
+      } else {
+        window.location.replace('/');
+      }
+    })();
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0A1628;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    p { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+    a { color: #FFB300; }
+  </style>
+</head>
+<body>
+  <div>
+    <p>Redirecting&hellip;</p>
+    <p>If you are not redirected automatically, <a href="index.html">click here</a>.</p>
+  </div>
+</body>
+</html>
