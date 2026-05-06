@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+
+      // If path has no extension and doesn't end with /, try adding .html
+      if (path !== '/' && !path.match(/\.[a-z0-9]+$/i) && !path.endsWith('/')) {
+        var target = path + '.html' + search + hash;
+        window.location.replace(target);
+        return;
+      }
+
+      // If path ends with /, try index.html in that dir
+      if (path.endsWith('/') && path !== '/') {
+        var target = path + 'index.html' + search + hash;
+        window.location.replace(target);
+        return;
+      }
+
+      // Fallback: redirect to the nearest subsite root
+      // e.g. /websiteportfolio/whatever -> /websiteportfolio/
+      var parts = path.split('/').filter(Boolean);
+      if (parts.length >= 2) {
+        window.location.replace('/' + parts[0] + '/');
+        return;
+      }
+
+      // Final fallback: homepage
+      window.location.replace('/');
+    })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/">
+  </noscript>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
