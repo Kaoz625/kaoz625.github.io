@@ -1,5 +1,5 @@
 /* Trapables Service Worker — Cache-first strategy for all static assets */
-const CACHE = 'trapables-v1';
+const CACHE = 'trapables-v2';
 const ASSETS = [
   '/trapables/',
   '/trapables/index.html',
