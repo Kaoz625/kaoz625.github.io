@@ -408,6 +408,21 @@
   }
 
   /* ---- Product Card Renderer --------------------------- */
+  function revealCards(container) {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.to(container.querySelectorAll('.stagger-child'), {
+        opacity: 1, y: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out',
+        scrollTrigger: { trigger: container, start: 'top 90%', toggleActions: 'play none none none' }
+      });
+      ScrollTrigger.refresh();
+    } else {
+      Array.from(container.querySelectorAll('.stagger-child')).forEach(function (el) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+  }
+
   function renderProductCards(containerId, strains, filterFn) {
     var container = document.getElementById(containerId);
     if (!container || typeof T === 'undefined') return;
@@ -458,6 +473,8 @@
         }
       };
     });
+
+    revealCards(container);
   }
 
   /* ---- Strain Card Renderer ----------------------------- */
@@ -524,6 +541,8 @@
     }).join('');
 
     initAccordions();
+
+    revealCards(container);
 
     // Lazy-load images
     strains.forEach(function (s, idx) {
