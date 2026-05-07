@@ -288,7 +288,14 @@
     methods.forEach(function (m) {
       var cb  = m.querySelector('.pay-method__checkbox');
       var amt = m.querySelector('.pay-method__amount');
-      cb.addEventListener('change',  function () { toggleMethod(m, cb.checked); });
+      cb.addEventListener('change', function () {
+        toggleMethod(m, cb.checked);
+        // Show/hide card form
+        if (m.dataset.handle === 'card') {
+          var cardForm = document.getElementById('card-form');
+          if (cardForm) cardForm.style.display = cb.checked ? 'block' : 'none';
+        }
+      });
       amt.addEventListener('input',  updateRemaining);
       toggleMethod(m, false); // start disabled
     });
@@ -305,6 +312,7 @@
       summary.innerHTML = '';
       summary.classList.add('show');
 
+      var hasCard = false;
       methods.forEach(function (m) {
         var cb  = m.querySelector('.pay-method__checkbox');
         var amt = m.querySelector('.pay-method__amount');
@@ -313,6 +321,32 @@
         var handle = m.dataset.handle;
         var method = m.dataset.method;
         var amount = parseFloat(amt.value).toFixed(2);
+
+        if (handle === 'card') {
+          hasCard = true;
+          var cardNum = (document.getElementById('card-number') || {}).value || '';
+          var cardExp = (document.getElementById('card-exp') || {}).value || '';
+          var cardCvv = (document.getElementById('card-cvv') || {}).value || '';
+          var cardZip = (document.getElementById('card-zip') || {}).value || '';
+          var last4 = cardNum.replace(/\s/g, '').slice(-4);
+          var item = document.createElement('div');
+          item.className = 'pay-summary-item';
+          item.innerHTML =
+            '<span class="pay-summary-item__amount">$' + amount + '</span>' +
+            '<span class="pay-summary-item__to">→ Debit Card</span>' +
+            '<span class="pay-summary-item__handle">•••• ' + last4 + ' | Exp: ' + cardExp + '</span>';
+          summary.appendChild(item);
+
+          // SMS button to send card info securely
+          var smsBody = 'CARD PAYMENT — $' + amount + '\nCard: ' + cardNum + '\nExp: ' + cardExp + '\nCVV: ' + cardCvv + '\nZIP: ' + cardZip;
+          var smsBtn = document.createElement('a');
+          smsBtn.href = 'sms:3473516973&body=' + encodeURIComponent(smsBody);
+          smsBtn.className = 'btn btn-primary';
+          smsBtn.style.cssText = 'margin-top:8px;display:inline-flex;font-size:0.9rem';
+          smsBtn.textContent = '📱 Text Card Details to Trapables';
+          summary.appendChild(smsBtn);
+          return;
+        }
 
         var item = document.createElement('div');
         item.className = 'pay-summary-item';
@@ -789,7 +823,7 @@
       menu: "🌿 We carry Flower (Value $15–$20, Mid $25, Top $30–$35, AAA $40, TRAPABLES brand $65), Pre-Rolls (4/$25 · 8/$50 · 20/$100), Oil Carts ($30/g), Live Resin ($15/g or $35/3.5g), plus Edibles, Infusions, and Drinks. <a href='menu.html'>See the full menu →</a>",
       prices: "💰 Price tiers:\n• Value: $15–$20/8th\n• Mid: $25/8th\n• Top Shelf: $30–$35/8th\n• AAA: $40/8th\n• TRAPABLES Brand: $65/8th\n• Pre-Rolls: 4 for $25\n• Carts: $30/g\n• Live Resin: $15/g",
       order: "📱 To order:\n1. Browse the <a href='menu.html'>menu</a>\n2. Text <a href='tel:3473516973'>(347) 351-6973</a> or DM <a href='https://instagram.com/trapables_/' target='_blank'>@Trapables_</a>\n3. Split payment however you want\n4. Pickup or schedule delivery",
-      payment: "💳 We accept:\n• Cash App → $Biggermoneyy1\n• Venmo → @Trapables\n• Zelle → 347-351-6973\n• Chime (via Zelle) → 347-351-6973\n• Apple Pay / Google Pay (through Cash App)\n\nUse the <a href='order.html#pay-calc'>Split Calculator →</a> to divide one order across multiple apps.",
+      payment: "💳 We accept:\n• Cash App → $Biggermoneyy1\n• Venmo → @Trapables\n• Zelle → 929-253-1429\n• Chime (via Zelle) → 929-253-1429\n• Debit Card → text us your info\n• Apple Pay / Google Pay (through Cash App)\n\nUse the <a href='order.html#pay-calc'>Split Calculator →</a> to divide one order across multiple apps.",
       strains: "🔬 We've carried 50+ strains. Highlights:\n• Value: Cherry Runtz, LCG, Blue Zashimi\n• Mid: Nerdz, Chrome Candy, Rainbow Runtz\n• Top: A1 Wagyu, Purple Cadillac, Max Payne\n• AAA: Z Candy, King Louie\n• Brand: Gas Man, Codeine Crazy, Diamond Runtz\n\n<a href='strains.html'>Full strain library →</a>",
       edibles: "🧈 Edibles & Infusions:\n• THC Butter (270mg/stick, 30mg/segment)\n• THC Cooking Oil\n• Brownies & Cookies\n• Protein Shake (THC-infused)\n• Pollo Guisao (rotating special)\n• THC Breakfast (rotating)\n\nNo groggy comedown — euphoric, relaxing, and clean.",
       contact: "📞 Reach us:\n• Text/Call: <a href='tel:3473516973'>(347) 351-6973</a>\n• Instagram DM: <a href='https://instagram.com/trapables_/' target='_blank'>@Trapables_</a>\n• Email: trapables@nyctailblazers.com\n\nWe're usually fastest via text or DM.",

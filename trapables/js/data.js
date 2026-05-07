@@ -11,7 +11,7 @@ const T = {
   phoneDisplay: '(347) 351-6973',
   cashapp:  '$Biggermoneyy1',
   venmo:    '@Trapables',
-  zelle:    '347-351-6973',
+  zelle:    '929-253-1429',
   instagram:'https://www.instagram.com/trapables_/',
   email:    'trapables@nyctailblazers.com',
 
