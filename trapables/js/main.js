@@ -410,7 +410,7 @@
   /* ---- Product Card Renderer --------------------------- */
   function renderProductCards(containerId, strains, filterFn) {
     var container = document.getElementById(containerId);
-    if (!container || !window.T) return;
+    if (!container || typeof T === 'undefined') return;
     var list = filterFn ? strains.filter(filterFn) : strains;
     container.innerHTML = list.map(function (s) {
       var badges = [
@@ -463,7 +463,7 @@
   /* ---- Strain Card Renderer ----------------------------- */
   function renderStrainCards(containerId) {
     var container = document.getElementById(containerId);
-    if (!container || !window.T) return;
+    if (!container || typeof T === 'undefined') return;
     var strains = T.strains;
     container.innerHTML = strains.map(function (s) {
       var tierLabel = {
@@ -546,7 +546,7 @@
 
   /* ---- Menu Page Renderer ------------------------------- */
   function initMenuPage() {
-    if (!window.T) return;
+    if (typeof T === 'undefined') return;
 
     // Flower tab — build sub-tab panels
     ['eighth','quarter','half','oz','qp'].forEach(function (size) {
@@ -663,7 +663,7 @@
   /* ---- Featured Products on Home Page ------------------- */
   function initFeaturedProducts() {
     var container = document.getElementById('featured-products');
-    if (!container || !window.T) return;
+    if (!container || typeof T === 'undefined') return;
     var featured = T.strains.filter(function (s) { return s.available === true; }).slice(0, 8);
     renderProductCards('featured-products', featured);
   }
@@ -671,7 +671,7 @@
   /* ---- Merch Page --------------------------------------- */
   function initMerchPage() {
     var container = document.getElementById('merch-grid');
-    if (!container || !window.T) return;
+    if (!container || typeof T === 'undefined') return;
     container.innerHTML = T.merch.map(function (m) {
       return '<div class="merch-card stagger-child">' +
         '<div class="merch-card__img">🧥</div>' +
