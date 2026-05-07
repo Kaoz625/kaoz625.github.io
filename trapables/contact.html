@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Trapables — call, text, email, or DM. We respond fast.">
+  <meta name="theme-color" content="#39FF14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+  <link rel="icon" type="image/png" href="images/icon-192.png">
+  <title>Contact — TRAPABLES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="page-opener"></div>
+  <div id="age-gate" role="dialog" aria-modal="true" aria-label="Age verification">
+    <div class="age-gate__logo">TRAPABLES</div>
+    <h2 style="font-size:clamp(1.4rem,4vw,2rem);color:#fff">Are you 21 or older?</h2>
+    <p class="age-gate__title">You must be of legal age to enter this site.</p>
+    <div class="age-gate__btns">
+      <button class="btn btn-primary btn-enter">Yes, I'm 21+</button>
+      <button class="btn btn-exit">No, Take Me Out</button>
+    </div>
+    <p class="age-gate__legal">By entering, you confirm you are 21 years of age or older.</p>
+  </div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">TRAPABLES</a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"   class="nav__link">Home</a></li>
+        <li><a href="menu.html"    class="nav__link">Menu</a></li>
+        <li><a href="strains.html" class="nav__link">Strains</a></li>
+        <li><a href="merch.html"   class="nav__link">Merch</a></li>
+        <li><a href="order.html"   class="nav__link">Order</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="order.html" class="btn btn-primary btn-sm nav__cta">Order Now</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="index.html"   class="nav__link">Home</a>
+    <a href="menu.html"    class="nav__link">Menu</a>
+    <a href="strains.html" class="nav__link">Strains</a>
+    <a href="merch.html"   class="nav__link">Merch</a>
+    <a href="order.html"   class="nav__link">Order</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="order.html" class="btn btn-primary">Order Now</a>
+  </div>
+
+  <main id="main-content">
+    <div style="padding:calc(var(--nav-h) + 60px) 0 48px;background:linear-gradient(180deg,rgba(57,255,20,0.04) 0%,transparent 100%)">
+      <div class="container">
+        <p class="section-header__eyebrow">Get in Touch</p>
+        <h1 style="font-size:clamp(2.5rem,7vw,5rem);color:#fff">Hit Us <span class="text-green">Up</span></h1>
+        <p style="max-width:500px;margin-top:12px">We respond fast. Text is fastest. DM works too. Whatever's easiest for you.</p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:32px">
+      <div class="container">
+
+        <!-- CONTACT CARDS -->
+        <div class="contact-grid stagger-parent" style="margin-bottom:60px">
+          <a href="tel:3473516973" class="contact-card stagger-child" aria-label="Call Trapables at 347-351-6973">
+            <div class="contact-card__icon">📞</div>
+            <div class="contact-card__label">Call Us</div>
+            <div class="contact-card__value">(347) 351-6973</div>
+          </a>
+          <a href="sms:3473516973" class="contact-card stagger-child" aria-label="Text Trapables at 347-351-6973">
+            <div class="contact-card__icon">💬</div>
+            <div class="contact-card__label">Text Us</div>
+            <div class="contact-card__value">(347) 351-6973</div>
+          </a>
+          <a href="mailto:trapables@nyctailblazers.com" class="contact-card stagger-child" aria-label="Email Trapables">
+            <div class="contact-card__icon">✉️</div>
+            <div class="contact-card__label">Email</div>
+            <div class="contact-card__value" style="font-size:0.75rem">trapables@<br>nyctailblazers.com</div>
+          </a>
+          <a href="https://www.instagram.com/trapables_/" target="_blank" rel="noopener" class="contact-card stagger-child" aria-label="DM Trapables on Instagram">
+            <div class="contact-card__icon">📸</div>
+            <div class="contact-card__label">Instagram DM</div>
+            <div class="contact-card__value">@Trapables_</div>
+          </a>
+        </div>
+
+        <!-- CONTACT FORM -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="reveal">
+          <div>
+            <h2 style="color:#fff;margin-bottom:12px">Send a Message</h2>
+            <p style="margin-bottom:32px">Questions, feedback, or just want to say what's good — send it here. We'll get back to you.</p>
+
+            <form id="contact-form" action="https://formspree.io/f/trapables-contact" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="Trapables Contact Form">
+
+              <div class="form-group">
+                <label class="form-label" for="c-name">Name</label>
+                <input class="form-input" type="text" id="c-name" name="name" placeholder="Your name" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-contact">Phone or Email</label>
+                <input class="form-input" type="text" id="c-contact" name="contact" placeholder="How to reach you back" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="c-msg">Message</label>
+                <textarea class="form-textarea" id="c-msg" name="message" placeholder="What's on your mind?" required aria-required="true" style="min-height:140px"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-submit-btn" aria-label="Send message">Send Message</button>
+              <div class="form-success" id="contact-success" aria-live="polite">Message sent! We'll hit you back soon.</div>
+            </form>
+          </div>
+
+          <div>
+            <h3 style="color:#fff;margin-bottom:20px">Response Times</h3>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+                <span>📱 Text</span>
+                <span style="font-family:var(--font-mono);color:var(--green);font-size:0.85rem">Fastest</span>
+              </div>
+              <div style="background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+                <span>📸 Instagram DM</span>
+                <span style="font-family:var(--font-mono);color:var(--green);font-size:0.85rem">Fast</span>
+              </div>
+              <div style="background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius);padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+                <span>✉️ Email / Form</span>
+                <span style="font-family:var(--font-mono);color:#38bdf8;font-size:0.85rem">Same day</span>
+              </div>
+            </div>
+
+            <div style="margin-top:32px;padding:24px;background:rgba(57,255,20,0.06);border:1px solid rgba(57,255,20,0.15);border-radius:var(--radius-lg)">
+              <h4 style="color:var(--green);margin-bottom:8px">Referral Program</h4>
+              <p style="font-size:0.85rem;margin-bottom:12px">Tell a friend to tell a friend. 1 referral = free 8th in your next order. Just DM us your referral's name when they order.</p>
+              <a href="https://www.instagram.com/trapables_/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">DM @Trapables_</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none;padding-top:0">
+        <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+          <a href="index.html" class="footer__brand" style="font-size:1rem">TRAPABLES</a>
+          <a href="menu.html"    style="font-size:0.85rem;color:var(--text-muted)">Menu</a>
+          <a href="order.html"   style="font-size:0.85rem;color:var(--text-muted)">Order</a>
+          <a href="tailblazers.html" style="font-size:0.75rem;color:#333">NYC Tailblazers</a>
+        </div>
+        <p class="footer__legal">© 2025 Trapables. Adults 21+ only.</p>
+        <span class="footer__21plus">21+</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined')gsap.registerPlugin(ScrollTrigger);</script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function(){
+      var form = document.getElementById('contact-form');
+      var success = document.getElementById('contact-success');
+      if(!form) return;
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var btn = form.querySelector('[type="submit"]');
+        btn.textContent = 'Sending...'; btn.disabled = true;
+        fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+          .then(function(r){
+            if(r.ok){ success.classList.add('show'); form.reset(); btn.textContent='Sent ✓'; }
+            else { btn.textContent='Send Message'; btn.disabled=false; alert('Error. Text us at (347) 351-6973.'); }
+          }).catch(function(){ btn.textContent='Send Message'; btn.disabled=false; alert('Network error. Text us at (347) 351-6973.'); });
+      });
+    })();
+  </script>
+
+  <!-- ACCESSIBILITY WIDGET -->
+  <div id="a11y-widget" role="complementary" aria-label="Accessibility options">
+    <button id="a11y-btn" class="a11y__fab" aria-label="Accessibility options" aria-expanded="false">♿</button>
+    <div class="a11y__panel" id="a11y-panel" aria-hidden="true">
+      <div class="a11y__title">Accessibility</div>
+      <div class="a11y__row">
+        <span class="a11y__label">High Contrast</span>
+        <button class="a11y__toggle" id="a11y-contrast" aria-pressed="false">OFF</button>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Font Size</span>
+        <div class="a11y__size-controls">
+          <button class="a11y__size-btn" id="a11y-font-down" aria-label="Decrease font size">A-</button>
+          <span class="a11y__size-val" id="a11y-font-val">100%</span>
+          <button class="a11y__size-btn" id="a11y-font-up" aria-label="Increase font size">A+</button>
+        </div>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Read Aloud</span>
+        <button class="a11y__toggle" id="a11y-tts" aria-pressed="false">OFF</button>
+      </div>
+      <button class="a11y__reset" id="a11y-reset">Reset</button>
+    </div>
+  </div>
+
+  <!-- CHATBOT WIDGET -->
+  <div id="trap-chat" role="complementary" aria-label="Trapables order assistant">
+    <button id="trap-chat-btn" class="trap-chat__fab" aria-label="Open order assistant" aria-expanded="false">
+      <span class="trap-chat__fab-icon">💬</span>
+      <span class="trap-chat__fab-badge" id="trap-chat-badge">1</span>
+    </button>
+    <div class="trap-chat__panel" id="trap-chat-panel" aria-hidden="true">
+      <div class="trap-chat__header">
+        <div class="trap-chat__avatar">
+          <img src="images/mascot.jpg" alt="" onerror="this.style.display='none';this.parentNode.textContent='💀'">
+        </div>
+        <div>
+          <div class="trap-chat__name">Trapables Assistant</div>
+          <div class="trap-chat__status">● Online</div>
+        </div>
+        <button class="trap-chat__close" id="trap-chat-close" aria-label="Close chat">✕</button>
+      </div>
+      <div class="trap-chat__messages" id="trap-chat-messages" role="log" aria-live="polite"></div>
+      <div class="trap-chat__quick-replies" id="trap-chat-quick-replies"></div>
+      <div class="trap-chat__input-row">
+        <input type="text" class="trap-chat__input" id="trap-chat-input" placeholder="Ask about menu, prices, payment..." aria-label="Type your message">
+        <button class="trap-chat__send" id="trap-chat-send" aria-label="Send">→</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

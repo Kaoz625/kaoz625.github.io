@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      var parts = path.replace(/^\/trapables\/?/, '').split('/').filter(Boolean);
+      if (parts.length && !parts[parts.length - 1].match(/\.[a-z0-9]+$/i)) {
+        window.location.replace('/trapables/' + parts.join('/') + '.html' + search + hash);
+        return;
+      }
+      window.location.replace('/trapables/');
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0; url=/trapables/"></noscript>
+</head>
+<body><p>Redirecting...</p>
+  <!-- ACCESSIBILITY WIDGET -->
+  <div id="a11y-widget" role="complementary" aria-label="Accessibility options">
+    <button id="a11y-btn" class="a11y__fab" aria-label="Accessibility options" aria-expanded="false">♿</button>
+    <div class="a11y__panel" id="a11y-panel" aria-hidden="true">
+      <div class="a11y__title">Accessibility</div>
+      <div class="a11y__row">
+        <span class="a11y__label">High Contrast</span>
+        <button class="a11y__toggle" id="a11y-contrast" aria-pressed="false">OFF</button>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Font Size</span>
+        <div class="a11y__size-controls">
+          <button class="a11y__size-btn" id="a11y-font-down" aria-label="Decrease font size">A-</button>
+          <span class="a11y__size-val" id="a11y-font-val">100%</span>
+          <button class="a11y__size-btn" id="a11y-font-up" aria-label="Increase font size">A+</button>
+        </div>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Read Aloud</span>
+        <button class="a11y__toggle" id="a11y-tts" aria-pressed="false">OFF</button>
+      </div>
+      <button class="a11y__reset" id="a11y-reset">Reset</button>
+    </div>
+  </div>
+
+  <!-- CHATBOT WIDGET -->
+  <div id="trap-chat" role="complementary" aria-label="Trapables order assistant">
+    <button id="trap-chat-btn" class="trap-chat__fab" aria-label="Open order assistant" aria-expanded="false">
+      <span class="trap-chat__fab-icon">💬</span>
+      <span class="trap-chat__fab-badge" id="trap-chat-badge">1</span>
+    </button>
+    <div class="trap-chat__panel" id="trap-chat-panel" aria-hidden="true">
+      <div class="trap-chat__header">
+        <div class="trap-chat__avatar">
+          <img src="images/mascot.jpg" alt="" onerror="this.style.display='none';this.parentNode.textContent='💀'">
+        </div>
+        <div>
+          <div class="trap-chat__name">Trapables Assistant</div>
+          <div class="trap-chat__status">● Online</div>
+        </div>
+        <button class="trap-chat__close" id="trap-chat-close" aria-label="Close chat">✕</button>
+      </div>
+      <div class="trap-chat__messages" id="trap-chat-messages" role="log" aria-live="polite"></div>
+      <div class="trap-chat__quick-replies" id="trap-chat-quick-replies"></div>
+      <div class="trap-chat__input-row">
+        <input type="text" class="trap-chat__input" id="trap-chat-input" placeholder="Ask about menu, prices, payment..." aria-label="Type your message">
+        <button class="trap-chat__send" id="trap-chat-send" aria-label="Send">→</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

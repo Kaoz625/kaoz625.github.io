@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NYC Tailblazers — the agency behind Trapables and other NYC brands.">
+  <meta name="theme-color" content="#39FF14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="images/icon-192.png">
+  <title>NYC Tailblazers — The Agency Behind Trapables</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="page-opener"></div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">TRAPABLES</a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"   class="nav__link">Home</a></li>
+        <li><a href="menu.html"    class="nav__link">Menu</a></li>
+        <li><a href="strains.html" class="nav__link">Strains</a></li>
+        <li><a href="merch.html"   class="nav__link">Merch</a></li>
+        <li><a href="order.html"   class="nav__link">Order</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="order.html" class="btn btn-primary btn-sm nav__cta">Order Now</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="index.html"   class="nav__link">Home</a>
+    <a href="menu.html"    class="nav__link">Menu</a>
+    <a href="strains.html" class="nav__link">Strains</a>
+    <a href="merch.html"   class="nav__link">Merch</a>
+    <a href="order.html"   class="nav__link">Order</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="order.html" class="btn btn-primary">Order Now</a>
+  </div>
+
+  <main id="main-content">
+
+    <div style="padding:calc(var(--nav-h) + 60px) 0 48px;background:linear-gradient(180deg,rgba(191,95,255,0.05) 0%,transparent 100%)">
+      <div class="container">
+        <p class="section-header__eyebrow">Behind the Brand</p>
+        <h1 style="font-size:clamp(2.5rem,7vw,5rem);color:#fff">NYC <span style="color:var(--purple)">Tailblazers</span></h1>
+        <p style="max-width:600px;margin-top:12px">The NYC-based team that builds brands, digital storefronts, and online presence for independent operators doing things their own way.</p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:32px">
+      <div class="container">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin-bottom:72px" class="reveal">
+          <div>
+            <h2 style="color:#fff;margin-bottom:16px">Who We Are</h2>
+            <p style="margin-bottom:12px">NYC Tailblazers is a small independent agency based in New York City. We build websites, brands, and digital tools for operators who don't fit the corporate mold — street brands, independent businesses, and anyone building something real.</p>
+            <p>We built Trapables from the ground up — brand identity, multi-page PWA storefront, cinematic animations, split-payment tooling, and full strain archive. We handle the digital layer so operators can focus on the product.</p>
+          </div>
+          <div>
+            <h2 style="color:#fff;margin-bottom:16px">What We Build</h2>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+              <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--green);font-size:1.1rem;margin-top:2px">✓</span><span style="color:var(--text-muted)">PWA-first storefronts (static, no monthly fees, mobile-native)</span></li>
+              <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--green);font-size:1.1rem;margin-top:2px">✓</span><span style="color:var(--text-muted)">Brand identity — logo, palette, typography, voice</span></li>
+              <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--green);font-size:1.1rem;margin-top:2px">✓</span><span style="color:var(--text-muted)">Custom ordering flows and payment tooling</span></li>
+              <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--green);font-size:1.1rem;margin-top:2px">✓</span><span style="color:var(--text-muted)">Social media setup and content strategy</span></li>
+              <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--green);font-size:1.1rem;margin-top:2px">✓</span><span style="color:var(--text-muted)">Cloudflare, GitHub Pages, Coolify deployments — free hosting</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECT CARD: TRAPABLES -->
+        <div class="section-header reveal">
+          <p class="section-header__eyebrow">Our Work</p>
+          <h2 class="section-header__title" style="margin-bottom:32px">Live <span class="text-green">Projects</span></h2>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:60px">
+          <div class="vibe-card reveal" style="--vibe-color:var(--green)">
+            <div class="vibe-card__icon">🌿</div>
+            <div class="vibe-card__title">Trapables</div>
+            <div class="vibe-card__desc">Premium private cannabis storefront. Multi-page PWA with GSAP animations, full strain archive, split payment calculator, edibles/infusions catalog, and merch store.</div>
+            <div style="margin-top:16px;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted)">trapables.nyctailblazers.com</div>
+            <a href="index.html" class="vibe-card__arrow" style="margin-top:8px;display:inline-block">View Site →</a>
+          </div>
+
+          <div class="vibe-card reveal" style="--vibe-color:var(--purple);opacity:0.6">
+            <div class="vibe-card__icon">🐾</div>
+            <div class="vibe-card__title">Blazing Tails</div>
+            <div class="vibe-card__desc">Pet care brand built for NYC. In development. Character-driven identity featuring mascots Jiggs and Glo.</div>
+            <div style="margin-top:16px;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted)">blazingtails.nyctailblazers.com — Coming Soon</div>
+          </div>
+
+          <div class="vibe-card reveal" style="--vibe-color:var(--gold);opacity:0.6">
+            <div class="vibe-card__icon">🔨</div>
+            <div class="vibe-card__title">Your Brand</div>
+            <div class="vibe-card__desc">Building something? We work with independent operators in NYC. Text us and let's talk about what you need.</div>
+            <a href="mailto:info@nyctailblazers.com" class="vibe-card__arrow" style="margin-top:16px;display:inline-block">Get In Touch →</a>
+          </div>
+        </div>
+
+        <!-- CONTACT BAND -->
+        <div class="referral-banner reveal" style="text-align:center">
+          <p class="section-header__eyebrow" style="margin-bottom:8px">Work With Us</p>
+          <h2 class="referral-banner__title" style="font-size:clamp(1.4rem,4vw,2.2rem)">Building Something in <span>NYC?</span></h2>
+          <p class="referral-banner__sub">We're based here. We know the market. We build fast and we build it to last.</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <a href="mailto:info@nyctailblazers.com" class="btn btn-primary">Email Us</a>
+            <a href="https://instagram.com/nyctailblazers" target="_blank" rel="noopener" class="btn btn-outline">@nyctailblazers</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none;padding-top:0">
+        <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+          <a href="index.html" class="footer__brand" style="font-size:1rem">TRAPABLES</a>
+          <span style="font-size:0.75rem;color:#333">|</span>
+          <span style="font-size:0.8rem;color:#444;font-family:var(--font-mono)">NYC Tailblazers</span>
+          <a href="menu.html"    style="font-size:0.85rem;color:var(--text-muted)">Menu</a>
+          <a href="order.html"   style="font-size:0.85rem;color:var(--text-muted)">Order</a>
+          <a href="contact.html" style="font-size:0.85rem;color:var(--text-muted)">Contact</a>
+        </div>
+        <p class="footer__legal">© 2025 NYC Tailblazers. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined')gsap.registerPlugin(ScrollTrigger);</script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- ACCESSIBILITY WIDGET -->
+  <div id="a11y-widget" role="complementary" aria-label="Accessibility options">
+    <button id="a11y-btn" class="a11y__fab" aria-label="Accessibility options" aria-expanded="false">♿</button>
+    <div class="a11y__panel" id="a11y-panel" aria-hidden="true">
+      <div class="a11y__title">Accessibility</div>
+      <div class="a11y__row">
+        <span class="a11y__label">High Contrast</span>
+        <button class="a11y__toggle" id="a11y-contrast" aria-pressed="false">OFF</button>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Font Size</span>
+        <div class="a11y__size-controls">
+          <button class="a11y__size-btn" id="a11y-font-down" aria-label="Decrease font size">A-</button>
+          <span class="a11y__size-val" id="a11y-font-val">100%</span>
+          <button class="a11y__size-btn" id="a11y-font-up" aria-label="Increase font size">A+</button>
+        </div>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Read Aloud</span>
+        <button class="a11y__toggle" id="a11y-tts" aria-pressed="false">OFF</button>
+      </div>
+      <button class="a11y__reset" id="a11y-reset">Reset</button>
+    </div>
+  </div>
+
+  <!-- CHATBOT WIDGET -->
+  <div id="trap-chat" role="complementary" aria-label="Trapables order assistant">
+    <button id="trap-chat-btn" class="trap-chat__fab" aria-label="Open order assistant" aria-expanded="false">
+      <span class="trap-chat__fab-icon">💬</span>
+      <span class="trap-chat__fab-badge" id="trap-chat-badge">1</span>
+    </button>
+    <div class="trap-chat__panel" id="trap-chat-panel" aria-hidden="true">
+      <div class="trap-chat__header">
+        <div class="trap-chat__avatar">
+          <img src="images/mascot.jpg" alt="" onerror="this.style.display='none';this.parentNode.textContent='💀'">
+        </div>
+        <div>
+          <div class="trap-chat__name">Trapables Assistant</div>
+          <div class="trap-chat__status">● Online</div>
+        </div>
+        <button class="trap-chat__close" id="trap-chat-close" aria-label="Close chat">✕</button>
+      </div>
+      <div class="trap-chat__messages" id="trap-chat-messages" role="log" aria-live="polite"></div>
+      <div class="trap-chat__quick-replies" id="trap-chat-quick-replies"></div>
+      <div class="trap-chat__input-row">
+        <input type="text" class="trap-chat__input" id="trap-chat-input" placeholder="Ask about menu, prices, payment..." aria-label="Type your message">
+        <button class="trap-chat__send" id="trap-chat-send" aria-label="Send">→</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trapables merch — hoodies, tees, and sets. Rep the brand. Text your size.">
+  <meta name="theme-color" content="#39FF14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+  <link rel="icon" type="image/png" href="images/icon-192.png">
+  <title>Merch — TRAPABLES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div id="page-opener"></div>
+  <div id="age-gate" role="dialog" aria-modal="true" aria-label="Age verification">
+    <div class="age-gate__logo">TRAPABLES</div>
+    <h2 style="font-size:clamp(1.4rem,4vw,2rem);color:#fff">Are you 21 or older?</h2>
+    <p class="age-gate__title">You must be of legal age to enter this site.</p>
+    <div class="age-gate__btns">
+      <button class="btn btn-primary btn-enter">Yes, I'm 21+</button>
+      <button class="btn btn-exit">No, Take Me Out</button>
+    </div>
+    <p class="age-gate__legal">By entering, you confirm you are 21 years of age or older.</p>
+  </div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">TRAPABLES</a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"   class="nav__link">Home</a></li>
+        <li><a href="menu.html"    class="nav__link">Menu</a></li>
+        <li><a href="strains.html" class="nav__link">Strains</a></li>
+        <li><a href="merch.html"   class="nav__link">Merch</a></li>
+        <li><a href="order.html"   class="nav__link">Order</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="order.html" class="btn btn-primary btn-sm nav__cta">Order Now</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="index.html"   class="nav__link">Home</a>
+    <a href="menu.html"    class="nav__link">Menu</a>
+    <a href="strains.html" class="nav__link">Strains</a>
+    <a href="merch.html"   class="nav__link">Merch</a>
+    <a href="order.html"   class="nav__link">Order</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="order.html" class="btn btn-primary">Order Now</a>
+  </div>
+
+  <main id="main-content">
+    <div style="padding:calc(var(--nav-h) + 60px) 0 48px;background:linear-gradient(180deg,rgba(191,95,255,0.05) 0%,transparent 100%)">
+      <div class="container">
+        <p class="section-header__eyebrow">Rep the Brand</p>
+        <h1 style="font-size:clamp(2.5rem,7vw,5rem);color:#fff">Trap <span class="text-purple">Merch</span></h1>
+        <p style="max-width:600px;margin-top:12px">Trapables apparel. Hoodies, tees, sweats, and shorts. Text your size to order — we'll confirm availability and arrange pickup or delivery.</p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:32px">
+      <div class="container">
+
+        <!-- MERCH GRID -->
+        <div class="merch-grid stagger-parent" id="merch-grid">
+          <!-- Populated by main.js -->
+        </div>
+
+        <!-- HOW TO ORDER MERCH -->
+        <div style="margin-top:60px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:40px" class="reveal">
+          <h3 style="color:#fff;margin-bottom:16px">How to Order Merch</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
+            <div>
+              <div style="font-size:2rem;margin-bottom:8px">📱</div>
+              <h4 style="color:#fff;margin-bottom:4px">1. Text Us</h4>
+              <p style="font-size:0.85rem">Text <a href="tel:3473516973" class="text-green" style="font-family:var(--font-mono)">(347) 351-6973</a> with the item name and your size</p>
+            </div>
+            <div>
+              <div style="font-size:2rem;margin-bottom:8px">✅</div>
+              <h4 style="color:#fff;margin-bottom:4px">2. We Confirm</h4>
+              <p style="font-size:0.85rem">We'll confirm availability and give you a total</p>
+            </div>
+            <div>
+              <div style="font-size:2rem;margin-bottom:8px">💸</div>
+              <h4 style="color:#fff;margin-bottom:4px">3. Pay</h4>
+              <p style="font-size:0.85rem">Pay via Cash App <span class="text-green" style="font-family:var(--font-mono)">$Biggermoneyy1</span>, Venmo, Zelle, or split it</p>
+            </div>
+            <div>
+              <div style="font-size:2rem;margin-bottom:8px">📦</div>
+              <h4 style="color:#fff;margin-bottom:4px">4. Pick Up</h4>
+              <p style="font-size:0.85rem">Pickup or delivery — we'll arrange via text</p>
+            </div>
+          </div>
+          <div style="margin-top:28px;display:flex;gap:16px;flex-wrap:wrap">
+            <a href="sms:3473516973&body=Hi, I'd like to order some merch. Item: " class="btn btn-primary">Text to Order</a>
+            <a href="https://www.instagram.com/trapables_/" target="_blank" rel="noopener" class="btn btn-outline">DM @Trapables_</a>
+          </div>
+        </div>
+
+        <!-- SIZES -->
+        <div style="margin-top:32px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:28px" class="reveal">
+          <h4 style="color:#fff;margin-bottom:12px">Available Sizes</h4>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">S</span>
+            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">M</span>
+            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">L</span>
+            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">XL</span>
+            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">XXL</span>
+          </div>
+          <p style="margin-top:12px;font-size:0.85rem">Not sure on sizing? Text us and we'll help.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none;padding-top:0">
+        <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+          <a href="index.html" class="footer__brand" style="font-size:1rem">TRAPABLES</a>
+          <a href="menu.html"    style="font-size:0.85rem;color:var(--text-muted)">Menu</a>
+          <a href="order.html"   style="font-size:0.85rem;color:var(--text-muted)">Order</a>
+          <a href="contact.html" style="font-size:0.85rem;color:var(--text-muted)">Contact</a>
+          <a href="tailblazers.html" style="font-size:0.75rem;color:#333">NYC Tailblazers</a>
+        </div>
+        <p class="footer__legal">© 2025 Trapables. Adults 21+ only.</p>
+        <span class="footer__21plus">21+</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined')gsap.registerPlugin(ScrollTrigger);</script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- ACCESSIBILITY WIDGET -->
+  <div id="a11y-widget" role="complementary" aria-label="Accessibility options">
+    <button id="a11y-btn" class="a11y__fab" aria-label="Accessibility options" aria-expanded="false">♿</button>
+    <div class="a11y__panel" id="a11y-panel" aria-hidden="true">
+      <div class="a11y__title">Accessibility</div>
+      <div class="a11y__row">
+        <span class="a11y__label">High Contrast</span>
+        <button class="a11y__toggle" id="a11y-contrast" aria-pressed="false">OFF</button>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Font Size</span>
+        <div class="a11y__size-controls">
+          <button class="a11y__size-btn" id="a11y-font-down" aria-label="Decrease font size">A-</button>
+          <span class="a11y__size-val" id="a11y-font-val">100%</span>
+          <button class="a11y__size-btn" id="a11y-font-up" aria-label="Increase font size">A+</button>
+        </div>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Read Aloud</span>
+        <button class="a11y__toggle" id="a11y-tts" aria-pressed="false">OFF</button>
+      </div>
+      <button class="a11y__reset" id="a11y-reset">Reset</button>
+    </div>
+  </div>
+
+  <!-- CHATBOT WIDGET -->
+  <div id="trap-chat" role="complementary" aria-label="Trapables order assistant">
+    <button id="trap-chat-btn" class="trap-chat__fab" aria-label="Open order assistant" aria-expanded="false">
+      <span class="trap-chat__fab-icon">💬</span>
+      <span class="trap-chat__fab-badge" id="trap-chat-badge">1</span>
+    </button>
+    <div class="trap-chat__panel" id="trap-chat-panel" aria-hidden="true">
+      <div class="trap-chat__header">
+        <div class="trap-chat__avatar">
+          <img src="images/mascot.jpg" alt="" onerror="this.style.display='none';this.parentNode.textContent='💀'">
+        </div>
+        <div>
+          <div class="trap-chat__name">Trapables Assistant</div>
+          <div class="trap-chat__status">● Online</div>
+        </div>
+        <button class="trap-chat__close" id="trap-chat-close" aria-label="Close chat">✕</button>
+      </div>
+      <div class="trap-chat__messages" id="trap-chat-messages" role="log" aria-live="polite"></div>
+      <div class="trap-chat__quick-replies" id="trap-chat-quick-replies"></div>
+      <div class="trap-chat__input-row">
+        <input type="text" class="trap-chat__input" id="trap-chat-input" placeholder="Ask about menu, prices, payment..." aria-label="Type your message">
+        <button class="trap-chat__send" id="trap-chat-send" aria-label="Send">→</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "name": "Trapables",
+  "short_name": "Trapables",
+  "description": "Premium private cannabis. Top-shelf flower, edibles, infusions, and merch. NYC.",
+  "start_url": "/trapables/",
+  "scope": "/trapables/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#39FF14",
+  "background_color": "#080808",
+  "lang": "en",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Browse Menu",
+      "short_name": "Menu",
+      "description": "View the full product catalog",
+      "url": "/trapables/menu.html",
+      "icons": [{ "src": "images/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Order Now",
+      "short_name": "Order",
+      "description": "Place an order",
+      "url": "/trapables/order.html",
+      "icons": [{ "src": "images/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

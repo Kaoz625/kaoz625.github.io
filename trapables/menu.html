@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trapables full menu — flower, pre-rolls, carts, resin, edibles, infusions, and drinks. All-time strain archive.">
+  <meta name="theme-color" content="#39FF14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+  <link rel="icon" type="image/png" href="images/icon-192.png">
+  <title>Menu — TRAPABLES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>(function(){var p=new URLSearchParams(window.location.search).get('p');if(p){window.history.replaceState(null,null,p);}})();</script>
+</head>
+<body>
+
+  <div id="page-opener"></div>
+  <div id="age-gate" role="dialog" aria-modal="true" aria-label="Age verification">
+    <div class="age-gate__logo">TRAPABLES</div>
+    <h2 style="font-size:clamp(1.4rem,4vw,2rem);color:#fff">Are you 21 or older?</h2>
+    <p class="age-gate__title">You must be of legal age to enter this site.</p>
+    <div class="age-gate__btns">
+      <button class="btn btn-primary btn-enter">Yes, I'm 21+</button>
+      <button class="btn btn-exit">No, Take Me Out</button>
+    </div>
+    <p class="age-gate__legal">By entering, you confirm you are 21 years of age or older.</p>
+  </div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">TRAPABLES</a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"   class="nav__link">Home</a></li>
+        <li><a href="menu.html"    class="nav__link">Menu</a></li>
+        <li><a href="strains.html" class="nav__link">Strains</a></li>
+        <li><a href="merch.html"   class="nav__link">Merch</a></li>
+        <li><a href="order.html"   class="nav__link">Order</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="order.html" class="btn btn-primary btn-sm nav__cta">Order Now</a>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="index.html"   class="nav__link">Home</a>
+    <a href="menu.html"    class="nav__link">Menu</a>
+    <a href="strains.html" class="nav__link">Strains</a>
+    <a href="merch.html"   class="nav__link">Merch</a>
+    <a href="order.html"   class="nav__link">Order</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="order.html" class="btn btn-primary">Order Now</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- PAGE HEADER -->
+    <div style="padding:calc(var(--nav-h) + 60px) 0 48px;background:linear-gradient(180deg,rgba(57,255,20,0.04) 0%,transparent 100%)">
+      <div class="container">
+        <p class="section-header__eyebrow">What We're Moving</p>
+        <h1 style="font-size:clamp(2.5rem,7vw,5rem);color:#fff">The <span class="text-green">Menu</span></h1>
+        <p style="max-width:600px;margin-top:12px">Current picks marked <span class="badge badge-available" style="display:inline">Available</span>. Archive strains are everything we've carried — ask if you're looking for something specific.</p>
+        <p style="margin-top:16px;font-size:0.9rem">Text to order: <a href="tel:3473516973" class="text-green" style="font-family:var(--font-mono)">(347) 351-6973</a></p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+
+        <!-- MAIN TABS -->
+        <div class="tabs" id="main-tabs">
+          <div class="tabs__nav" role="tablist">
+            <button class="tab-btn active" data-tab="flower"    role="tab" aria-selected="true">🌿 Flower</button>
+            <button class="tab-btn"        data-tab="prerolls"  role="tab" aria-selected="false">🚬 Pre-Rolls</button>
+            <button class="tab-btn"        data-tab="carts"     role="tab" aria-selected="false">🛢️ Carts</button>
+            <button class="tab-btn"        data-tab="resin"     role="tab" aria-selected="false">💎 Resin</button>
+            <button class="tab-btn"        data-tab="edibles"   role="tab" aria-selected="false">🧈 Edibles</button>
+            <button class="tab-btn"        data-tab="infusions" role="tab" aria-selected="false">🍳 Infusions</button>
+            <button class="tab-btn"        data-tab="drinks"    role="tab" aria-selected="false">🥤 Drinks</button>
+          </div>
+
+          <!-- FLOWER -->
+          <div class="tab-panel active" data-tab="flower" role="tabpanel">
+            <div class="subtabs mt-24" id="flower-subtabs">
+              <div class="subtabs__nav" role="tablist">
+                <button class="subtab-btn active" data-subtab="eighth"  role="tab">3.5g / 8th</button>
+                <button class="subtab-btn"        data-subtab="quarter" role="tab">7g / Quarter</button>
+                <button class="subtab-btn"        data-subtab="half"    role="tab">14g / Half</button>
+                <button class="subtab-btn"        data-subtab="oz"      role="tab">28g / Oz</button>
+                <button class="subtab-btn"        data-subtab="qp"      role="tab">112g / QP</button>
+              </div>
+            </div>
+            <div class="subtab-panel active" data-subtab="eighth"  id="flower-eighth" ></div>
+            <div class="subtab-panel"         data-subtab="quarter" id="flower-quarter"></div>
+            <div class="subtab-panel"         data-subtab="half"    id="flower-half"   ></div>
+            <div class="subtab-panel"         data-subtab="oz"      id="flower-oz"     ></div>
+            <div class="subtab-panel"         data-subtab="qp"      id="flower-qp"     ></div>
+          </div>
+
+          <!-- PRE-ROLLS -->
+          <div class="tab-panel" data-tab="prerolls" role="tabpanel" id="tab-prerolls"></div>
+
+          <!-- CARTS -->
+          <div class="tab-panel" data-tab="carts" role="tabpanel" id="tab-carts"></div>
+
+          <!-- RESIN -->
+          <div class="tab-panel" data-tab="resin" role="tabpanel" id="tab-resin"></div>
+
+          <!-- EDIBLES -->
+          <div class="tab-panel" data-tab="edibles" role="tabpanel" id="tab-edibles">
+            <div class="section-header mt-24" style="margin-bottom:32px">
+              <p class="section-header__eyebrow">House-Made</p>
+              <h3 style="color:#fff">THC Edibles</h3>
+              <p style="max-width:600px">All edibles are house-made with care. <strong style="color:var(--green)">No groggy feeling. No crash. Clean, euphoric, full-body effect.</strong> Text 347-351-6973 for current availability and pricing.</p>
+            </div>
+          </div>
+
+          <!-- INFUSIONS -->
+          <div class="tab-panel" data-tab="infusions" role="tabpanel" id="tab-infusions">
+            <div class="section-header mt-24" style="margin-bottom:32px">
+              <p class="section-header__eyebrow">Signature Recipes</p>
+              <h3 style="color:#fff">THC Infusions</h3>
+              <p style="max-width:620px">House-made specialty items — protein shakes, Puerto Rican Pollo Guisao, full breakfast, and more. Rotating menu. <strong style="color:var(--green)">No groggy feeling. No crash. Just euphoric, relaxing, and clean.</strong></p>
+            </div>
+          </div>
+
+          <!-- DRINKS -->
+          <div class="tab-panel" data-tab="drinks" role="tabpanel" id="tab-drinks">
+            <div class="section-header mt-24" style="margin-bottom:32px">
+              <p class="section-header__eyebrow">Coming Soon</p>
+              <h3 style="color:#fff">THC Infused Drinks</h3>
+              <p>Ask about current availability — text <a href="tel:3473516973" class="text-green" style="font-family:var(--font-mono)">(347) 351-6973</a> or DM @Trapables_.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="margin-top:60px;padding:40px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-lg);text-align:center" class="reveal">
+          <h3 style="color:#fff;margin-bottom:12px">Ready to Order?</h3>
+          <p style="margin-bottom:24px">Text your order to <strong style="color:var(--green);font-family:var(--font-mono)">(347) 351-6973</strong> or use our split payment calculator.</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+            <a href="sms:3473516973" class="btn btn-primary">Text to Order</a>
+            <a href="order.html"     class="btn btn-outline">Pay &amp; Order</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none;padding-top:0">
+        <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+          <a href="index.html"    class="footer__brand" style="font-size:1rem">TRAPABLES</a>
+          <a href="strains.html"  style="font-size:0.85rem;color:var(--text-muted)">Strains</a>
+          <a href="merch.html"    style="font-size:0.85rem;color:var(--text-muted)">Merch</a>
+          <a href="order.html"    style="font-size:0.85rem;color:var(--text-muted)">Order</a>
+          <a href="contact.html"  style="font-size:0.85rem;color:var(--text-muted)">Contact</a>
+          <a href="tailblazers.html" style="font-size:0.75rem;color:#333">NYC Tailblazers</a>
+        </div>
+        <p class="footer__legal">© 2025 Trapables. Adults 21+ only.</p>
+        <span class="footer__21plus">21+</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined')gsap.registerPlugin(ScrollTrigger);</script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- ACCESSIBILITY WIDGET -->
+  <div id="a11y-widget" role="complementary" aria-label="Accessibility options">
+    <button id="a11y-btn" class="a11y__fab" aria-label="Accessibility options" aria-expanded="false">♿</button>
+    <div class="a11y__panel" id="a11y-panel" aria-hidden="true">
+      <div class="a11y__title">Accessibility</div>
+      <div class="a11y__row">
+        <span class="a11y__label">High Contrast</span>
+        <button class="a11y__toggle" id="a11y-contrast" aria-pressed="false">OFF</button>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Font Size</span>
+        <div class="a11y__size-controls">
+          <button class="a11y__size-btn" id="a11y-font-down" aria-label="Decrease font size">A-</button>
+          <span class="a11y__size-val" id="a11y-font-val">100%</span>
+          <button class="a11y__size-btn" id="a11y-font-up" aria-label="Increase font size">A+</button>
+        </div>
+      </div>
+      <div class="a11y__row">
+        <span class="a11y__label">Read Aloud</span>
+        <button class="a11y__toggle" id="a11y-tts" aria-pressed="false">OFF</button>
+      </div>
+      <button class="a11y__reset" id="a11y-reset">Reset</button>
+    </div>
+  </div>
+
+  <!-- CHATBOT WIDGET -->
+  <div id="trap-chat" role="complementary" aria-label="Trapables order assistant">
+    <button id="trap-chat-btn" class="trap-chat__fab" aria-label="Open order assistant" aria-expanded="false">
+      <span class="trap-chat__fab-icon">💬</span>
+      <span class="trap-chat__fab-badge" id="trap-chat-badge">1</span>
+    </button>
+    <div class="trap-chat__panel" id="trap-chat-panel" aria-hidden="true">
+      <div class="trap-chat__header">
+        <div class="trap-chat__avatar">
+          <img src="images/mascot.jpg" alt="" onerror="this.style.display='none';this.parentNode.textContent='💀'">
+        </div>
+        <div>
+          <div class="trap-chat__name">Trapables Assistant</div>
+          <div class="trap-chat__status">● Online</div>
+        </div>
+        <button class="trap-chat__close" id="trap-chat-close" aria-label="Close chat">✕</button>
+      </div>
+      <div class="trap-chat__messages" id="trap-chat-messages" role="log" aria-live="polite"></div>
+      <div class="trap-chat__quick-replies" id="trap-chat-quick-replies"></div>
+      <div class="trap-chat__input-row">
+        <input type="text" class="trap-chat__input" id="trap-chat-input" placeholder="Ask about menu, prices, payment..." aria-label="Type your message">
+        <button class="trap-chat__send" id="trap-chat-send" aria-label="Send">→</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
