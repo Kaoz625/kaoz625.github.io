@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peak Pro HVAC — NYC Tailblazers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c14;
+      --surface: #0f1623;
+      --border: #1e2a3a;
+      --gold: #e8c87a;
+      --text: #f0ede8;
+      --muted: #8a9bb0;
+      --accent: #f97316;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 36px 20px 64px;
+    }
+    .nav {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    .back {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .back:hover { color: var(--text); }
+    .logo {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    /* Browser mockup */
+    .browser {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      margin-bottom: 40px;
+    }
+    .browser-bar {
+      background: #141c2a;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+    .url-bar {
+      flex: 1;
+      background: #0f1623;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .browser-body {
+      background: #f9f7f5;
+      color: #1a1a2e;
+    }
+    .site-nav {
+      background: #1a1a2e;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-brand {
+      font-size: 15px;
+      font-weight: 800;
+      color: #f97316;
+      letter-spacing: -0.01em;
+    }
+    .site-nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .site-nav-link {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+    .site-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d1f0a 100%);
+      padding: 44px 28px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .site-hero::before {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(249,115,22,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .site-hero-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #f97316;
+      margin-bottom: 10px;
+    }
+    .site-hero h1 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .site-hero p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      max-width: 400px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .site-hero-btn {
+      display: inline-block;
+      background: #f97316;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 8px;
+    }
+    .site-services {
+      background: #fff;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .service-card {
+      background: #f9f7f5;
+      border: 1px solid #e5e0d8;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .service-icon { font-size: 20px; margin-bottom: 6px; }
+    .service-title { font-size: 12px; font-weight: 700; color: #1a1a2e; }
+    .service-sub { font-size: 11px; color: #6b7280; margin-top: 2px; }
+    /* Info section */
+    .info {
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 36px;
+    }
+    .info-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+    .info h2 {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .info p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .feature {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+    /* Buttons */
+    .actions {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); }
+    footer {
+      margin-top: 64px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="back">← All sites</a>
+    <div class="logo">NYC Tailblazers</div>
+  </nav>
+
+  <div class="browser">
+    <div class="browser-bar">
+      <div class="dots">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+      </div>
+      <div class="url-bar">peakprohvac.nyctailblazers.com</div>
+    </div>
+    <div class="browser-body">
+      <div class="site-nav">
+        <div class="site-brand">🔧 Peak Pro HVAC</div>
+        <div class="site-nav-links">
+          <span class="site-nav-link">Services</span>
+          <span class="site-nav-link">About</span>
+          <span class="site-nav-link">Contact</span>
+        </div>
+      </div>
+      <div class="site-hero">
+        <div class="site-hero-tag">24/7 Emergency Service</div>
+        <h1>NYC's Most Trusted<br>HVAC & Plumbing Team</h1>
+        <p>AC repair, heating systems, plumbing, and more — fast response across the NYC metro area.</p>
+        <div class="site-hero-btn">Get a Free Quote →</div>
+      </div>
+      <div class="site-services">
+        <div class="service-card">
+          <div class="service-icon">❄️</div>
+          <div class="service-title">AC Repair & Install</div>
+          <div class="service-sub">All makes & models</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <div class="service-title">Heating Systems</div>
+          <div class="service-sub">Furnace, boiler, heat pump</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚿</div>
+          <div class="service-title">Plumbing</div>
+          <div class="service-sub">Emergency & scheduled</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info">
+    <span class="info-tag">HVAC &amp; Plumbing</span>
+    <h2>Peak Pro HVAC</h2>
+    <p>Full-service HVAC and plumbing company serving the NYC metro area. 24/7 emergency response, licensed technicians, and AI-powered lead capture so customers can book instantly — any hour, any day.</p>
+    <div class="features">
+      <span class="feature">24/7 emergency line</span>
+      <span class="feature">Instant quote form</span>
+      <span class="feature">AI booking agent</span>
+      <span class="feature">NYC metro coverage</span>
+      <span class="feature">Licensed & insured</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a href="https://peakprohvac.nyctailblazers.com" class="btn-primary">Visit Site →</a>
+    <a href="https://peakprohvac.nyctailblazers.com/quote.html" class="btn-secondary">Get a Free Quote</a>
+  </div>
+
+  <footer>© 2026 NYC Tailblazers</footer>
+</body>
+</html>
