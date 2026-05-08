@@ -126,32 +126,47 @@
 
         <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:60px">
           <div class="payment-card reveal">
-            <div class="qr-placeholder" aria-label="Cash App QR code — scan to pay $Biggermoneyy1">Cash App QR<br>$Biggermoneyy1<br>(scan to pay)</div>
+            <a href="https://cash.app/$Biggermoneyy1" target="_blank" rel="noopener" aria-label="Scan or tap to pay via Cash App">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://cash.app/%24Biggermoneyy1&color=39FF14&bgcolor=0d0d0d" width="120" height="120" alt="Cash App QR — $Biggermoneyy1" style="border-radius:8px;display:block">
+            </a>
             <div class="payment-card__info">
               <div class="payment-card__name">💚 Cash App</div>
               <div class="payment-card__handle" id="cashapp-handle">$Biggermoneyy1</div>
-              <p class="payment-card__note">Apple Pay and Google Pay can fund Cash App — open Cash App, tap Pay, then use Apple Pay or Google Pay as your funding source, then send to $Biggermoneyy1.</p>
-              <button class="copy-btn mt-8" data-copy="$Biggermoneyy1">Copy Handle</button>
+              <p class="payment-card__note">Tap the button to open Cash App directly. Apple Pay and Google Pay can fund Cash App — select either as your source when sending.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+                <a href="https://cash.app/$Biggermoneyy1" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Open Cash App →</a>
+                <button class="copy-btn" data-copy="$Biggermoneyy1">Copy Handle</button>
+              </div>
             </div>
           </div>
 
           <div class="payment-card reveal">
-            <div class="qr-placeholder" aria-label="Venmo QR code placeholder">Venmo QR<br>@[handle]<br>(ask owner)</div>
+            <a href="https://venmo.com/u/Trapables" target="_blank" rel="noopener" aria-label="Scan or tap to pay via Venmo">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://venmo.com/u/Trapables&color=39FF14&bgcolor=0d0d0d" width="120" height="120" alt="Venmo QR — @Trapables" style="border-radius:8px;display:block">
+            </a>
             <div class="payment-card__info">
               <div class="payment-card__name">💙 Venmo</div>
               <div class="payment-card__handle">@Trapables</div>
-              <p class="payment-card__note">Send via Venmo. Apple Pay can fund your Venmo balance — use it as the source when sending.</p>
-              <button class="copy-btn mt-8" data-copy="@Trapables">Copy Handle</button>
+              <p class="payment-card__note">Tap the button to open Venmo directly. Apple Pay can fund your Venmo balance — select it as the source when sending.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+                <a href="https://venmo.com/u/Trapables" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Open Venmo →</a>
+                <button class="copy-btn" data-copy="@Trapables">Copy Handle</button>
+              </div>
             </div>
           </div>
 
           <div class="payment-card reveal">
-            <div class="qr-placeholder" aria-label="Zelle payment — send to 929-253-1429">Zelle<br>(929) 253-1429</div>
+            <a href="https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiVHJhcGFibGVzIiwidG9rZW4iOiI5MjkyNTMxNDI5IiwidG9rZW5UeXBlIjoiUEhPTkUifQ==" target="_blank" rel="noopener" aria-label="Scan or tap to pay via Zelle">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=9292531429&color=39FF14&bgcolor=0d0d0d" width="120" height="120" alt="Zelle QR — (929) 253-1429" style="border-radius:8px;display:block">
+            </a>
             <div class="payment-card__info">
               <div class="payment-card__name">🟣 Zelle</div>
               <div class="payment-card__handle" id="zelle-handle">(929) 253-1429</div>
-              <p class="payment-card__note">Open Zelle in your banking app or the Zelle app. Send to 929-253-1429. Chime users can also send via Zelle to this number.</p>
-              <button class="copy-btn mt-8" data-copy="9292531429">Copy Number</button>
+              <p class="payment-card__note">Open Zelle in your banking app and send to this number, or tap to scan the QR code. Chime users can also use Zelle to this number.</p>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+                <a href="tel:9292531429" class="btn btn-primary btn-sm">Open Dialer →</a>
+                <button class="copy-btn" data-copy="9292531429">Copy Number</button>
+              </div>
             </div>
           </div>
 
