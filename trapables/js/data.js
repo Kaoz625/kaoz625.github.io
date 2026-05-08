@@ -643,10 +643,10 @@ const T = {
 
   /* ---- Merch ------------------------------------------- */
   merch: [
-    { slug:'hoodie',      name:'Trapables Hoodie',           price:60,  setPrice:null, setName:null,            icon:'🧥', sizes:['S','M','L','XL','XXL'] },
-    { slug:'hoodie-set',  name:'Hoodie + Sweatpants Set',    price:100, setPrice:null, setName:null,            icon:'👕', sizes:['S','M','L','XL','XXL'] },
-    { slug:'tshirt',      name:'Trapables T-Shirt',          price:35,  setPrice:55,   setName:'Tee + Shorts',  icon:'👕', sizes:['S','M','L','XL','XXL'] },
-    { slug:'shorts-set',  name:'T-Shirt + Shorts Set',       price:55,  setPrice:null, setName:null,            icon:'🩳', sizes:['S','M','L','XL','XXL'] }
+    { slug:'hoodie',      name:'Trapables Hoodie',           price:60,  setPrice:null, setName:null,            icon:'🧥', sizes:['S','M','L','XL','XXL'], color:'linear-gradient(135deg,#2d1b69,#BF5FFF)' },
+    { slug:'hoodie-set',  name:'Hoodie + Sweatpants Set',    price:100, setPrice:null, setName:null,            icon:'👕', sizes:['S','M','L','XL','XXL'], color:'linear-gradient(135deg,#1a2d69,#5f8bff)' },
+    { slug:'tshirt',      name:'Trapables T-Shirt',          price:35,  setPrice:55,   setName:'Tee + Shorts',  icon:'👕', sizes:['S','M','L','XL','XXL'], color:'linear-gradient(135deg,#0d2d1a,#39FF14)' },
+    { slug:'shorts-set',  name:'T-Shirt + Shorts Set',       price:55,  setPrice:null, setName:null,            icon:'🩳', sizes:['S','M','L','XL','XXL'], color:'linear-gradient(135deg,#2d0d1a,#ff5f8b)' }
   ],
 
   /* ---- Vibe → Strain Mapping --------------------------- */

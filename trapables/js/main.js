@@ -129,39 +129,39 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Generic reveals
+    // Generic reveals — fade only, no y movement (reduces dizziness)
     gsap.utils.toArray('.reveal').forEach(function (el) {
       gsap.to(el, {
-        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        opacity: 1, duration: 0.5, ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
       });
     });
 
     gsap.utils.toArray('.reveal-left').forEach(function (el) {
       gsap.to(el, {
-        opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
+        opacity: 1, x: 0, duration: 0.5, ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
       });
     });
 
     gsap.utils.toArray('.reveal-right').forEach(function (el) {
       gsap.to(el, {
-        opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
+        opacity: 1, x: 0, duration: 0.5, ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
       });
     });
 
     gsap.utils.toArray('.reveal-scale').forEach(function (el) {
       gsap.to(el, {
-        opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.4)',
+        opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
       });
     });
 
-    // Stagger children
+    // Stagger children — fade only, no y movement
     gsap.utils.toArray('.stagger-parent').forEach(function (parent) {
       gsap.to(parent.querySelectorAll('.stagger-child'), {
-        opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+        opacity: 1, duration: 0.4, stagger: 0.07, ease: 'power2.out',
         scrollTrigger: { trigger: parent, start: 'top 80%', toggleActions: 'play none none none' }
       });
     });
@@ -204,41 +204,64 @@
     });
   }
 
-  /* ---- Find Your Vibe Filter ---------------------------- */
+  /* ---- Find Your Vibe Filter (home page — navigate to menu.html?vibe=) */
   function initVibeFilter() {
-    document.querySelectorAll('.vibe-card[data-vibe]').forEach(function (card) {
-      card.addEventListener('click', function (e) {
-        e.preventDefault();
-        var vibe = card.dataset.vibe;
-        var target = document.getElementById('menu-section') || document.querySelector('.products-grid');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          setTimeout(function () {
-            // Highlight matching products
-            document.querySelectorAll('.product-card').forEach(function (pc) {
-              var vibes = (pc.dataset.vibes || '').split(',');
-              var match = vibes.indexOf(vibe) !== -1 || vibe === 'top-shelf' && pc.dataset.tier === 'trapables';
-              pc.style.opacity = match ? '1' : '0.35';
-              pc.style.transform = match ? 'translateY(-4px)' : '';
-            });
-            // Activate filter reset
-            var reset = document.getElementById('vibe-reset');
-            if (reset) reset.style.display = 'inline-flex';
-          }, 600);
+    // On the home page, vibe cards are <a> tags with hrefs — let them navigate naturally.
+    // No preventDefault needed. The filter is applied on menu.html via initVibeUrlFilter().
+  }
+
+  /* ---- Vibe URL Filter (menu.html — reads ?vibe= from URL) ----------- */
+  function initVibeUrlFilter() {
+    var params = new URLSearchParams(window.location.search);
+    var vibe   = params.get('vibe');
+    if (!vibe) return;
+
+    var vibeInfo = (typeof T !== 'undefined' && T.vibeMap && T.vibeMap[vibe]) || null;
+    var label    = vibeInfo ? vibeInfo.label : vibe.replace(/-/g, ' ');
+
+    // Insert a "Showing: X" banner before the tabs
+    var mainTabs = document.getElementById('main-tabs');
+    if (mainTabs) {
+      var banner = document.createElement('div');
+      banner.id = 'vibe-filter-banner';
+      banner.style.cssText = 'margin-bottom:20px;padding:14px 20px;background:rgba(57,255,20,0.06);border:1px solid rgba(57,255,20,0.18);border-radius:8px;display:flex;align-items:center;gap:16px;flex-wrap:wrap';
+      banner.innerHTML =
+        '<span style="font-family:var(--font-display);font-size:0.85rem;color:var(--green)">Showing: <strong>' + label + '</strong></span>' +
+        '<a href="menu.html" style="font-size:0.8rem;color:var(--text-muted);text-decoration:underline;text-underline-offset:3px">Clear filter</a>';
+      mainTabs.parentNode.insertBefore(banner, mainTabs);
+    }
+
+    // After cards are rendered, filter them
+    function applyVibeFilter() {
+      var grids = document.querySelectorAll('.products-grid');
+      grids.forEach(function (grid) {
+        grid.classList.add('vibe-filter-active');
+        var cards = grid.querySelectorAll('.product-card');
+        var anyVisible = false;
+        cards.forEach(function (pc) {
+          var vibes = (pc.dataset.vibes || '').split(',');
+          var match = vibes.indexOf(vibe) !== -1 ||
+            (vibe === 'top-shelf' && (pc.dataset.tier === 'trapables' || pc.dataset.tier === 'aaa'));
+          if (match) { anyVisible = true; pc.style.display = ''; }
+          else        { pc.style.display = 'none'; }
+        });
+        if (!anyVisible && cards.length > 0) {
+          // Show "no results" message if empty
+          var msg = grid.querySelector('.vibe-no-results');
+          if (!msg) {
+            msg = document.createElement('p');
+            msg.className = 'vibe-no-results';
+            msg.style.cssText = 'color:var(--text-muted);font-size:0.9rem;padding:24px 0';
+            msg.textContent = 'No ' + label + ' strains available in this size. Check other sizes or clear the filter.';
+            grid.appendChild(msg);
+          }
         }
       });
-    });
-
-    var reset = document.getElementById('vibe-reset');
-    if (reset) {
-      reset.addEventListener('click', function () {
-        document.querySelectorAll('.product-card').forEach(function (pc) {
-          pc.style.opacity = '';
-          pc.style.transform = '';
-        });
-        reset.style.display = 'none';
-      });
     }
+
+    // Run immediately and again after a short delay to catch dynamically rendered cards
+    applyVibeFilter();
+    setTimeout(applyVibeFilter, 400);
   }
 
   /* ---- Payment Split Calculator ------------------------- */
@@ -306,13 +329,17 @@
     generateBtn && generateBtn.addEventListener('click', function () {
       var total = getTotal();
       if (total <= 0) { alert('Enter your order total first.'); return; }
-      if (getAllocated() !== total) { alert('Allocate the full amount before generating.'); return; }
+      if (Math.abs(getAllocated() - total) > 0.01) {
+        alert('Allocate exactly $' + total.toFixed(2) + ' before generating.');
+        return;
+      }
 
       if (!summary) return;
       summary.innerHTML = '';
       summary.classList.add('show');
 
-      var hasCard = false;
+      var paymentLines = [];
+
       methods.forEach(function (m) {
         var cb  = m.querySelector('.pay-method__checkbox');
         var amt = m.querySelector('.pay-method__amount');
@@ -323,7 +350,6 @@
         var amount = parseFloat(amt.value).toFixed(2);
 
         if (handle === 'card') {
-          hasCard = true;
           var cardNum = (document.getElementById('card-number') || {}).value || '';
           var cardExp = (document.getElementById('card-exp') || {}).value || '';
           var cardCvv = (document.getElementById('card-cvv') || {}).value || '';
@@ -345,8 +371,11 @@
           smsBtn.style.cssText = 'margin-top:8px;display:inline-flex;font-size:0.9rem';
           smsBtn.textContent = '📱 Text Card Details to Trapables';
           summary.appendChild(smsBtn);
+          paymentLines.push('Debit Card $' + amount);
           return;
         }
+
+        paymentLines.push(method + ' (' + handle + ') $' + amount);
 
         var item = document.createElement('div');
         item.className = 'pay-summary-item';
@@ -358,11 +387,27 @@
         summary.appendChild(item);
       });
 
+      // Total row
+      var totalRow = document.createElement('div');
+      totalRow.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(57,255,20,0.06);border:1px solid rgba(57,255,20,0.15);border-radius:8px;margin-top:4px';
+      totalRow.innerHTML =
+        '<span style="font-family:var(--font-display);font-size:0.85rem;color:var(--text-muted)">Order Total</span>' +
+        '<span style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--green)">$' + total.toFixed(2) + '</span>';
+      summary.appendChild(totalRow);
+
       // Confirmation text
       var conf = document.createElement('p');
       conf.style.cssText = 'font-size:0.85rem;color:var(--text-muted);text-align:center;margin-top:8px;';
       conf.textContent = 'Complete each transfer, then text 347-351-6973 with your name to confirm.';
       summary.appendChild(conf);
+
+      // SMS confirm button
+      var smsLink = document.createElement('a');
+      smsLink.href = 'sms:3473516973&body=' + encodeURIComponent('Order total: $' + total.toFixed(2) + '. Payment: ' + paymentLines.join(', ') + '. I will complete each transfer and text you to confirm.');
+      smsLink.className = 'btn btn-primary';
+      smsLink.style.cssText = 'margin-top:16px;display:inline-flex;width:100%;justify-content:center';
+      smsLink.textContent = '📱 Text Trapables to Confirm Order';
+      summary.appendChild(smsLink);
 
       // Copy buttons
       summary.querySelectorAll('.copy-btn').forEach(function (btn) {
@@ -411,7 +456,7 @@
   function revealCards(container) {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.to(container.querySelectorAll('.stagger-child'), {
-        opacity: 1, y: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out',
+        opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power2.out',
         scrollTrigger: { trigger: container, start: 'top 90%', toggleActions: 'play none none none' }
       });
       ScrollTrigger.refresh();
@@ -423,10 +468,14 @@
     }
   }
 
-  function renderProductCards(containerId, strains, filterFn) {
+  function renderProductCards(containerId, strains, filterFn, size) {
     var container = document.getElementById(containerId);
     if (!container || typeof T === 'undefined') return;
     var list = filterFn ? strains.filter(filterFn) : strains;
+    var sz = size || 'eighth';
+    var sizeDisplayMap = { eighth:'8th', quarter:'Quarter', half:'Half', oz:'Oz', qp:'QP' };
+    var szLabel = sizeDisplayMap[sz] || sz;
+
     container.innerHTML = list.map(function (s) {
       var badges = [
         s.available === true  ? '<span class="badge badge-available">Available</span>' : '<span class="badge badge-archive">Archive</span>',
@@ -437,20 +486,20 @@
         s.tier === 'value'     ? '<span class="badge badge-value">Value</span>' : ''
       ].join('');
 
-      var imgEl = '<div class="product-card__img-placeholder">🌿</div>';
-      var imgPath = 'images/strains/' + s.slug + '.jpg';
+      var priceVal = s.prices && s.prices[sz];
+      var priceHtml = priceVal ? '<div class="product-card__price">$' + priceVal + ' / ' + szLabel + '</div>' : '';
 
-      return '<div class="product-card stagger-child" data-tier="' + s.tier + '" data-vibes="' + (s.vibe || []).join(',') + '">' +
+      return '<a href="strain.html?s=' + s.slug + '" class="product-card stagger-child" data-tier="' + s.tier + '" data-vibes="' + (s.vibe || []).join(',') + '">' +
         '<div class="product-card__img product-card__img-placeholder">🌿</div>' +
         '<div class="product-card__body">' +
           '<div class="product-card__badges">' + badges + '</div>' +
           '<div class="product-card__name">' + s.name + '</div>' +
-          (s.prices && s.prices.eighth ? '<div class="product-card__price">$' + s.prices.eighth + ' / 8th</div>' : '') +
+          priceHtml +
           '<div class="product-card__effects">' +
             (s.effects || []).slice(0,3).map(function (e) { return '<span class="effect-tag">' + e + '</span>'; }).join('') +
           '</div>' +
         '</div>' +
-      '</div>';
+      '</a>';
     }).join('');
 
     // Lazy-load actual images
@@ -573,7 +622,7 @@
       if (!panel) return;
       var filtered = T.strains.filter(function (s) { return s.prices && s.prices[size]; });
       panel.innerHTML = '<div class="products-grid stagger-parent" id="grid-flower-' + size + '"></div>';
-      renderProductCards('grid-flower-' + size, filtered);
+      renderProductCards('grid-flower-' + size, filtered, null, size);
     });
 
     // Pre-Rolls
@@ -684,7 +733,7 @@
     var container = document.getElementById('featured-products');
     if (!container || typeof T === 'undefined') return;
     var featured = T.strains.filter(function (s) { return s.available === true; }).slice(0, 8);
-    renderProductCards('featured-products', featured);
+    renderProductCards('featured-products', featured, null, 'eighth');
   }
 
   /* ---- Merch Page --------------------------------------- */
@@ -692,16 +741,157 @@
     var container = document.getElementById('merch-grid');
     if (!container || typeof T === 'undefined') return;
     container.innerHTML = T.merch.map(function (m) {
-      return '<div class="merch-card stagger-child">' +
-        '<div class="merch-card__img">🧥</div>' +
+      var imgBg = m.color || 'linear-gradient(135deg,#0f0f1a,#1a0f0f)';
+      return '<a href="order.html#pay-calc" class="merch-card stagger-child" data-item="' + m.name + '">' +
+        '<div class="merch-card__img" style="background:' + imgBg + ';font-size:4rem;display:flex;align-items:center;justify-content:center;">' + (m.icon || '🧥') + '</div>' +
         '<div class="merch-card__body">' +
           '<div class="merch-card__name">' + m.name + '</div>' +
           '<div class="merch-card__price">$' + m.price + '</div>' +
           (m.setPrice ? '<div class="merch-card__set-price">Set: $' + m.setPrice + '</div>' : '') +
-          '<div style="margin-top:10px"><a href="sms:' + T.phone + '&body=Hi, I\'d like to order the ' + m.name + '. Size: " class="btn btn-outline btn-sm">Order via Text</a></div>' +
+          '<div class="merch-card__sizes" style="font-size:0.78rem;color:var(--text-muted);margin-top:6px">S / M / L / XL / XXL</div>' +
+          '<div class="btn btn-outline btn-sm" style="margin-top:12px;display:inline-flex">Order This →</div>' +
+        '</div>' +
+      '</a>';
+    }).join('');
+  }
+
+  /* ---- Strain Detail Page -------------------------------- */
+  function initStrainPage() {
+    var params = new URLSearchParams(window.location.search);
+    var slug   = params.get('s');
+    if (!slug || typeof T === 'undefined') return;
+
+    var strain = null;
+    for (var i = 0; i < T.strains.length; i++) {
+      if (T.strains[i].slug === slug) { strain = T.strains[i]; break; }
+    }
+    if (!strain) {
+      var wrap = document.getElementById('strain-detail');
+      if (wrap) wrap.innerHTML = '<p style="color:var(--text-muted);padding:60px 0">Strain not found. <a href="menu.html" class="text-green">Back to menu →</a></p>';
+      return;
+    }
+
+    // Set page title
+    document.title = strain.name + ' — TRAPABLES';
+
+    var wrap = document.getElementById('strain-detail');
+    if (!wrap) return;
+
+    var tierLabel = { value:'Value', mid:'Mid', top:'Top Shelf', aaa:'AAA', trapables:'TRAPABLES' }[strain.tier] || strain.tier;
+    var tierClass = { value:'badge-value', mid:'badge-mid', top:'badge-top', aaa:'badge-aaa', trapables:'badge-trapables' }[strain.tier] || '';
+    var availBadge = strain.available === true
+      ? '<span class="badge badge-available">Available Now</span>'
+      : '<span class="badge badge-archive">Archive</span>';
+    var tierBadge = '<span class="badge ' + tierClass + '">' + tierLabel + '</span>';
+    var typeStr = strain.type ? strain.type.charAt(0).toUpperCase() + strain.type.slice(1) : 'Hybrid';
+
+    var effectTags = (strain.effects || []).map(function (e) {
+      return '<span class="effect-tag">' + e + '</span>';
+    }).join('');
+
+    var terpPills = (strain.terpenes || []).map(function (t) {
+      return '<span class="terpene-pill">' + t + '</span>';
+    }).join('');
+
+    var flavorTags = (strain.flavors || []).map(function (f) {
+      return '<span class="effect-tag">' + f + '</span>';
+    }).join('');
+
+    // Price table
+    var sizeKeys   = ['eighth','quarter','half','oz','qp'];
+    var sizeLabels = { eighth:'3.5g / 8th', quarter:'7g / Quarter', half:'14g / Half', oz:'28g / Oz', qp:'112g / QP' };
+    var priceRows  = '';
+    sizeKeys.forEach(function (k) {
+      var p = strain.prices && strain.prices[k];
+      if (!p) return;
+      var smsBody = 'I\'d like to order ' + strain.name + ' — ' + sizeLabels[k] + ' ($' + p + ')';
+      priceRows +=
+        '<tr style="border-bottom:1px solid var(--border)">' +
+          '<td style="padding:12px 16px;font-family:var(--font-display);color:#fff">' + sizeLabels[k] + '</td>' +
+          '<td style="padding:12px 16px;font-family:var(--font-display);color:var(--green);font-weight:700">$' + p + '</td>' +
+          '<td style="padding:12px 8px">' +
+            '<a href="sms:3473516973&body=' + encodeURIComponent(smsBody) + '" class="btn btn-outline btn-sm" style="white-space:nowrap">Order this size</a>' +
+          '</td>' +
+        '</tr>';
+    });
+    var priceTable = priceRows
+      ? '<table style="width:100%;border-collapse:collapse;background:var(--bg3);border-radius:8px;overflow:hidden">' + priceRows + '</table>'
+      : '<p style="color:var(--text-muted)">Contact us for pricing.</p>';
+
+    // Grow Guide tiers with Amazon links
+    var growGuide =
+      '<div class="grow-tiers">' +
+        '<div class="grow-tier grow-tier--starter">' +
+          '<div class="grow-tier__label">Starter ($0–$50)</div>' +
+          '<div class="grow-tier__cost">Learn the plant before spending big</div>' +
+          '<ul style="margin-top:10px;display:flex;flex-direction:column;gap:6px;list-style:none">' +
+            '<li><a href="https://www.amazon.com/s?k=cannabis+seeds+feminized" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Feminized Seeds</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=small+plant+pot+fabric" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Small Fabric Pot</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=basic+LED+grow+light" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Basic LED Grow Light</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=potting+soil+organic" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Organic Potting Soil</a></li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="grow-tier grow-tier--cultivator">' +
+          '<div class="grow-tier__label">Cultivator ($200–$800)</div>' +
+          '<div class="grow-tier__cost">Control your environment, learn the plant\'s needs</div>' +
+          '<ul style="margin-top:10px;display:flex;flex-direction:column;gap:6px;list-style:none">' +
+            '<li><a href="https://www.amazon.com/s?k=2x4+grow+tent+kit" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ 2x4 Grow Tent</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=quantum+board+LED+grow+light+240w" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Quality LED Panel (240W)</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=pH+meter+digital+hydroponics" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Digital pH Meter</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=cannabis+nutrients+kit" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Nutrient Kit</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=feminized+autoflower+seeds" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Feminized / Auto Seeds</a></li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="grow-tier grow-tier--master">' +
+          '<div class="grow-tier__label">Master Grower ($1,500+)</div>' +
+          '<div class="grow-tier__cost">Maximum yield and potency</div>' +
+          '<ul style="margin-top:10px;display:flex;flex-direction:column;gap:6px;list-style:none">' +
+            '<li><a href="https://www.amazon.com/s?k=climate+controller+grow+room" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Full Climate Controller</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=RDWC+hydroponic+system" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ RDWC Hydroponic System</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=CO2+controller+grow+room" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ CO2 Controller</a></li>' +
+            '<li><a href="https://www.amazon.com/s?k=lab+genetics+cannabis+clone" target="_blank" rel="noopener" style="color:var(--green);font-size:0.82rem">→ Lab-Grade Genetics</a></li>' +
+          '</ul>' +
         '</div>' +
       '</div>';
-    }).join('');
+
+    wrap.innerHTML =
+      '<div class="strain-detail__header">' +
+        '<div class="product-card__badges" style="margin-bottom:16px">' + availBadge + ' ' + tierBadge + '</div>' +
+        '<h1 style="font-size:clamp(2rem,6vw,4rem);color:#fff;margin-bottom:16px">' + strain.name + '</h1>' +
+        '<div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:20px">' +
+          '<span style="font-family:var(--font-display);font-size:0.9rem;color:var(--text-muted)">' + typeStr + '</span>' +
+          '<span style="font-family:var(--font-display);font-size:0.9rem;color:var(--text-muted)">THC: <strong style="color:#fff">' + (strain.thc || 'N/A') + '</strong></span>' +
+        '</div>' +
+        '<p style="max-width:680px;margin-bottom:24px;font-size:1rem;color:var(--text-muted)">' + (strain.desc || '') + '</p>' +
+        (effectTags ? '<div style="margin-bottom:20px"><div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">Effects</div><div class="product-card__effects">' + effectTags + '</div></div>' : '') +
+        (terpPills  ? '<div style="margin-bottom:20px"><div class="strain-card__terpenes-label">Terpenes</div>' + terpPills + '</div>' : '') +
+        (flavorTags ? '<div style="margin-bottom:24px"><div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">Flavors</div><div class="product-card__effects">' + flavorTags + '</div></div>' : '') +
+      '</div>' +
+
+      '<div style="margin-top:40px">' +
+        '<h2 style="color:#fff;font-size:1.4rem;margin-bottom:20px">Pricing &amp; Sizes</h2>' +
+        priceTable +
+      '</div>' +
+
+      '<div style="margin-top:48px">' +
+        '<h2 style="color:#fff;font-size:1.4rem;margin-bottom:8px">Grow This Strain Yourself</h2>' +
+        '<p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:20px">Educational reference — pick the tier that matches your budget. Each product links to Amazon search.</p>' +
+        growGuide +
+      '</div>' +
+
+      '<div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap">' +
+        '<a href="menu.html" class="btn btn-outline">← Back to Menu</a>' +
+        '<a href="sms:3473516973&body=' + encodeURIComponent('I\'d like to order ' + strain.name) + '" class="btn btn-primary">Order Now →</a>' +
+      '</div>';
+  }
+
+  /* ---- Order Page Item Pre-fill (reads ?item= from URL) -- */
+  function initOrderItemPrefill() {
+    var params = new URLSearchParams(window.location.search);
+    var item   = params.get('item');
+    if (!item) return;
+    var textarea = document.getElementById('del-items');
+    if (textarea) textarea.value = item;
   }
 
   /* ---- Smooth CTA scrolls ------------------------------- */
@@ -952,6 +1142,7 @@
     initScrollAnimations();
     initTabs();
     initVibeFilter();
+    initVibeUrlFilter();
     initPayCalc();
     initAccordions();
     initCopyBtns();
@@ -960,11 +1151,13 @@
     initFeaturedProducts();
     initMenuPage();
     initMerchPage();
+    initStrainPage();
     if (document.getElementById('strain-grid')) renderStrainCards('strain-grid');
     registerSW();
     initMascot();
     initA11y();
     initChatbot();
+    initOrderItemPrefill();
   }
 
   if (document.readyState === 'loading') {

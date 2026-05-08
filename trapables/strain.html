@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Trapables merch — hoodies, tees, and sets. Rep the brand. Text your size.">
+  <meta name="description" content="Strain detail — Trapables">
   <meta name="theme-color" content="#39FF14">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="images/icon-192.png">
   <link rel="icon" type="image/png" href="images/icon-192.png">
-  <title>Merch — TRAPABLES</title>
+  <title>Strain Detail — TRAPABLES</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script>(function(){var p=new URLSearchParams(window.location.search).get('p');if(p){window.history.replaceState(null,null,p);}})();</script>
 </head>
 <body>
 
@@ -58,78 +59,33 @@
   </div>
 
   <main id="main-content">
-    <div style="padding:calc(var(--nav-h) + 60px) 0 48px;background:linear-gradient(180deg,rgba(191,95,255,0.05) 0%,transparent 100%)">
+
+    <div style="padding:calc(var(--nav-h) + 40px) 0 0;background:linear-gradient(180deg,rgba(57,255,20,0.04) 0%,transparent 100%)">
       <div class="container">
-        <p class="section-header__eyebrow">Rep the Brand</p>
-        <h1 style="font-size:clamp(2.5rem,7vw,5rem);color:#fff">Trap <span class="text-purple">Merch</span></h1>
-        <p style="max-width:600px;margin-top:12px">Trapables apparel. Hoodies, tees, sweats, and shorts. Text your size to order — we'll confirm availability and arrange pickup or delivery.</p>
+        <p class="section-header__eyebrow"><a href="menu.html" style="color:var(--green);text-decoration:underline;text-underline-offset:3px">← Menu</a></p>
       </div>
     </div>
 
-    <section class="section" style="padding-top:32px">
+    <section class="section" style="padding-top:24px">
       <div class="container">
-
-        <!-- MERCH GRID -->
-        <div class="merch-grid stagger-parent" id="merch-grid">
-          <!-- Populated by main.js -->
+        <div id="strain-detail">
+          <!-- Populated by main.js initStrainPage() -->
+          <p style="color:var(--text-muted)">Loading strain...</p>
         </div>
-
-        <!-- HOW TO ORDER MERCH -->
-        <div style="margin-top:60px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:40px" class="reveal">
-          <h3 style="color:#fff;margin-bottom:16px">How to Order Merch</h3>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
-            <div>
-              <div style="font-size:2rem;margin-bottom:8px">📱</div>
-              <h4 style="color:#fff;margin-bottom:4px">1. Text Us</h4>
-              <p style="font-size:0.85rem">Text <a href="tel:3473516973" class="text-green" style="font-family:var(--font-mono)">(347) 351-6973</a> with the item name and your size</p>
-            </div>
-            <div>
-              <div style="font-size:2rem;margin-bottom:8px">✅</div>
-              <h4 style="color:#fff;margin-bottom:4px">2. We Confirm</h4>
-              <p style="font-size:0.85rem">We'll confirm availability and give you a total</p>
-            </div>
-            <div>
-              <div style="font-size:2rem;margin-bottom:8px">💸</div>
-              <h4 style="color:#fff;margin-bottom:4px">3. Pay</h4>
-              <p style="font-size:0.85rem">Pay via Cash App <span class="text-green" style="font-family:var(--font-mono)">$Biggermoneyy1</span>, Venmo, Zelle, or split it</p>
-            </div>
-            <div>
-              <div style="font-size:2rem;margin-bottom:8px">📦</div>
-              <h4 style="color:#fff;margin-bottom:4px">4. Pick Up</h4>
-              <p style="font-size:0.85rem">Pickup or delivery — we'll arrange via text</p>
-            </div>
-          </div>
-          <div style="margin-top:28px;display:flex;gap:16px;flex-wrap:wrap">
-            <a href="sms:3473516973&body=Hi, I'd like to order some merch. Item: " class="btn btn-primary">Text to Order</a>
-            <a href="https://www.instagram.com/trapables_/" target="_blank" rel="noopener" class="btn btn-outline">DM @Trapables_</a>
-          </div>
-        </div>
-
-        <!-- SIZES -->
-        <div style="margin-top:32px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:28px" class="reveal">
-          <h4 style="color:#fff;margin-bottom:12px">Available Sizes</h4>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">S</span>
-            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">M</span>
-            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">L</span>
-            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">XL</span>
-            <span style="background:var(--bg3);border:1px solid var(--glass-border);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:0.85rem">XXL</span>
-          </div>
-          <p style="margin-top:12px;font-size:0.85rem">Not sure on sizing? Text us and we'll help.</p>
-        </div>
-
       </div>
     </section>
+
   </main>
 
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__bottom" style="border-top:none;padding-top:0">
         <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
-          <a href="index.html" class="footer__brand" style="font-size:1rem">TRAPABLES</a>
-          <a href="menu.html"    style="font-size:0.85rem;color:var(--text-muted)">Menu</a>
-          <a href="order.html"   style="font-size:0.85rem;color:var(--text-muted)">Order</a>
-          <a href="contact.html" style="font-size:0.85rem;color:var(--text-muted)">Contact</a>
+          <a href="index.html"    class="footer__brand" style="font-size:1rem">TRAPABLES</a>
+          <a href="menu.html"     style="font-size:0.85rem;color:var(--text-muted)">Menu</a>
+          <a href="strains.html"  style="font-size:0.85rem;color:var(--text-muted)">Strains</a>
+          <a href="order.html"    style="font-size:0.85rem;color:var(--text-muted)">Order</a>
+          <a href="contact.html"  style="font-size:0.85rem;color:var(--text-muted)">Contact</a>
           <a href="tailblazers.html" style="font-size:0.75rem;color:#333">NYC Tailblazers</a>
         </div>
         <p class="footer__legal">© 2025 Trapables. Adults 21+ only.</p>
