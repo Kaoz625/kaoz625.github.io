@@ -301,26 +301,29 @@
       if (left < 0)                remaining.classList.add('over');
     }
 
-    function toggleMethod(m, enabled) {
-      var amtInput = m.querySelector('.pay-method__amount');
-      m.classList.toggle('selected', enabled);
-      amtInput.disabled = !enabled;
-      if (!enabled) { amtInput.value = ''; updateRemaining(); }
-    }
-
     methods.forEach(function (m) {
       var cb  = m.querySelector('.pay-method__checkbox');
       var amt = m.querySelector('.pay-method__amount');
+      // Always enabled — typing auto-selects the method
+      amt.disabled = false;
+      amt.addEventListener('input', function () {
+        var hasVal = parseFloat(amt.value) > 0;
+        cb.checked = hasVal;
+        m.classList.toggle('selected', hasVal);
+        if (m.dataset.handle === 'card') {
+          var cardForm = document.getElementById('card-form');
+          if (cardForm) cardForm.style.display = hasVal ? 'block' : 'none';
+        }
+        updateRemaining();
+      });
       cb.addEventListener('change', function () {
-        toggleMethod(m, cb.checked);
-        // Show/hide card form
+        m.classList.toggle('selected', cb.checked);
+        if (!cb.checked) { amt.value = ''; updateRemaining(); }
         if (m.dataset.handle === 'card') {
           var cardForm = document.getElementById('card-form');
           if (cardForm) cardForm.style.display = cb.checked ? 'block' : 'none';
         }
       });
-      amt.addEventListener('input',  updateRemaining);
-      toggleMethod(m, false); // start disabled
     });
 
     totalInput && totalInput.addEventListener('input', updateRemaining);
