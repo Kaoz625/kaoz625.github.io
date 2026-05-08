@@ -380,13 +380,32 @@
 
         paymentLines.push(method + ' (' + handle + ') $' + amount);
 
+        // Build direct pay URL for each app
+        var payUrl = null;
+        var payLabel = null;
+        var payIcon = '';
+        if (handle === '$Biggermoneyy1') {
+          payUrl = 'https://cash.app/' + handle + '/' + amount;
+          payLabel = 'Open Cash App'; payIcon = '💚 ';
+        } else if (handle === '@Trapables') {
+          payUrl = 'https://venmo.com/u/Trapables?txn=pay&amount=' + amount + '&note=' + encodeURIComponent('Trapables order');
+          payLabel = 'Open Venmo'; payIcon = '💙 ';
+        } else if (handle === '929-253-1429') {
+          payUrl = 'https://enroll.zellepay.com/qr-codes?data=' + encodeURIComponent(JSON.stringify({name:'Trapables',token:'9292531429',tokenType:'PHONE'}));
+          payLabel = 'Open Zelle'; payIcon = '🟣 ';
+        }
+
         var item = document.createElement('div');
         item.className = 'pay-summary-item';
+        item.style.cssText = 'flex-direction:column;align-items:flex-start;gap:10px';
         item.innerHTML =
-          '<span class="pay-summary-item__amount">$' + amount + '</span>' +
-          '<span class="pay-summary-item__to">→ ' + method + '</span>' +
-          '<span class="pay-summary-item__handle">' + handle + '</span>' +
-          '<button class="copy-btn" data-copy="' + handle + '">Copy</button>';
+          '<div style="display:flex;align-items:center;gap:12px;width:100%">' +
+            '<span class="pay-summary-item__amount">$' + amount + '</span>' +
+            '<span class="pay-summary-item__to">→ ' + method + '</span>' +
+            '<span class="pay-summary-item__handle">' + handle + '</span>' +
+            '<button class="copy-btn" data-copy="' + handle + '" style="margin-left:auto">Copy</button>' +
+          '</div>' +
+          (payUrl ? '<a href="' + payUrl + '" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.9rem">' + payIcon + payLabel + ' → $' + amount + '</a>' : '');
         summary.appendChild(item);
       });
 
