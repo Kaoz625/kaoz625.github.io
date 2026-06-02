@@ -1,0 +1,193 @@
+{
+  "updatedAt": "2026-06-02",
+  "meta": {
+    "name": "Markus Usche",
+    "studio": "NYC Tailblazers",
+    "email": "owner@nyctailblazers.com",
+    "portfolio": "nyctailblazers.com",
+    "tagline": "Cinematic Websites. Intelligent Systems."
+  },
+  "sites": [
+    {
+      "id": "claritycoachingpro",
+      "name": "Clarity Coaching Pro",
+      "category": "Coaching · Consulting",
+      "description": "Life & business coaching for professionals. Art-directed website with conversion-focused UX and premium brand positioning.",
+      "url": "/claritycoachingpro/",
+      "accent": "#7eb8d4",
+      "status": "live"
+    },
+    {
+      "id": "gentlemanbrandmanagement",
+      "name": "Gentleman Brand Management",
+      "category": "Brand Management · SBA-Certified",
+      "description": "Built on honor. Driven by results. Full brand identity and site for a veteran-owned brand management firm.",
+      "url": "/gentlemanbrandmanagement/",
+      "accent": "#c4956a",
+      "status": "live"
+    },
+    {
+      "id": "luxeandcohair",
+      "name": "Luxe & Co. Hair Studio",
+      "category": "Beauty · Lifestyle · Manhattan",
+      "description": "Manhattan's premier hair studio. Elevated brand presence with booking-optimized design and editorial photography layout.",
+      "url": "/luxeandcohair/",
+      "accent": "#c4a0b8",
+      "status": "live"
+    },
+    {
+      "id": "peakprohvac",
+      "name": "Peak Pro HVAC & Plumbing",
+      "category": "Home Services · NYC Metro",
+      "description": "NYC Metro's 24/7 HVAC & plumbing service. Trust-forward design with local SEO architecture and emergency response flow.",
+      "url": "/peakprohvac/",
+      "accent": "#6ab0a0",
+      "status": "live"
+    },
+    {
+      "id": "trapables",
+      "name": "TRAPABLES",
+      "category": "Cannabis · Delivery · App",
+      "description": "Premium. Private. Potent. Full-stack cannabis delivery app — GSAP animations, strain detail system, vibe filter, pay calculator.",
+      "url": "/trapables/",
+      "accent": "#8a7fb8",
+      "status": "live"
+    },
+    {
+      "id": "bartendersinfronteria",
+      "name": "Bartenders in Frontera",
+      "category": "Events · Mobile Bar · NYC",
+      "description": "NYC mobile bar service. Cinematic single-page site with service tiers, booking flow, and full monthly content plan.",
+      "url": "https://bartendersinfronteria.nyctailblazers.com",
+      "accent": "#d4a85a",
+      "status": "live",
+      "external": true
+    },
+    {
+      "id": "titanrenovations",
+      "name": "Titan Renovations",
+      "category": "Renovation · Construction · NYC",
+      "description": "Full single-page site — services, gallery lightboxes, before/after pairs, testimonials. Blueprint/navy design with 10 sections.",
+      "url": "https://titanrenovationsnyc.com",
+      "accent": "#a07850",
+      "status": "live",
+      "external": true
+    },
+    {
+      "id": "afu-social-club",
+      "name": "AFU Social Club",
+      "category": "Community · Social Club · NYC",
+      "description": "All For Uniting Social Club. Community-driven web presence with brand assets, social integration, and event content.",
+      "url": "https://afu.nyctailblazers.com",
+      "accent": "#7ab878",
+      "status": "live",
+      "external": true
+    },
+    {
+      "id": "greenlanternink",
+      "name": "Green Lantern Ink",
+      "category": "Tattoo Studio · NYC",
+      "description": "NYC tattoo studio. Artist profiles, style gallery, FAQ, and booking flow with bold editorial design.",
+      "url": "https://greenlanternink.nyctailblazers.com",
+      "accent": "#4caf6a",
+      "status": "live",
+      "external": true
+    }
+  ],
+  "apps": [
+    {
+      "id": "ears-and-eyes",
+      "name": "Ears & Eyes",
+      "category": "iOS · Swift · SwiftUI",
+      "description": "Real-time AI language translator. OpenAI Whisper STT, Apple on-device translation, ElevenLabs voice. Supports English, Spanish, Mandarin, Arabic, Yiddish.",
+      "url": null,
+      "accent": "#a0c4e8",
+      "status": "in-development"
+    },
+    {
+      "id": "popspot",
+      "name": "PopSpot",
+      "category": "React Native · Expo · Location",
+      "description": "Location-based marketplace app. Users discover and post nearby deals, events, and services. Supabase backend on Coolify.",
+      "url": null,
+      "accent": "#78b8a0",
+      "status": "in-development"
+    },
+    {
+      "id": "ariafinal",
+      "name": "AriaFinal",
+      "category": "iOS · React Native · Voice AI",
+      "description": "AI-powered iOS voice app with real-time processing, context retention pipeline, and natural conversation flow.",
+      "url": null,
+      "accent": "#e8b8a0",
+      "status": "in-development"
+    },
+    {
+      "id": "missioncontrol",
+      "name": "MissionControl",
+      "category": "iOS · Security · Operations",
+      "description": "Secure mobile operations platform — MissionControl + MissionControlMobile + Secure for field team coordination.",
+      "url": null,
+      "accent": "#b0a8d8",
+      "status": "in-development"
+    }
+  ],
+  "systems": [
+    {
+      "id": "nexgate",
+      "name": "NexGate",
+      "category": "Gateway · Python",
+      "description": "AI gateway routing 155 skills across Anthropic, OpenAI, Gemini & Ollama with OAuth token pooling and automatic failover.",
+      "badge": "Running",
+      "accent": "#e8c87a"
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "category": "Daemon · Running",
+      "description": "Autonomous browser and desktop daemon — persistent AI agent infrastructure running 24/7 without human supervision.",
+      "badge": "Live 24/7",
+      "accent": "#e8c87a"
+    },
+    {
+      "id": "llm-brains",
+      "name": "LLM-Brains",
+      "category": "Pipeline · Python",
+      "description": "Skool multi-community scraper + Notion sync pipeline. Scrapes course content and syncs structured posts across communities.",
+      "badge": "Pipeline",
+      "accent": "#e8c87a"
+    },
+    {
+      "id": "glaido-libre",
+      "name": "Glaido-libre",
+      "category": "Open Source · Voice",
+      "description": "Open-source voice AI with self-hosted TTS/STT pipeline. Privacy-first voice intelligence — fixed and stable.",
+      "badge": "Open Source",
+      "accent": "#e8c87a"
+    },
+    {
+      "id": "printing-press",
+      "name": "Printing Press",
+      "category": "CLI · Go",
+      "description": "CLI factory that builds a compressed, cached command-line client for any API or service in ~10 minutes. 60-80% token reduction.",
+      "badge": "Tool",
+      "accent": "#e8c87a"
+    },
+    {
+      "id": "hermes-gateway",
+      "name": "Hermes Gateway",
+      "category": "Gateway · Node",
+      "description": "Persistent AI agent infrastructure bridging 7 Claude profiles across mac1, mac2, and mac3.",
+      "badge": "Infrastructure",
+      "accent": "#e8c87a"
+    },
+    {
+      "id": "nyctailblazers-studio",
+      "name": "NYC Tailblazers",
+      "category": "Infrastructure · Scale",
+      "description": "AI Movie Studio — 4,960 AI service accounts generating 24 hours/day of video content across free tier providers.",
+      "badge": "AI Studio",
+      "accent": "#e8c87a"
+    }
+  ]
+}

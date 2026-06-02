@@ -11,82 +11,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --void: #06090e;
-      --deep: #0b0f18;
-      --surface: #10161f;
-      --border: rgba(255,255,255,0.06);
-      --border-hover: rgba(232,200,122,0.25);
-      --gold: #e8c87a;
-      --gold-glow: rgba(232,200,122,0.07);
-      --gold-dim: rgba(232,200,122,0.55);
-      --text: #f0ede8;
-      --text-2: #8a9bb0;
-      --muted: #3a4a5c;
-      --fd: 'Cormorant Garamond', serif;
-      --fb: 'DM Sans', sans-serif;
-      --fm: 'DM Mono', monospace;
+      --void: #06090e; --deep: #0b0f18; --surface: #10161f;
+      --border: rgba(255,255,255,0.06); --border-hover: rgba(232,200,122,0.25);
+      --gold: #e8c87a; --gold-glow: rgba(232,200,122,0.07); --gold-dim: rgba(232,200,122,0.55);
+      --text: #f0ede8; --text-2: #8a9bb0; --muted: #3a4a5c;
+      --fd: 'Cormorant Garamond', serif; --fb: 'DM Sans', sans-serif; --fm: 'DM Mono', monospace;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--void);
-      color: var(--text);
-      font-family: var(--fb);
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-      cursor: none;
-    }
-
-    /* Grain */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.025;
-      pointer-events: none;
-      z-index: 9000;
-    }
-
-    /* Cursor */
+    body { background: var(--void); color: var(--text); font-family: var(--fb); font-weight: 300; line-height: 1.6; overflow-x: hidden; cursor: none; }
+    body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); opacity: 0.025; pointer-events: none; z-index: 9000; }
     .cursor { position: fixed; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .2s, height .2s, opacity .2s; }
     .cring { position: fixed; width: 30px; height: 30px; border: 1px solid rgba(232,200,122,.3); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); }
-    .cursor.h { width: 16px; height: 16px; opacity: .4; }
-    .cring.h { width: 12px; height: 12px; opacity: .2; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-      padding: 26px 52px;
-      display: flex; justify-content: space-between; align-items: center;
-      background: linear-gradient(to bottom, rgba(6,9,14,.92) 0%, transparent 100%);
-    }
+    .cursor.h { width: 16px; height: 16px; opacity: .4; } .cring.h { width: 12px; height: 12px; opacity: .2; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 26px 52px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(6,9,14,.92) 0%, transparent 100%); }
     .nav-logo { font-family: var(--fm); font-size: 11px; letter-spacing: .18em; color: var(--gold); text-decoration: none; text-transform: uppercase; }
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a { font-family: var(--fm); font-size: 10px; letter-spacing: .14em; color: var(--text-2); text-decoration: none; text-transform: uppercase; transition: color .2s; }
     .nav-links a:hover { color: var(--gold); }
-
-    /* HERO */
     #hero { position: relative; height: 100vh; min-height: 680px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .hbg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(232,200,122,.035) 0%, transparent 65%), var(--void);
-    }
-    .hgrid {
-      position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-      background-size: 72px 72px;
-    }
-    .scanline {
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(to right, transparent, rgba(232,200,122,.22), transparent);
-      animation: scan 7s linear infinite;
-    }
+    .hbg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(232,200,122,.035) 0%, transparent 65%), var(--void); }
+    .hgrid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px); background-size: 72px 72px; }
+    .scanline { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(232,200,122,.22), transparent); animation: scan 7s linear infinite; }
     @keyframes scan { 0% { top: -2px; opacity: 0; } 4% { opacity: 1; } 96% { opacity: .7; } 100% { top: 100%; opacity: 0; } }
-
     .hcontent { position: relative; z-index: 2; text-align: center; max-width: 860px; padding: 0 24px; }
     .h-eye { font-family: var(--fm); font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; opacity: 0; animation: fup .9s ease .3s forwards; }
     .h-name { font-family: var(--fd); font-size: clamp(64px,11vw,128px); font-weight: 300; line-height: .95; letter-spacing: -.02em; margin-bottom: 26px; opacity: 0; animation: fup 1s ease .5s forwards; }
@@ -101,8 +48,6 @@
     .scroll-ind span { font-family: var(--fm); font-size: 9px; letter-spacing: .25em; color: var(--muted); text-transform: uppercase; }
     .sline { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--gold-dim), transparent); animation: pline 2.2s ease-in-out infinite; }
     @keyframes pline { 0%,100% { transform: scaleY(1); opacity: .8; } 50% { transform: scaleY(.5); opacity: .3; } }
-
-    /* LAYOUT */
     section { padding: 108px 0; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 52px; }
     .sh { display: flex; align-items: flex-end; gap: 28px; margin-bottom: 64px; }
@@ -111,25 +56,10 @@
     .sl { font-family: var(--fm); font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
     .st { font-family: var(--fd); font-size: clamp(28px,4vw,46px); font-weight: 300; line-height: 1.1; letter-spacing: -.01em; }
     .st em { font-style: italic; color: var(--gold-dim); }
-
-    /* CARDS GRID */
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; }
-
-    .card {
-      position: relative; background: var(--surface); border: 1px solid var(--border);
-      padding: 34px 36px 30px; text-decoration: none; color: var(--text); display: block;
-      overflow: hidden; transition: border-color .3s, transform .3s, background .3s;
-    }
-    .card::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-      background: var(--ac, var(--gold)); transform: scaleY(0); transform-origin: bottom;
-      transition: transform .35s ease;
-    }
-    .card::after {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 40% at 50% 0%, var(--gold-glow), transparent 70%);
-      opacity: 0; transition: opacity .3s;
-    }
+    .card { position: relative; background: var(--surface); border: 1px solid var(--border); padding: 34px 36px 30px; text-decoration: none; color: var(--text); display: block; overflow: hidden; transition: border-color .3s, transform .3s, background .3s; }
+    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--ac, var(--gold)); transform: scaleY(0); transform-origin: bottom; transition: transform .35s ease; }
+    .card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 40% at 50% 0%, var(--gold-glow), transparent 70%); opacity: 0; transition: opacity .3s; }
     .card:hover { border-color: var(--border-hover); background: var(--deep); transform: translateY(-4px); }
     .card:hover::before { transform: scaleY(1); }
     .card:hover::after { opacity: 1; }
@@ -139,24 +69,12 @@
     .cd { font-size: 12.5px; color: var(--text-2); line-height: 1.6; margin-bottom: 26px; position: relative; z-index: 1; }
     .cta { font-family: var(--fm); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); display: inline-flex; align-items: center; gap: 8px; position: relative; z-index: 1; transition: color .2s, gap .2s; }
     .card:hover .cta { color: var(--gold); gap: 13px; }
-    .no-link { cursor: default; }
-    .no-link:hover { transform: translateY(-2px); }
-
-    /* AI LIST */
+    .no-link { cursor: default; } .no-link:hover { transform: translateY(-2px); }
     .alist { display: flex; flex-direction: column; }
-    .ai {
-      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px;
-      padding: 30px 0; border-bottom: 1px solid var(--border);
-      position: relative; overflow: hidden; transition: padding-left .3s;
-    }
+    .ai { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 30px 0; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; transition: padding-left .3s; }
     .ai:first-child { border-top: 1px solid var(--border); }
-    .ai::before {
-      content: ''; position: absolute; left: -100%; top: 0; bottom: 0; width: 100%;
-      background: linear-gradient(90deg, transparent, rgba(232,200,122,.04), transparent);
-      transition: left .55s ease;
-    }
-    .ai:hover::before { left: 100%; }
-    .ai:hover { padding-left: 16px; }
+    .ai::before { content: ''; position: absolute; left: -100%; top: 0; bottom: 0; width: 100%; background: linear-gradient(90deg, transparent, rgba(232,200,122,.04), transparent); transition: left .55s ease; }
+    .ai:hover::before { left: 100%; } .ai:hover { padding-left: 16px; }
     .ai-m { position: relative; z-index: 1; }
     .ai-n2 { font-family: var(--fm); font-size: 9px; color: var(--muted); letter-spacing: .18em; margin-bottom: 6px; }
     .ai-t { font-family: var(--fd); font-size: 26px; font-weight: 400; margin-bottom: 4px; transition: color .2s; }
@@ -164,8 +82,6 @@
     .ai-d { font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
     .ai-b { font-family: var(--fm); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; padding: 4px 12px; border: 1px solid var(--border); color: var(--muted); white-space: nowrap; position: relative; z-index: 1; transition: border-color .2s, color .2s; }
     .ai:hover .ai-b { border-color: var(--border-hover); color: var(--gold-dim); }
-
-    /* CONTACT */
     #contact { background: var(--deep); border-top: 1px solid var(--border); }
     .cwrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .cleft h2 { font-family: var(--fd); font-size: clamp(32px,4vw,52px); font-weight: 300; line-height: 1.1; margin-bottom: 18px; }
@@ -181,48 +97,34 @@
     .ff textarea { height: 90px; }
     .fbtn { width: 100%; padding: 14px; background: transparent; border: 1px solid var(--border-hover); color: var(--gold); font-family: var(--fm); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; cursor: none; transition: background .25s, color .25s; }
     .fbtn:hover { background: var(--gold); color: var(--void); }
-
-    /* FOOTER */
     footer { padding: 34px 52px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 14px; }
     .fbrand { font-family: var(--fm); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
     .fright { font-size: 11px; color: var(--muted); text-align: right; line-height: 1.7; }
     .fright a { color: var(--muted); text-decoration: none; transition: color .2s; }
     .fright a:hover { color: var(--gold-dim); }
-
-    /* REVEAL */
     .r { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
     .r.in { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
-    .d4 { transition-delay: .4s; } .d5 { transition-delay: .5s; } .d6 { transition-delay: .6s; }
-    .d7 { transition-delay: .7s; } .d8 { transition-delay: .8s; }
-
+    .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+    .d4{transition-delay:.4s;}.d5{transition-delay:.5s;}.d6{transition-delay:.6s;}
+    .d7{transition-delay:.7s;}.d8{transition-delay:.8s;}
+    .loading { font-family: var(--fm); font-size: 10px; letter-spacing: .2em; color: var(--muted); text-align: center; padding: 40px; text-transform: uppercase; }
     @keyframes fup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fin  { from { opacity: 0; } to { opacity: 1; } }
-
-    /* MOBILE */
     @media (max-width: 768px) {
-      nav { padding: 18px 24px; }
-      .nav-links { display: none; }
-      .container { padding: 0 24px; }
-      section { padding: 72px 0; }
-      .sn { font-size: 52px; }
-      .grid { grid-template-columns: 1fr; }
-      .ai { grid-template-columns: 1fr; }
-      .ai-b { display: none; }
+      nav { padding: 18px 24px; } .nav-links { display: none; }
+      .container { padding: 0 24px; } section { padding: 72px 0; }
+      .sn { font-size: 52px; } .grid { grid-template-columns: 1fr; }
+      .ai { grid-template-columns: 1fr; } .ai-b { display: none; }
       .cwrap { grid-template-columns: 1fr; gap: 48px; }
-      footer { padding: 26px 24px; }
-      .fright { text-align: left; }
-      body { cursor: auto; }
-      .cursor, .cring { display: none; }
+      footer { padding: 26px 24px; } .fright { text-align: left; }
+      body { cursor: auto; } .cursor, .cring { display: none; }
     }
   </style>
 </head>
 <body>
-
   <div class="cursor" id="cur"></div>
   <div class="cring" id="cring"></div>
 
-  <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">Markus Usche</a>
     <ul class="nav-links">
@@ -233,7 +135,6 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hbg"></div>
     <div class="hgrid"></div>
@@ -250,7 +151,7 @@
     <div class="scroll-ind"><span>Scroll</span><div class="sline"></div></div>
   </section>
 
-  <!-- ── 01  CLIENT WEBSITES ── -->
+  <!-- 01 SITES — rendered from projects.json -->
   <section id="sites">
     <div class="container">
       <div class="sh r">
@@ -260,76 +161,13 @@
           <h2 class="st">Premium Digital<br><em>Experiences</em></h2>
         </div>
       </div>
-      <div class="grid">
-
-        <a href="/claritycoachingpro/" class="card r d1" style="--ac:#7eb8d4;">
-          <div class="cc">Coaching · Consulting</div>
-          <h3 class="cn">Clarity Coaching Pro</h3>
-          <p class="cd">Life &amp; business coaching for professionals. Conversion-focused design with premium brand positioning and editorial layout.</p>
-          <span class="cta">View Site →</span>
-        </a>
-
-        <a href="/gentlemanbrandmanagement/" class="card r d2" style="--ac:#c4956a;">
-          <div class="cc">Brand Management · SBA-Certified</div>
-          <h3 class="cn">Gentleman Brand Management</h3>
-          <p class="cd">Built on honor. Driven by results. Full brand identity and site for a veteran-owned brand management firm.</p>
-          <span class="cta">View Site →</span>
-        </a>
-
-        <a href="/luxeandcohair/" class="card r d3" style="--ac:#c4a0b8;">
-          <div class="cc">Beauty · Lifestyle · Manhattan</div>
-          <h3 class="cn">Luxe &amp; Co. Hair Studio</h3>
-          <p class="cd">Manhattan's premier hair studio. Elevated brand presence with booking-optimized design and editorial photography layout.</p>
-          <span class="cta">View Site →</span>
-        </a>
-
-        <a href="/peakprohvac/" class="card r d4" style="--ac:#6ab0a0;">
-          <div class="cc">Home Services · NYC Metro</div>
-          <h3 class="cn">Peak Pro HVAC &amp; Plumbing</h3>
-          <p class="cd">NYC Metro's 24/7 HVAC &amp; plumbing service. Trust-forward design with local SEO architecture and emergency response flow.</p>
-          <span class="cta">View Site →</span>
-        </a>
-
-        <a href="/trapables/" class="card r d5" style="--ac:#8a7fb8;">
-          <div class="cc">Cannabis · Delivery · App</div>
-          <h3 class="cn">TRAPABLES</h3>
-          <p class="cd">Premium. Private. Potent. Full-stack cannabis delivery app — GSAP animations, strain detail system, vibe filter, pay calculator.</p>
-          <span class="cta">View App →</span>
-        </a>
-
-        <a href="https://bartendersinfronteria.nyctailblazers.com" class="card r d6" style="--ac:#d4a85a;" target="_blank" rel="noopener">
-          <div class="cc">Events · Mobile Bar · NYC</div>
-          <h3 class="cn">Bartenders in Frontera</h3>
-          <p class="cd">NYC mobile bar service. Cinematic single-page site with service tiers, booking flow, and full monthly content plan.</p>
-          <span class="cta">View Site →</span>
-        </a>
-
-        <a href="https://titanrenovationsnyc.com" class="card r d7" style="--ac:#a07850;" target="_blank" rel="noopener">
-          <div class="cc">Renovation · Construction · NYC</div>
-          <h3 class="cn">Titan Renovations</h3>
-          <p class="cd">Full single-page site — services, gallery lightboxes, before/after pairs, testimonials. Blueprint/navy design with 10 sections.</p>
-          <span class="cta">View Site →</span>
-        </a>
-
-        <a href="https://greenlanternink.nyctailblazers.com" class="card r d8" style="--ac:#4caf6a;" target="_blank" rel="noopener">
-          <div class="cc">Tattoo Studio · NYC</div>
-          <h3 class="cn">Green Lantern Ink</h3>
-          <p class="cd">NYC tattoo studio website. Artist profiles, style gallery, FAQ, and booking flow with bold editorial design.</p>
-          <span class="cta">View Site →</span>
-        </a>
-
-        <a href="https://afu.nyctailblazers.com" class="card r d8" style="--ac:#7ab878;" target="_blank" rel="noopener">
-          <div class="cc">Community · Social Club · NYC</div>
-          <h3 class="cn">AFU Social Club</h3>
-          <p class="cd">All For Uniting Social Club. Community-driven web presence with brand assets, social integration, and event content.</p>
-          <span class="cta">View Site →</span>
-        </a>
-
+      <div class="grid" id="sites-grid">
+        <div class="loading">Loading projects...</div>
       </div>
     </div>
   </section>
 
-  <!-- ── 02  MOBILE APPS ── -->
+  <!-- 02 APPS — rendered from projects.json -->
   <section id="apps" style="background: var(--deep); border-top: 1px solid var(--border);">
     <div class="container">
       <div class="sh r">
@@ -339,41 +177,13 @@
           <h2 class="st">Built for<br><em>Real People</em></h2>
         </div>
       </div>
-      <div class="grid">
-
-        <div class="card no-link r d1" style="--ac:#a0c4e8;">
-          <div class="cc">iOS · Swift · SwiftUI</div>
-          <h3 class="cn">Ears &amp; Eyes</h3>
-          <p class="cd">Real-time AI language translator. OpenAI Whisper STT, Apple on-device translation, ElevenLabs voice output. Supports English, Spanish, Mandarin, Arabic, Yiddish.</p>
-          <span class="cta" style="opacity:.4;">In Development</span>
-        </div>
-
-        <div class="card no-link r d2" style="--ac:#78b8a0;">
-          <div class="cc">React Native · Expo · Location</div>
-          <h3 class="cn">PopSpot</h3>
-          <p class="cd">Location-based marketplace app. Users discover and post nearby deals, events, and services. Supabase backend on Coolify infrastructure.</p>
-          <span class="cta" style="opacity:.4;">In Development</span>
-        </div>
-
-        <div class="card no-link r d3" style="--ac:#e8b8a0;">
-          <div class="cc">iOS · React Native · Voice AI</div>
-          <h3 class="cn">AriaFinal</h3>
-          <p class="cd">AI-powered iOS voice app with real-time processing, context retention pipeline, and natural conversation flow.</p>
-          <span class="cta" style="opacity:.4;">In Development</span>
-        </div>
-
-        <div class="card no-link r d4" style="--ac:#b0a8d8;">
-          <div class="cc">iOS · Security · Operations</div>
-          <h3 class="cn">MissionControl</h3>
-          <p class="cd">Secure mobile operations platform. MissionControl + MissionControlMobile + MissionControl-Secure — full suite for field team coordination.</p>
-          <span class="cta" style="opacity:.4;">In Development</span>
-        </div>
-
+      <div class="grid" id="apps-grid">
+        <div class="loading">Loading apps...</div>
       </div>
     </div>
   </section>
 
-  <!-- ── 03  AI SYSTEMS ── -->
+  <!-- 03 SYSTEMS — rendered from projects.json -->
   <section id="systems">
     <div class="container">
       <div class="sh r">
@@ -383,76 +193,12 @@
           <h2 class="st">Intelligent<br><em>Systems</em></h2>
         </div>
       </div>
-      <div class="alist">
-
-        <div class="ai r">
-          <div class="ai-m">
-            <div class="ai-n2">001</div>
-            <div class="ai-t">NexGate</div>
-            <div class="ai-d">AI gateway routing 155 skills across Anthropic, OpenAI, Gemini &amp; Ollama with OAuth token pooling and automatic failover.</div>
-          </div>
-          <div class="ai-b">Gateway · Python</div>
-        </div>
-
-        <div class="ai r d1">
-          <div class="ai-m">
-            <div class="ai-n2">002</div>
-            <div class="ai-t">OpenClaw</div>
-            <div class="ai-d">Autonomous browser and desktop daemon — persistent AI agent infrastructure running 24/7 without human supervision.</div>
-          </div>
-          <div class="ai-b">Daemon · Running</div>
-        </div>
-
-        <div class="ai r d2">
-          <div class="ai-m">
-            <div class="ai-n2">003</div>
-            <div class="ai-t">LLM-Brains</div>
-            <div class="ai-d">Skool multi-community scraper + Notion sync pipeline. Scrapes course content, fixes duplicates, syncs structured posts across multiple communities.</div>
-          </div>
-          <div class="ai-b">Pipeline · Python</div>
-        </div>
-
-        <div class="ai r d3">
-          <div class="ai-m">
-            <div class="ai-n2">004</div>
-            <div class="ai-t">Glaido-libre</div>
-            <div class="ai-d">Open-source voice AI with self-hosted TTS/STT pipeline. Privacy-first voice intelligence — fixed, verified, and stable.</div>
-          </div>
-          <div class="ai-b">Open Source · Voice</div>
-        </div>
-
-        <div class="ai r d4">
-          <div class="ai-m">
-            <div class="ai-n2">005</div>
-            <div class="ai-t">Printing Press</div>
-            <div class="ai-d">CLI factory that builds a compressed, cached command-line client for any API or service in ~10 minutes. 60–80% token reduction vs raw API calls.</div>
-          </div>
-          <div class="ai-b">CLI · Go</div>
-        </div>
-
-        <div class="ai r d5">
-          <div class="ai-m">
-            <div class="ai-n2">006</div>
-            <div class="ai-t">Hermes Gateway</div>
-            <div class="ai-d">Persistent AI agent infrastructure bridging 7 Claude profiles across mac1, mac2, and mac3. Minimal config, maximum uptime.</div>
-          </div>
-          <div class="ai-b">Gateway · Node</div>
-        </div>
-
-        <div class="ai r d6">
-          <div class="ai-m">
-            <div class="ai-n2">007</div>
-            <div class="ai-t">NYC Tailblazers</div>
-            <div class="ai-d">AI Movie Studio infrastructure — 4,960 AI service accounts generating 24 hours/day of video content across free tier providers.</div>
-          </div>
-          <div class="ai-b">Infrastructure · Scale</div>
-        </div>
-
+      <div class="alist" id="systems-list">
+        <div class="loading">Loading systems...</div>
       </div>
     </div>
   </section>
 
-  <!-- ── CONTACT ── -->
   <section id="contact">
     <div class="container">
       <div class="cwrap">
@@ -471,7 +217,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="fbrand">NYC Tailblazers</div>
     <div class="fright">
@@ -482,29 +227,92 @@
 
   <script>
     // Cursor
-    const cur = document.getElementById('cur');
-    const crng = document.getElementById('cring');
+    const cur = document.getElementById('cur'), crng = document.getElementById('cring');
     let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
-    });
-    document.querySelectorAll('a, button').forEach(el => {
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx+'px'; cur.style.top = my+'px'; });
+    document.querySelectorAll('a,button').forEach(el => {
       el.addEventListener('mouseenter', () => { cur.classList.add('h'); crng.classList.add('h'); });
       el.addEventListener('mouseleave', () => { cur.classList.remove('h'); crng.classList.remove('h'); });
     });
-    (function tick() {
-      rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
-      crng.style.left = rx + 'px'; crng.style.top = ry + 'px';
-      requestAnimationFrame(tick);
-    })();
+    (function tick() { rx += (mx-rx)*.13; ry += (my-ry)*.13; crng.style.left=rx+'px'; crng.style.top=ry+'px'; requestAnimationFrame(tick); })();
 
     // Scroll reveal
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
     }, { threshold: 0.08 });
-    document.querySelectorAll('.r').forEach(el => obs.observe(el));
-  </script>
 
+    function observe() { document.querySelectorAll('.r:not(.in)').forEach(el => obs.observe(el)); }
+
+    // Render site card
+    function siteCard(p, i) {
+      const tag = p.url ? 'a' : 'div';
+      const href = p.url ? `href="${p.url}"` : '';
+      const target = p.external ? 'target="_blank" rel="noopener"' : '';
+      const nolink = p.url ? '' : 'no-link';
+      const ctaText = p.url ? (p.status === 'in-development' ? 'In Development' : 'View Site →') : 'Coming Soon';
+      const ctaStyle = p.url ? '' : 'style="opacity:.4;"';
+      const delay = `d${(i % 8) + 1}`;
+      return `<${tag} ${href} ${target} class="card r ${delay} ${nolink}" style="--ac:${p.accent};">
+        <div class="cc">${p.category}</div>
+        <h3 class="cn">${p.name}</h3>
+        <p class="cd">${p.description}</p>
+        <span class="cta" ${ctaStyle}>${ctaText}</span>
+      </${tag}>`;
+    }
+
+    // Render app card
+    function appCard(p, i) {
+      const delay = `d${(i % 8) + 1}`;
+      return `<div class="card no-link r ${delay}" style="--ac:${p.accent};">
+        <div class="cc">${p.category}</div>
+        <h3 class="cn">${p.name}</h3>
+        <p class="cd">${p.description}</p>
+        <span class="cta" style="opacity:.4;">${p.status === 'in-development' ? 'In Development' : 'Coming Soon'}</span>
+      </div>`;
+    }
+
+    // Render system row
+    function systemRow(p, i) {
+      const num = String(i + 1).padStart(3, '0');
+      const delay = `d${Math.min(i + 1, 8)}`;
+      return `<div class="ai r ${delay}">
+        <div class="ai-m">
+          <div class="ai-n2">${num}</div>
+          <div class="ai-t">${p.name}</div>
+          <div class="ai-d">${p.description}</div>
+        </div>
+        <div class="ai-b">${p.badge || p.category}</div>
+      </div>`;
+    }
+
+    // Load and render projects.json
+    fetch('./projects.json?v=' + Math.floor(Date.now() / 60000))
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('sites-grid').innerHTML = (data.sites || []).map(siteCard).join('');
+        document.getElementById('apps-grid').innerHTML = (data.apps || []).map(appCard).join('');
+        document.getElementById('systems-list').innerHTML = (data.systems || []).map(systemRow).join('');
+
+        // Update hero meta if present
+        if (data.meta) {
+          document.title = `${data.meta.name} — ${data.meta.tagline}`;
+        }
+
+        // Re-attach cursor hover and re-observe for scroll reveals
+        document.querySelectorAll('a,button').forEach(el => {
+          el.addEventListener('mouseenter', () => { cur.classList.add('h'); crng.classList.add('h'); });
+          el.addEventListener('mouseleave', () => { cur.classList.remove('h'); crng.classList.remove('h'); });
+        });
+        observe();
+      })
+      .catch(() => {
+        // Fallback if fetch fails (e.g. local file://)
+        document.getElementById('sites-grid').innerHTML = '<div class="loading">Could not load projects.json</div>';
+        document.getElementById('apps-grid').innerHTML = '';
+        document.getElementById('systems-list').innerHTML = '';
+      });
+
+    observe();
+  </script>
 </body>
 </html>
