@@ -1,318 +1,681 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Markus Usche — Cinematic Websites. Intelligent Systems.</title>
-  <meta name="description" content="Designer and builder of premium digital experiences — cinematic client websites, mobile apps, and AI-powered infrastructure. NYC Tailblazers." />
+  <meta name="description" content="NYC Tailblazers — premium digital experiences, cinematic client websites, and AI-powered infrastructure."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.css"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --void: #06090e; --deep: #0b0f18; --surface: #10161f;
-      --border: rgba(255,255,255,0.06); --border-hover: rgba(232,200,122,0.25);
-      --gold: #e8c87a; --gold-glow: rgba(232,200,122,0.07); --gold-dim: rgba(232,200,122,0.55);
-      --text: #f0ede8; --text-2: #8a9bb0; --muted: #3a4a5c;
-      --fd: 'Cormorant Garamond', serif; --fb: 'DM Sans', sans-serif; --fm: 'DM Mono', monospace;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root{
+      --void:#06090e;--deep:#0b0f18;--surface:#0e1520;
+      --border:rgba(255,255,255,0.055);--border-h:rgba(232,200,122,0.3);
+      --gold:#e8c87a;--gold-dim:rgba(232,200,122,0.5);--gold-glow:rgba(232,200,122,0.06);
+      --text:#f0ede8;--text2:#8a9bb0;--muted:#3a4a5c;
+      --fd:'Cormorant Garamond',serif;--fm:'DM Mono',monospace;
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--void); color: var(--text); font-family: var(--fb); font-weight: 300; line-height: 1.6; overflow-x: hidden; cursor: none; }
-    body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); opacity: 0.025; pointer-events: none; z-index: 9000; }
-    .cursor { position: fixed; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .2s, height .2s, opacity .2s; }
-    .cring { position: fixed; width: 30px; height: 30px; border: 1px solid rgba(232,200,122,.3); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); }
-    .cursor.h { width: 16px; height: 16px; opacity: .4; } .cring.h { width: 12px; height: 12px; opacity: .2; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 26px 52px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(6,9,14,.92) 0%, transparent 100%); }
-    .nav-logo { font-family: var(--fm); font-size: 11px; letter-spacing: .18em; color: var(--gold); text-decoration: none; text-transform: uppercase; }
-    .nav-links { display: flex; gap: 40px; list-style: none; }
-    .nav-links a { font-family: var(--fm); font-size: 10px; letter-spacing: .14em; color: var(--text-2); text-decoration: none; text-transform: uppercase; transition: color .2s; }
-    .nav-links a:hover { color: var(--gold); }
-    #hero { position: relative; height: 100vh; min-height: 680px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .hbg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(232,200,122,.035) 0%, transparent 65%), var(--void); }
-    .hgrid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px); background-size: 72px 72px; }
-    .scanline { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(232,200,122,.22), transparent); animation: scan 7s linear infinite; }
-    @keyframes scan { 0% { top: -2px; opacity: 0; } 4% { opacity: 1; } 96% { opacity: .7; } 100% { top: 100%; opacity: 0; } }
-    .hcontent { position: relative; z-index: 2; text-align: center; max-width: 860px; padding: 0 24px; }
-    .h-eye { font-family: var(--fm); font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; opacity: 0; animation: fup .9s ease .3s forwards; }
-    .h-name { font-family: var(--fd); font-size: clamp(64px,11vw,128px); font-weight: 300; line-height: .95; letter-spacing: -.02em; margin-bottom: 26px; opacity: 0; animation: fup 1s ease .5s forwards; }
-    .h-name em { font-style: italic; color: var(--gold); display: block; }
-    .h-tag { font-size: clamp(13px,1.8vw,16px); font-weight: 300; color: var(--text-2); letter-spacing: .08em; margin-bottom: 52px; opacity: 0; animation: fup 1s ease .7s forwards; }
-    .h-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fup 1s ease .9s forwards; }
-    .btn-g { display: inline-block; padding: 13px 38px; background: var(--gold); color: var(--void); font-family: var(--fm); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; }
-    .btn-g:hover { background: #f0d89a; transform: translateY(-2px); }
-    .btn-o { display: inline-block; padding: 13px 38px; border: 1px solid var(--border-hover); color: var(--gold-dim); font-family: var(--fm); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: border-color .2s, color .2s, transform .2s; }
-    .btn-o:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-    .scroll-ind { position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; animation: fin 1s ease 1.6s forwards; }
-    .scroll-ind span { font-family: var(--fm); font-size: 9px; letter-spacing: .25em; color: var(--muted); text-transform: uppercase; }
-    .sline { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--gold-dim), transparent); animation: pline 2.2s ease-in-out infinite; }
-    @keyframes pline { 0%,100% { transform: scaleY(1); opacity: .8; } 50% { transform: scaleY(.5); opacity: .3; } }
-    section { padding: 108px 0; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 52px; }
-    .sh { display: flex; align-items: flex-end; gap: 28px; margin-bottom: 64px; }
-    .sn { font-family: var(--fd); font-size: 96px; font-weight: 300; line-height: 1; color: rgba(255,255,255,.035); letter-spacing: -.04em; flex-shrink: 0; user-select: none; }
-    .sm { padding-bottom: 10px; }
-    .sl { font-family: var(--fm); font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .st { font-family: var(--fd); font-size: clamp(28px,4vw,46px); font-weight: 300; line-height: 1.1; letter-spacing: -.01em; }
-    .st em { font-style: italic; color: var(--gold-dim); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; }
-    .card { position: relative; background: var(--surface); border: 1px solid var(--border); padding: 34px 36px 30px; text-decoration: none; color: var(--text); display: block; overflow: hidden; transition: border-color .3s, transform .3s, background .3s; }
-    .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--ac, var(--gold)); transform: scaleY(0); transform-origin: bottom; transition: transform .35s ease; }
-    .card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 40% at 50% 0%, var(--gold-glow), transparent 70%); opacity: 0; transition: opacity .3s; }
-    .card:hover { border-color: var(--border-hover); background: var(--deep); transform: translateY(-4px); }
-    .card:hover::before { transform: scaleY(1); }
-    .card:hover::after { opacity: 1; }
-    .cc { font-family: var(--fm); font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; position: relative; z-index: 1; }
-    .cn { font-family: var(--fd); font-size: 24px; font-weight: 400; line-height: 1.2; margin-bottom: 10px; position: relative; z-index: 1; transition: color .25s; }
-    .card:hover .cn { color: var(--gold); }
-    .cd { font-size: 12.5px; color: var(--text-2); line-height: 1.6; margin-bottom: 26px; position: relative; z-index: 1; }
-    .cta { font-family: var(--fm); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dim); display: inline-flex; align-items: center; gap: 8px; position: relative; z-index: 1; transition: color .2s, gap .2s; }
-    .card:hover .cta { color: var(--gold); gap: 13px; }
-    .no-link { cursor: default; } .no-link:hover { transform: translateY(-2px); }
-    .alist { display: flex; flex-direction: column; }
-    .ai { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 30px 0; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; transition: padding-left .3s; }
-    .ai:first-child { border-top: 1px solid var(--border); }
-    .ai::before { content: ''; position: absolute; left: -100%; top: 0; bottom: 0; width: 100%; background: linear-gradient(90deg, transparent, rgba(232,200,122,.04), transparent); transition: left .55s ease; }
-    .ai:hover::before { left: 100%; } .ai:hover { padding-left: 16px; }
-    .ai-m { position: relative; z-index: 1; }
-    .ai-n2 { font-family: var(--fm); font-size: 9px; color: var(--muted); letter-spacing: .18em; margin-bottom: 6px; }
-    .ai-t { font-family: var(--fd); font-size: 26px; font-weight: 400; margin-bottom: 4px; transition: color .2s; }
-    .ai:hover .ai-t { color: var(--gold); }
-    .ai-d { font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
-    .ai-b { font-family: var(--fm); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; padding: 4px 12px; border: 1px solid var(--border); color: var(--muted); white-space: nowrap; position: relative; z-index: 1; transition: border-color .2s, color .2s; }
-    .ai:hover .ai-b { border-color: var(--border-hover); color: var(--gold-dim); }
-    #contact { background: var(--deep); border-top: 1px solid var(--border); }
-    .cwrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .cleft h2 { font-family: var(--fd); font-size: clamp(32px,4vw,52px); font-weight: 300; line-height: 1.1; margin-bottom: 18px; }
-    .cleft h2 em { font-style: italic; color: var(--gold); }
-    .cleft p { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 32px; }
-    .cemail { display: inline-flex; align-items: center; font-family: var(--fm); font-size: 13px; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(232,200,122,.2); padding-bottom: 4px; letter-spacing: .03em; transition: border-color .2s; }
-    .cemail:hover { border-color: var(--gold); }
-    .cform { display: flex; flex-direction: column; gap: 16px; }
-    .ff { display: flex; flex-direction: column; gap: 6px; }
-    .ff label { font-family: var(--fm); font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
-    .ff input, .ff textarea { background: var(--surface); border: 1px solid var(--border); padding: 12px 15px; color: var(--text); font-family: var(--fb); font-size: 14px; font-weight: 300; outline: none; transition: border-color .2s; resize: none; width: 100%; }
-    .ff input:focus, .ff textarea:focus { border-color: var(--border-hover); }
-    .ff textarea { height: 90px; }
-    .fbtn { width: 100%; padding: 14px; background: transparent; border: 1px solid var(--border-hover); color: var(--gold); font-family: var(--fm); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; cursor: none; transition: background .25s, color .25s; }
-    .fbtn:hover { background: var(--gold); color: var(--void); }
-    footer { padding: 34px 52px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 14px; }
-    .fbrand { font-family: var(--fm); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
-    .fright { font-size: 11px; color: var(--muted); text-align: right; line-height: 1.7; }
-    .fright a { color: var(--muted); text-decoration: none; transition: color .2s; }
-    .fright a:hover { color: var(--gold-dim); }
-    .r { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
-    .r.in { opacity: 1; transform: translateY(0); }
-    .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
-    .d4{transition-delay:.4s;}.d5{transition-delay:.5s;}.d6{transition-delay:.6s;}
-    .d7{transition-delay:.7s;}.d8{transition-delay:.8s;}
-    .loading { font-family: var(--fm); font-size: 10px; letter-spacing: .2em; color: var(--muted); text-align: center; padding: 40px; text-transform: uppercase; }
-    @keyframes fup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fin  { from { opacity: 0; } to { opacity: 1; } }
-    @media (max-width: 768px) {
-      nav { padding: 18px 24px; } .nav-links { display: none; }
-      .container { padding: 0 24px; } section { padding: 72px 0; }
-      .sn { font-size: 52px; } .grid { grid-template-columns: 1fr; }
-      .ai { grid-template-columns: 1fr; } .ai-b { display: none; }
-      .cwrap { grid-template-columns: 1fr; gap: 48px; }
-      footer { padding: 26px 24px; } .fright { text-align: left; }
-      body { cursor: auto; } .cursor, .cring { display: none; }
+
+    html{scroll-behavior:auto} /* lenis handles smoothness */
+
+    body{
+      background:var(--void);color:var(--text);
+      font-family:var(--fm);font-weight:300;line-height:1.6;
+      overflow-x:hidden;cursor:none;
+    }
+
+    /* ── GRAIN ───────────────────────────────────────────────── */
+    .grain{
+      position:fixed;inset:0;pointer-events:none;z-index:9900;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+      opacity:0.032;mix-blend-mode:screen;
+    }
+
+    /* ── CURSOR ──────────────────────────────────────────────── */
+    .cur-dot{position:fixed;width:7px;height:7px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .18s,height .18s,opacity .18s;}
+    .cur-ring{position:fixed;width:32px;height:32px;border:1px solid rgba(232,200,122,.28);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);}
+    .cur-dot.h{width:18px;height:18px;opacity:.35;}
+    .cur-ring.h{width:14px;height:14px;opacity:.2;}
+
+    /* ── NAV ─────────────────────────────────────────────────── */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:500;
+      padding:28px 56px;
+      display:flex;justify-content:space-between;align-items:center;
+      transition:transform .4s ease, background .4s ease;
+    }
+    nav.hidden{transform:translateY(-100%);}
+    nav.scrolled{background:rgba(6,9,14,.94);backdrop-filter:blur(8px);}
+    .nav-logo{font-size:10px;letter-spacing:.2em;color:var(--gold);text-decoration:none;text-transform:uppercase;}
+    .nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+    .nav-links a{font-size:9px;letter-spacing:.16em;color:var(--text2);text-decoration:none;text-transform:uppercase;transition:color .2s;}
+    .nav-links a:hover{color:var(--gold);}
+    .btn-tour{
+      font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+      border:1px solid var(--border-h);color:var(--gold-dim);
+      padding:7px 18px;background:none;cursor:none;
+      transition:all .2s;
+    }
+    .btn-tour:hover{background:rgba(232,200,122,.08);color:var(--gold);border-color:var(--gold);}
+
+    /* ── HERO ────────────────────────────────────────────────── */
+    #hero{
+      position:relative;height:100vh;min-height:700px;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(ellipse 65% 60% at 50% 50%, rgba(232,200,122,.042) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 20%, rgba(30,15,0,.5) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 50% at 10% 80%, rgba(5,10,25,.6) 0%, transparent 55%),
+        var(--void);
+    }
+    .hero-grid{
+      position:absolute;inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.016) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.016) 1px, transparent 1px);
+      background-size:80px 80px;
+    }
+    .hero-vignette{
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(6,9,14,.7) 100%);
+    }
+    .scanline{
+      position:absolute;top:0;left:0;right:0;height:1px;
+      background:linear-gradient(90deg,transparent 0%,rgba(232,200,122,.15) 30%,rgba(232,200,122,.3) 50%,rgba(232,200,122,.15) 70%,transparent 100%);
+      animation:scanAnim 8s linear infinite;
+      pointer-events:none;transform:translateY(-2px);
+    }
+    @keyframes scanAnim{
+      0%{transform:translateY(-2px);opacity:0}
+      3%{opacity:1}
+      97%{opacity:.6}
+      100%{transform:translateY(100vh);opacity:0}
+    }
+
+    /* Light leak corners */
+    .leak-tl,.leak-br{position:absolute;pointer-events:none;}
+    .leak-tl{top:0;left:0;width:300px;height:300px;background:radial-gradient(ellipse at 0% 0%, rgba(232,200,122,.04) 0%, transparent 60%);}
+    .leak-br{bottom:0;right:0;width:400px;height:400px;background:radial-gradient(ellipse at 100% 100%, rgba(20,10,50,.3) 0%, transparent 60%);}
+
+    .hero-content{
+      position:relative;z-index:2;
+      text-align:center;
+      max-width:1100px;padding:0 32px;
+    }
+    .h-eye{
+      font-size:10px;letter-spacing:.35em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:40px;
+      opacity:0;/* gsap */
+    }
+    .h-name{
+      font-family:var(--fd);
+      font-size:clamp(80px,14vw,180px);
+      font-weight:300;line-height:.88;
+      letter-spacing:-.025em;
+      margin-bottom:36px;
+      opacity:0;/* gsap */
+    }
+    .h-name .line{display:block;overflow:hidden;}
+    .h-name .inner{display:block;}
+    .h-sub{
+      font-family:var(--fd);
+      font-size:clamp(18px,2.5vw,28px);
+      font-weight:300;font-style:italic;
+      color:var(--text2);letter-spacing:.05em;
+      line-height:1.5;margin-bottom:60px;
+      opacity:0;/* gsap */
+    }
+    .h-sub em{color:var(--gold);font-style:italic;}
+    .h-ctas{
+      display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+      opacity:0;/* gsap */
+    }
+    .btn-primary{
+      display:inline-block;padding:14px 44px;
+      background:var(--gold);color:var(--void);
+      font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+      text-decoration:none;transition:background .2s,transform .2s;
+    }
+    .btn-primary:hover{background:#f0d89a;transform:translateY(-2px);}
+    .btn-ghost{
+      display:inline-block;padding:14px 44px;
+      border:1px solid var(--border-h);color:var(--gold-dim);
+      font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+      text-decoration:none;transition:all .2s;
+    }
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+
+    .scroll-ind{
+      position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+      z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;
+      opacity:0;/* gsap */
+    }
+    .scroll-ind span{font-size:8px;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;}
+    .scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold-dim),transparent);animation:linePulse 2.4s ease-in-out infinite;}
+    @keyframes linePulse{0%,100%{transform:scaleY(1);opacity:.8}50%{transform:scaleY(.4);opacity:.2}}
+
+    /* ── LAYOUT ──────────────────────────────────────────────── */
+    section{padding:120px 0;position:relative;}
+    .container{max-width:1240px;margin:0 auto;padding:0 56px;}
+
+    .s-head{display:flex;align-items:flex-end;gap:24px;margin-bottom:72px;}
+    .s-num{
+      font-family:var(--fd);font-weight:300;
+      font-size:clamp(80px,10vw,120px);line-height:1;
+      color:rgba(255,255,255,.03);letter-spacing:-.04em;
+      flex-shrink:0;user-select:none;-webkit-user-select:none;
+      will-change:transform;/* for GSAP parallax */
+    }
+    .s-meta{padding-bottom:12px;}
+    .s-label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+    .s-title{font-family:var(--fd);font-size:clamp(30px,4vw,52px);font-weight:300;line-height:1.1;}
+    .s-title em{font-style:italic;color:var(--gold-dim);}
+
+    /* ── CARDS ───────────────────────────────────────────────── */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px;}
+
+    .card{
+      position:relative;background:var(--surface);
+      border:1px solid var(--border);
+      padding:36px 38px 32px;
+      text-decoration:none;color:var(--text);display:block;
+      overflow:hidden;
+      transition:border-color .3s,transform .3s,background .3s;
+      opacity:0;/* gsap */
+    }
+    .card::before{
+      content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+      background:var(--ac,var(--gold));
+      transform:scaleY(0);transform-origin:bottom;
+      transition:transform .4s ease;
+    }
+    .card::after{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 80% 40% at 50% 0%,var(--gold-glow),transparent 70%);
+      opacity:0;transition:opacity .3s;
+    }
+    .card:hover{border-color:var(--border-h);background:var(--deep);transform:translateY(-5px);}
+    .card:hover::before{transform:scaleY(1);}
+    .card:hover::after{opacity:1;}
+    .c-cat{font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;position:relative;z-index:1;}
+    .c-name{font-family:var(--fd);font-size:25px;font-weight:400;line-height:1.2;margin-bottom:10px;position:relative;z-index:1;transition:color .25s;}
+    .card:hover .c-name{color:var(--gold);}
+    .c-desc{font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--text2);line-height:1.65;margin-bottom:28px;position:relative;z-index:1;font-weight:300;}
+    .c-cta{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim);display:inline-flex;align-items:center;gap:8px;position:relative;z-index:1;transition:color .2s,gap .2s;}
+    .card:hover .c-cta{color:var(--gold);gap:14px;}
+    .no-link{cursor:default;}
+
+    /* ── AI LIST ─────────────────────────────────────────────── */
+    .alist{display:flex;flex-direction:column;}
+    .ai-row{
+      display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;
+      padding:32px 0;border-bottom:1px solid var(--border);
+      position:relative;overflow:hidden;
+      transition:padding-left .3s;
+      opacity:0;/* gsap */
+    }
+    .ai-row:first-child{border-top:1px solid var(--border);}
+    .ai-row::before{
+      content:'';position:absolute;left:-100%;top:0;bottom:0;width:100%;
+      background:linear-gradient(90deg,transparent,rgba(232,200,122,.03),transparent);
+      transition:left .6s ease;
+    }
+    .ai-row:hover::before{left:100%;}
+    .ai-row:hover{padding-left:18px;}
+    .ai-m{position:relative;z-index:1;}
+    .ai-idx{font-size:8.5px;color:var(--muted);letter-spacing:.2em;margin-bottom:6px;}
+    .ai-name{font-family:var(--fd);font-size:28px;font-weight:400;margin-bottom:5px;transition:color .2s;}
+    .ai-row:hover .ai-name{color:var(--gold);}
+    .ai-desc{font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--text2);line-height:1.5;font-weight:300;}
+    .ai-badge{
+      font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
+      padding:5px 14px;border:1px solid var(--border);color:var(--muted);
+      white-space:nowrap;position:relative;z-index:1;
+      transition:border-color .2s,color .2s;
+    }
+    .ai-row:hover .ai-badge{border-color:var(--border-h);color:var(--gold-dim);}
+
+    /* ── CONTACT ─────────────────────────────────────────────── */
+    #contact{background:var(--deep);border-top:1px solid var(--border);}
+    .c-wrap{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;}
+    .c-left h2{font-family:var(--fd);font-size:clamp(34px,5vw,60px);font-weight:300;line-height:1.05;margin-bottom:20px;}
+    .c-left h2 em{font-style:italic;color:var(--gold);}
+    .c-left p{font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:36px;font-weight:300;}
+    .c-email{
+      display:inline-flex;align-items:center;
+      font-size:12px;color:var(--gold);text-decoration:none;letter-spacing:.04em;
+      border-bottom:1px solid rgba(232,200,122,.2);padding-bottom:4px;
+      transition:border-color .2s;
+    }
+    .c-email:hover{border-color:var(--gold);}
+    .c-form{display:flex;flex-direction:column;gap:18px;}
+    .ff{display:flex;flex-direction:column;gap:6px;}
+    .ff label{font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);}
+    .ff input,.ff textarea{
+      background:var(--surface);border:1px solid var(--border);
+      padding:12px 16px;color:var(--text);
+      font-family:var(--fm);font-size:13px;font-weight:300;
+      outline:none;transition:border-color .2s;resize:none;width:100%;
+    }
+    .ff input:focus,.ff textarea:focus{border-color:var(--border-h);}
+    .ff textarea{height:96px;}
+    .c-submit{
+      width:100%;padding:14px;background:transparent;
+      border:1px solid var(--border-h);color:var(--gold);
+      font-family:var(--fm);font-size:9px;letter-spacing:.22em;
+      text-transform:uppercase;cursor:none;
+      transition:background .25s,color .25s;
+    }
+    .c-submit:hover{background:var(--gold);color:var(--void);}
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    footer{
+      padding:36px 56px;display:flex;justify-content:space-between;align-items:center;
+      border-top:1px solid var(--border);flex-wrap:wrap;gap:14px;
+    }
+    .f-brand{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
+    .f-right{font-size:10px;color:var(--muted);text-align:right;line-height:1.8;}
+    .f-right a{color:var(--muted);text-decoration:none;transition:color .2s;}
+    .f-right a:hover{color:var(--gold-dim);}
+
+    /* ── LOADING ─────────────────────────────────────────────── */
+    .loading{font-size:9px;letter-spacing:.2em;color:var(--muted);text-align:center;padding:48px;text-transform:uppercase;}
+
+    /* ── DRIVER.JS OVERRIDES ─────────────────────────────────── */
+    .driver-popover{
+      background:var(--deep) !important;
+      border:1px solid var(--border-h) !important;
+      border-radius:0 !important;
+      color:var(--text) !important;
+      font-family:var(--fm) !important;
+      max-width:320px !important;
+    }
+    .driver-popover-title{
+      font-family:var(--fd) !important;
+      font-size:20px !important;font-weight:400 !important;
+      color:var(--gold) !important;
+      margin-bottom:8px !important;
+    }
+    .driver-popover-description{
+      font-size:11px !important;color:var(--text2) !important;
+      line-height:1.7 !important;
+    }
+    .driver-popover-footer button{
+      background:transparent !important;
+      border:1px solid var(--border-h) !important;
+      color:var(--gold-dim) !important;
+      font-family:var(--fm) !important;
+      font-size:8.5px !important;letter-spacing:.14em !important;
+      padding:6px 16px !important;border-radius:0 !important;
+      transition:all .2s !important;
+    }
+    .driver-popover-footer button:hover{background:rgba(232,200,122,.1) !important;color:var(--gold) !important;}
+    .driver-popover-close-btn{color:var(--muted) !important;}
+    .driver-overlay{background:rgba(6,9,14,.85) !important;}
+
+    /* ── MOBILE ──────────────────────────────────────────────── */
+    @media(max-width:768px){
+      nav{padding:18px 24px;}
+      .nav-links{display:none;}
+      .container{padding:0 24px;}
+      section{padding:80px 0;}
+      .s-num{font-size:56px;}
+      .grid{grid-template-columns:1fr;}
+      .ai-row{grid-template-columns:1fr;}
+      .ai-badge{display:none;}
+      .c-wrap{grid-template-columns:1fr;gap:52px;}
+      footer{padding:26px 24px;}
+      .f-right{text-align:left;}
+      body{cursor:auto;}
+      .cur-dot,.cur-ring,.btn-tour{display:none;}
+    }
+    @media(max-width:480px){
+      .h-name{font-size:clamp(60px,18vw,100px);}
     }
   </style>
 </head>
 <body>
-  <div class="cursor" id="cur"></div>
-  <div class="cring" id="cring"></div>
 
-  <nav>
-    <a href="#" class="nav-logo">Markus Usche</a>
-    <ul class="nav-links">
-      <li><a href="#sites">Sites</a></li>
-      <li><a href="#apps">Apps</a></li>
-      <li><a href="#systems">Systems</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<div class="grain"></div>
+<div class="cur-dot" id="curDot"></div>
+<div class="cur-ring" id="curRing"></div>
 
-  <section id="hero">
-    <div class="hbg"></div>
-    <div class="hgrid"></div>
-    <div class="scanline"></div>
-    <div class="hcontent">
-      <div class="h-eye">NYC Tailblazers &nbsp;·&nbsp; New York</div>
-      <h1 class="h-name">Markus<em>Usche</em></h1>
-      <p class="h-tag">Cinematic Websites.&nbsp; Intelligent Systems.</p>
-      <div class="h-ctas">
-        <a href="#sites" class="btn-g">View Work</a>
-        <a href="#contact" class="btn-o">Let's Talk</a>
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Markus Usche</a>
+  <ul class="nav-links">
+    <li><a href="#sites">Sites</a></li>
+    <li><a href="#apps">Apps</a></li>
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><button class="btn-tour" id="tourBtn">Take Tour</button></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-vignette"></div>
+  <div class="leak-tl"></div>
+  <div class="leak-br"></div>
+  <div class="scanline"></div>
+
+  <div class="hero-content">
+    <div class="h-eye" id="hEye">NYC Tailblazers &nbsp;·&nbsp; New York</div>
+    <h1 class="h-name" id="hName">
+      <span class="line"><span class="inner">Markus</span></span>
+      <span class="line"><span class="inner" style="font-style:italic;color:var(--gold)">Usche</span></span>
+    </h1>
+    <div class="h-sub" id="hSub">
+      <em>Cinematic Websites.</em><br>
+      Intelligent Systems.
+    </div>
+    <div class="h-ctas" id="hCtas">
+      <a href="#sites" class="btn-primary">View Work</a>
+      <a href="#contact" class="btn-ghost">Let's Talk</a>
+    </div>
+  </div>
+  <div class="scroll-ind" id="scrollInd">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- 01 CLIENT SITES -->
+<section id="sites">
+  <div class="container">
+    <div class="s-head">
+      <div class="s-num" id="sNum1">01</div>
+      <div class="s-meta">
+        <div class="s-label">Client Websites</div>
+        <h2 class="s-title">Premium Digital<br><em>Experiences</em></h2>
       </div>
     </div>
-    <div class="scroll-ind"><span>Scroll</span><div class="sline"></div></div>
-  </section>
+    <div class="grid" id="sites-grid"><div class="loading">Loading…</div></div>
+  </div>
+</section>
 
-  <!-- 01 SITES — rendered from projects.json -->
-  <section id="sites">
-    <div class="container">
-      <div class="sh r">
-        <div class="sn">01</div>
-        <div class="sm">
-          <div class="sl">Client Websites</div>
-          <h2 class="st">Premium Digital<br><em>Experiences</em></h2>
-        </div>
-      </div>
-      <div class="grid" id="sites-grid">
-        <div class="loading">Loading projects...</div>
+<!-- 02 MOBILE APPS -->
+<section id="apps" style="background:var(--deep);border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="s-head">
+      <div class="s-num" id="sNum2">02</div>
+      <div class="s-meta">
+        <div class="s-label">Mobile Apps</div>
+        <h2 class="s-title">Built for<br><em>Real People</em></h2>
       </div>
     </div>
-  </section>
+    <div class="grid" id="apps-grid"><div class="loading">Loading…</div></div>
+  </div>
+</section>
 
-  <!-- 02 APPS — rendered from projects.json -->
-  <section id="apps" style="background: var(--deep); border-top: 1px solid var(--border);">
-    <div class="container">
-      <div class="sh r">
-        <div class="sn">02</div>
-        <div class="sm">
-          <div class="sl">Mobile Apps</div>
-          <h2 class="st">Built for<br><em>Real People</em></h2>
-        </div>
-      </div>
-      <div class="grid" id="apps-grid">
-        <div class="loading">Loading apps...</div>
+<!-- 03 AI SYSTEMS -->
+<section id="systems">
+  <div class="container">
+    <div class="s-head">
+      <div class="s-num" id="sNum3">03</div>
+      <div class="s-meta">
+        <div class="s-label">AI Systems &amp; Infrastructure</div>
+        <h2 class="s-title">Intelligent<br><em>Systems</em></h2>
       </div>
     </div>
-  </section>
+    <div class="alist" id="systems-list"><div class="loading">Loading…</div></div>
+  </div>
+</section>
 
-  <!-- 03 SYSTEMS — rendered from projects.json -->
-  <section id="systems">
-    <div class="container">
-      <div class="sh r">
-        <div class="sn">03</div>
-        <div class="sm">
-          <div class="sl">AI Systems &amp; Infrastructure</div>
-          <h2 class="st">Intelligent<br><em>Systems</em></h2>
-        </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="c-wrap">
+      <div class="c-left">
+        <h2>Let's build<br>something <em>real.</em></h2>
+        <p>Premium websites for businesses that mean it. Mobile apps and AI systems for founders who want to move faster. Based in New York — working everywhere.</p>
+        <a href="mailto:owner@nyctailblazers.com" class="c-email">owner@nyctailblazers.com</a>
       </div>
-      <div class="alist" id="systems-list">
-        <div class="loading">Loading systems...</div>
-      </div>
+      <form class="c-form" action="mailto:owner@nyctailblazers.com" method="POST" enctype="text/plain">
+        <div class="ff"><label>Name</label><input type="text" name="name" placeholder="Your name"/></div>
+        <div class="ff"><label>Email</label><input type="email" name="email" placeholder="your@email.com"/></div>
+        <div class="ff"><label>Message</label><textarea name="message" placeholder="Tell me what you're building…"></textarea></div>
+        <button type="submit" class="c-submit">Send Message →</button>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact">
-    <div class="container">
-      <div class="cwrap">
-        <div class="cleft r">
-          <h2>Let's build<br>something <em>real.</em></h2>
-          <p>Premium websites for businesses that mean it. Mobile apps and AI systems for founders who want to move faster. Based in New York — working everywhere.</p>
-          <a href="mailto:owner@nyctailblazers.com" class="cemail">owner@nyctailblazers.com</a>
-        </div>
-        <form class="cform r d2" action="mailto:owner@nyctailblazers.com" method="POST" enctype="text/plain">
-          <div class="ff"><label>Name</label><input type="text" name="name" placeholder="Your name" /></div>
-          <div class="ff"><label>Email</label><input type="email" name="email" placeholder="your@email.com" /></div>
-          <div class="ff"><label>Message</label><textarea name="message" placeholder="Tell me what you're building..."></textarea></div>
-          <button type="submit" class="fbtn">Send Message →</button>
-        </form>
-      </div>
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">NYC Tailblazers</div>
+  <div class="f-right">
+    © 2026 Markus Usche / NYC Tailblazers. All rights reserved.<br>
+    <a href="#">Privacy Policy</a> &nbsp;·&nbsp; This site may feature AI-generated content. <a href="#">Disclosure</a>
+  </div>
+</footer>
+
+<!-- CDN SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.9/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.js.iife.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap">
+
+<script>
+// ── LENIS SMOOTH SCROLL ─────────────────────────────────────
+const lenis = new Lenis({ lerp: 0.08, smooth: true });
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((t) => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
+
+// ── CURSOR ──────────────────────────────────────────────────
+const dot = document.getElementById('curDot');
+const ring = document.getElementById('curRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+});
+function attachCursorHover() {
+  document.querySelectorAll('a,button,.card').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.classList.add('h'); ring.classList.add('h'); });
+    el.addEventListener('mouseleave', () => { dot.classList.remove('h'); ring.classList.remove('h'); });
+  });
+}
+(function ringTick() {
+  rx += (mx - rx) * 0.11; ry += (my - ry) * 0.11;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(ringTick);
+})();
+
+// ── NAV HIDE / SHOW ─────────────────────────────────────────
+const nav = document.getElementById('mainNav');
+let lastY = 0;
+lenis.on('scroll', ({ scroll }) => {
+  nav.classList.toggle('scrolled', scroll > 60);
+  nav.classList.toggle('hidden', scroll > lastY + 10 && scroll > 200);
+  if (scroll < lastY || scroll < 60) nav.classList.remove('hidden');
+  lastY = scroll;
+});
+
+// ── HERO GSAP ENTRANCE ──────────────────────────────────────
+gsap.registerPlugin(ScrollTrigger);
+const heroTl = gsap.timeline({ delay: 0.2 });
+heroTl
+  .to('#hEye',    { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0)
+  .fromTo('#hName .inner', { yPercent: 110, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1.1, stagger: 0.14, ease: 'power4.out' }, 0.2)
+  .to('#hSub',    { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, 0.55)
+  .to('#hCtas',   { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.75)
+  .to('#scrollInd', { opacity: 1, duration: 0.8 }, 1.1);
+
+// Start hidden for GSAP
+gsap.set(['#hEye','#hSub','#hCtas','#scrollInd'], { opacity: 0, y: 20 });
+gsap.set('#hName .inner', { yPercent: 110, opacity: 0 });
+
+// ── SECTION NUMBER PARALLAX ─────────────────────────────────
+['#sNum1','#sNum2','#sNum3'].forEach(sel => {
+  gsap.to(sel, {
+    y: -60,
+    ease: 'none',
+    scrollTrigger: { trigger: sel, start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+  });
+});
+
+// ── RENDER HELPERS ──────────────────────────────────────────
+function siteCard(p, i) {
+  const tag = p.url ? 'a' : 'div';
+  const href = p.url ? `href="${p.url}"` : '';
+  const tgt = p.external ? 'target="_blank" rel="noopener"' : '';
+  const nolink = p.url ? '' : 'no-link';
+  const cta = p.url ? (p.status === 'in-development' ? 'In Development' : 'View Site →') : 'Coming Soon';
+  const ctaStyle = p.url ? '' : 'style="opacity:.4;"';
+  return `<${tag} ${href} ${tgt} class="card ${nolink}" style="--ac:${p.accent};">
+    <div class="c-cat">${p.category}</div>
+    <h3 class="c-name">${p.name}</h3>
+    <p class="c-desc">${p.description}</p>
+    <span class="c-cta" ${ctaStyle}>${cta}</span>
+  </${tag}>`;
+}
+
+function appCard(p, i) {
+  return `<div class="card no-link" style="--ac:${p.accent};">
+    <div class="c-cat">${p.category}</div>
+    <h3 class="c-name">${p.name}</h3>
+    <p class="c-desc">${p.description}</p>
+    <span class="c-cta" style="opacity:.4;">${p.status === 'in-development' ? 'In Development' : 'Coming Soon'}</span>
+  </div>`;
+}
+
+function systemRow(p, i) {
+  const num = String(i + 1).padStart(3, '0');
+  return `<div class="ai-row">
+    <div class="ai-m">
+      <div class="ai-idx">${num}</div>
+      <div class="ai-name">${p.name}</div>
+      <div class="ai-desc">${p.description}</div>
     </div>
-  </section>
+    <div class="ai-badge">${p.badge || p.category}</div>
+  </div>`;
+}
 
-  <footer>
-    <div class="fbrand">NYC Tailblazers</div>
-    <div class="fright">
-      © 2026 Markus Usche / NYC Tailblazers. All rights reserved.<br>
-      <a href="#">Privacy Policy</a> &nbsp;·&nbsp; This site may feature AI-generated content. <a href="#">Disclosure</a>
-    </div>
-  </footer>
-
-  <script>
-    // Cursor
-    const cur = document.getElementById('cur'), crng = document.getElementById('cring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cur.style.left = mx+'px'; cur.style.top = my+'px'; });
-    document.querySelectorAll('a,button').forEach(el => {
-      el.addEventListener('mouseenter', () => { cur.classList.add('h'); crng.classList.add('h'); });
-      el.addEventListener('mouseleave', () => { cur.classList.remove('h'); crng.classList.remove('h'); });
+// ── GSAP SCROLL ANIMATIONS (post-render) ───────────────────
+function initScrollAnimations() {
+  // Cards stagger
+  ['#sites-grid .card', '#apps-grid .card'].forEach(sel => {
+    const els = document.querySelectorAll(sel);
+    if (!els.length) return;
+    gsap.set(els, { opacity: 0, y: 40 });
+    ScrollTrigger.batch(els, {
+      onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.1, duration: 0.85, ease: 'power3.out' }),
+      start: 'top 90%',
     });
-    (function tick() { rx += (mx-rx)*.13; ry += (my-ry)*.13; crng.style.left=rx+'px'; crng.style.top=ry+'px'; requestAnimationFrame(tick); })();
+  });
 
-    // Scroll reveal
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-    }, { threshold: 0.08 });
+  // AI rows slide from left
+  const rows = document.querySelectorAll('.ai-row');
+  if (rows.length) {
+    gsap.set(rows, { opacity: 0, x: -32 });
+    ScrollTrigger.batch(rows, {
+      onEnter: batch => gsap.to(batch, { opacity: 1, x: 0, stagger: 0.08, duration: 0.75, ease: 'power3.out' }),
+      start: 'top 90%',
+    });
+  }
 
-    function observe() { document.querySelectorAll('.r:not(.in)').forEach(el => obs.observe(el)); }
+  // Section headers fade in
+  document.querySelectorAll('.s-head').forEach(el => {
+    gsap.from(el, {
+      opacity: 0, y: 24, duration: 0.8, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+    });
+  });
 
-    // Render site card
-    function siteCard(p, i) {
-      const tag = p.url ? 'a' : 'div';
-      const href = p.url ? `href="${p.url}"` : '';
-      const target = p.external ? 'target="_blank" rel="noopener"' : '';
-      const nolink = p.url ? '' : 'no-link';
-      const ctaText = p.url ? (p.status === 'in-development' ? 'In Development' : 'View Site →') : 'Coming Soon';
-      const ctaStyle = p.url ? '' : 'style="opacity:.4;"';
-      const delay = `d${(i % 8) + 1}`;
-      return `<${tag} ${href} ${target} class="card r ${delay} ${nolink}" style="--ac:${p.accent};">
-        <div class="cc">${p.category}</div>
-        <h3 class="cn">${p.name}</h3>
-        <p class="cd">${p.description}</p>
-        <span class="cta" ${ctaStyle}>${ctaText}</span>
-      </${tag}>`;
+  // Contact section
+  gsap.from('.c-left', { opacity: 0, y: 30, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.c-left', start: 'top 85%' } });
+  gsap.from('.c-form', { opacity: 0, y: 30, duration: 0.9, ease: 'power3.out', delay: 0.15, scrollTrigger: { trigger: '.c-form', start: 'top 85%' } });
+}
+
+// ── FETCH PROJECTS ──────────────────────────────────────────
+fetch('./projects.json?v=' + Math.floor(Date.now() / 60000))
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('sites-grid').innerHTML   = (data.sites   || []).map(siteCard).join('');
+    document.getElementById('apps-grid').innerHTML    = (data.apps    || []).map(appCard).join('');
+    document.getElementById('systems-list').innerHTML = (data.systems || []).map(systemRow).join('');
+    if (data.meta) document.title = `${data.meta.name} — ${data.meta.tagline}`;
+    attachCursorHover();
+    initScrollAnimations();
+    ScrollTrigger.refresh();
+  })
+  .catch(() => {
+    document.getElementById('sites-grid').innerHTML   = '<div class="loading">Could not load projects.json</div>';
+    document.getElementById('apps-grid').innerHTML    = '';
+    document.getElementById('systems-list').innerHTML = '';
+  });
+
+// ── DRIVER.JS TOUR ──────────────────────────────────────────
+const driverObj = window.driver.js.driver({
+  showProgress: true,
+  progressText: '{{current}} / {{total}}',
+  popoverClass: 'nyc-popover',
+  nextBtnText: 'Next →',
+  prevBtnText: '← Prev',
+  doneBtnText: 'Done',
+  steps: [
+    {
+      element: '#hero',
+      popover: {
+        title: 'Markus Usche',
+        description: 'NYC Tailblazers — we build cinematic websites and intelligent AI systems for businesses that mean it.',
+        side: 'bottom', align: 'center'
+      }
+    },
+    {
+      element: '#sites',
+      popover: {
+        title: '01 — Client Sites',
+        description: 'Premium websites built for real local businesses. Every site is custom-designed, mobile-first, and SEO-optimized.',
+        side: 'top', align: 'start'
+      }
+    },
+    {
+      element: '#apps',
+      popover: {
+        title: '02 — Mobile Apps',
+        description: 'iOS and React Native apps in active development — from AI translators to location-based marketplaces.',
+        side: 'top', align: 'start'
+      }
+    },
+    {
+      element: '#systems',
+      popover: {
+        title: '03 — AI Systems',
+        description: 'Infrastructure that runs 24/7. AI gateways, autonomous agents, video pipelines, and tools that move at machine speed.',
+        side: 'top', align: 'start'
+      }
+    },
+    {
+      element: '#contact',
+      popover: {
+        title: 'Let\'s Build Together',
+        description: 'Have a project in mind? Drop a message — we respond fast and start with a free mockup.',
+        side: 'top', align: 'center'
+      }
     }
+  ]
+});
 
-    // Render app card
-    function appCard(p, i) {
-      const delay = `d${(i % 8) + 1}`;
-      return `<div class="card no-link r ${delay}" style="--ac:${p.accent};">
-        <div class="cc">${p.category}</div>
-        <h3 class="cn">${p.name}</h3>
-        <p class="cd">${p.description}</p>
-        <span class="cta" style="opacity:.4;">${p.status === 'in-development' ? 'In Development' : 'Coming Soon'}</span>
-      </div>`;
-    }
+document.getElementById('tourBtn').addEventListener('click', () => {
+  driverObj.drive();
+});
 
-    // Render system row
-    function systemRow(p, i) {
-      const num = String(i + 1).padStart(3, '0');
-      const delay = `d${Math.min(i + 1, 8)}`;
-      return `<div class="ai r ${delay}">
-        <div class="ai-m">
-          <div class="ai-n2">${num}</div>
-          <div class="ai-t">${p.name}</div>
-          <div class="ai-d">${p.description}</div>
-        </div>
-        <div class="ai-b">${p.badge || p.category}</div>
-      </div>`;
-    }
-
-    // Load and render projects.json
-    fetch('./projects.json?v=' + Math.floor(Date.now() / 60000))
-      .then(r => r.json())
-      .then(data => {
-        document.getElementById('sites-grid').innerHTML = (data.sites || []).map(siteCard).join('');
-        document.getElementById('apps-grid').innerHTML = (data.apps || []).map(appCard).join('');
-        document.getElementById('systems-list').innerHTML = (data.systems || []).map(systemRow).join('');
-
-        // Update hero meta if present
-        if (data.meta) {
-          document.title = `${data.meta.name} — ${data.meta.tagline}`;
-        }
-
-        // Re-attach cursor hover and re-observe for scroll reveals
-        document.querySelectorAll('a,button').forEach(el => {
-          el.addEventListener('mouseenter', () => { cur.classList.add('h'); crng.classList.add('h'); });
-          el.addEventListener('mouseleave', () => { cur.classList.remove('h'); crng.classList.remove('h'); });
-        });
-        observe();
-      })
-      .catch(() => {
-        // Fallback if fetch fails (e.g. local file://)
-        document.getElementById('sites-grid').innerHTML = '<div class="loading">Could not load projects.json</div>';
-        document.getElementById('apps-grid').innerHTML = '';
-        document.getElementById('systems-list').innerHTML = '';
-      });
-
-    observe();
-  </script>
+attachCursorHover();
+</script>
 </body>
 </html>
